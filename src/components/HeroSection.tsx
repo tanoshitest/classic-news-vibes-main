@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
 import { heroArticle, subHeroArticles, latestNews, recommendedArticles, editorsPick } from "@/data/mockData";
+import { heroArticleJP, subHeroArticlesJP, latestNewsJP, recommendedArticlesJP, editorsPickJP } from "@/data/mockDataJP";
 import { Separator } from "@/components/ui/separator";
 import ArticleCard from "./ArticleCard";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { language, t } = useLanguage();
+
+  const currentHeroArticle = language === 'VN' ? heroArticle : heroArticleJP;
+  const currentSubHeroArticles = language === 'VN' ? subHeroArticles : subHeroArticlesJP;
+  const currentLatestNews = language === 'VN' ? latestNews : latestNewsJP;
+  const currentRecommendedArticles = language === 'VN' ? recommendedArticles : recommendedArticlesJP;
+  const currentEditorsPick = language === 'VN' ? editorsPick : editorsPickJP;
+
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
@@ -11,26 +21,26 @@ const HeroSection = () => {
           {/* Left Column - Main Hero */}
           <div className="lg:col-span-5 space-y-6">
             {/* Main Hero Article */}
-            <Link to={`/article/${heroArticle.id}`}>
+            <Link to={`/article/${currentHeroArticle.id}`}>
               <article className="group cursor-pointer">
                 <div className="aspect-[4/3] overflow-hidden mb-4">
                   <img
-                    src={heroArticle.image}
-                    alt={heroArticle.title}
+                    src={currentHeroArticle.image}
+                    alt={currentHeroArticle.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  {heroArticle.category}
+                  {t(`category_${currentHeroArticle.category.replace(/\s+/g, '')}`) || currentHeroArticle.category}
                 </span>
                 <h2 className="newspaper-heading text-2xl sm:text-3xl mt-2 mb-3 group-hover:text-muted-foreground transition-colors">
-                  {heroArticle.title}
+                  {currentHeroArticle.title}
                 </h2>
                 <p className="newspaper-body text-muted-foreground line-clamp-3">
-                  {heroArticle.summary}
+                  {currentHeroArticle.summary}
                 </p>
                 <div className="newspaper-meta mt-3">
-                  {heroArticle.author} • {heroArticle.date} • {heroArticle.readTime}
+                  {currentHeroArticle.author} • {currentHeroArticle.date} • {currentHeroArticle.readTime}
                 </div>
               </article>
             </Link>
@@ -39,11 +49,11 @@ const HeroSection = () => {
 
             {/* Sub Hero Articles */}
             <div className="space-y-4">
-              {subHeroArticles.map((article) => (
+              {currentSubHeroArticles.map((article) => (
                 <Link to={`/article/${article.id}`} key={article.id}>
                   <article className="group cursor-pointer">
                     <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                      {article.category}
+                      {t(`category_${article.category.replace(/\s+/g, '')}`) || article.category}
                     </span>
                     <h3 className="newspaper-subheading text-lg mt-1 group-hover:text-muted-foreground transition-colors">
                       {article.title}
@@ -57,12 +67,12 @@ const HeroSection = () => {
 
           {/* Center Column - Latest News */}
           <div className="lg:col-span-4 lg:border-x lg:border-border lg:px-6">
-            <h2 className="newspaper-section-title">Tin mới nhất</h2>
+            <h2 className="newspaper-section-title">{t('latestNews')}</h2>
             <div className="space-y-4">
-              {latestNews.map((article, index) => (
+              {currentLatestNews.map((article, index) => (
                 <div key={article.id}>
                   <ArticleCard article={article} variant="horizontal" />
-                  {index < latestNews.length - 1 && <Separator className="mt-4" />}
+                  {index < currentLatestNews.length - 1 && <Separator className="mt-4" />}
                 </div>
               ))}
             </div>
@@ -72,9 +82,9 @@ const HeroSection = () => {
           <div className="lg:col-span-3 space-y-8">
             {/* Recommended */}
             <div>
-              <h2 className="newspaper-section-title">Đề xuất</h2>
+              <h2 className="newspaper-section-title">{t('recommended')}</h2>
               <div className="space-y-4">
-                {recommendedArticles.map((article, index) => (
+                {currentRecommendedArticles.map((article, index) => (
                   <Link to={`/article/${article.id}`} key={article.id}>
                     <article className="group cursor-pointer">
                       <div className="flex gap-3">
@@ -85,7 +95,7 @@ const HeroSection = () => {
                           <h3 className="newspaper-subheading text-sm group-hover:text-muted-foreground transition-colors">
                             {article.title}
                           </h3>
-                          <p className="newspaper-meta mt-1 text-xs">{article.category}</p>
+                          <p className="newspaper-meta mt-1 text-xs">{t(`category_${article.category.replace(/\s+/g, '')}`) || article.category}</p>
                         </div>
                       </div>
                     </article>
@@ -98,8 +108,8 @@ const HeroSection = () => {
 
             {/* Editor's Pick */}
             <div>
-              <h2 className="newspaper-section-title">Biên tập viên chọn</h2>
-              {editorsPick.map((article) => (
+              <h2 className="newspaper-section-title">{t('editorsPick')}</h2>
+              {currentEditorsPick.map((article) => (
                 <Link to={`/article/${article.id}`} key={article.id}>
                   <article className="group cursor-pointer">
                     <div className="aspect-[3/2] overflow-hidden mb-3">

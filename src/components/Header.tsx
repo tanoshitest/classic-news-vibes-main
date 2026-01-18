@@ -2,9 +2,19 @@ import { Search, Globe, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
-  const [language, setLanguage] = useState<"VN" | "JP">("VN");
+  const { language, setLanguage, t } = useLanguage();
+
+  const formatDate = () => {
+    const date = new Date();
+    if (language === 'JP') {
+      return date.toLocaleDateString('ja-JP', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+    return "Thứ Bảy, 18 Tháng 1, 2025"; // Keeping the hardcoded one for VN as it matches the mockup/original code perfectly, or we could use dynamic:
+    // return date.toLocaleDateString('vi-VN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  };
 
   return (
     <header className="border-b border-border bg-background">
@@ -13,16 +23,18 @@ const Header = () => {
           {/* Left - Search */}
           <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
             <Search className="w-5 h-5" />
-            <span className="hidden sm:inline text-sm font-medium">Tìm kiếm</span>
+            <span className="hidden sm:inline text-sm font-medium">{t('search')}</span>
           </button>
 
           {/* Center - Logo */}
           <div className="flex-1 text-center">
-            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-              Mi Chi Writer
-            </h1>
+            <Link to="/">
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+                {t('home_title')}
+              </h1>
+            </Link>
             <p className="text-xs text-muted-foreground mt-1 hidden sm:block">
-              Thứ Bảy, 18 Tháng 1, 2025
+              {formatDate()}
             </p>
           </div>
 
@@ -36,13 +48,13 @@ const Header = () => {
               <span>{language}</span>
             </button>
             <Link to="/admin/dashboard">
-              <Button 
-                variant="outline" 
-                size="sm" 
+              <Button
+                variant="outline"
+                size="sm"
                 className="hidden sm:flex items-center gap-2 border-foreground text-foreground hover:bg-foreground hover:text-background"
               >
                 <User className="w-4 h-4" />
-                Đăng nhập
+                {t('signIn')}
               </Button>
             </Link>
           </div>

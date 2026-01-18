@@ -2,9 +2,20 @@ import { categories, getCategorySlug } from "@/data/mockData";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const categoryKeyMap: Record<string, string> = {
+  "Kinh doanh": "category_Business",
+  "Xã hội": "category_Society",
+  "Đời sống": "category_Life",
+  "Du lịch - Văn hóa": "category_TravelCulture",
+  "Giáo dục": "category_Education",
+  "Sức khỏe": "category_Health"
+};
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <nav className="sticky top-0 z-50 bg-background border-b border-border">
@@ -17,7 +28,7 @@ const Navigation = () => {
               to={`/category/${getCategorySlug(category)}`}
               className="nav-link"
             >
-              {category}
+              {t(categoryKeyMap[category] || category)}
               {index < categories.length - 1 && (
                 <span className="absolute right-0 top-1/2 -translate-y-1/2 h-4 w-px bg-border" />
               )}
@@ -46,7 +57,7 @@ const Navigation = () => {
                 className="block py-2 px-3 text-sm font-medium text-foreground hover:bg-muted transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                {category}
+                {t(categoryKeyMap[category] || category)}
               </Link>
             ))}
           </div>

@@ -1,17 +1,29 @@
 import { Separator } from "@/components/ui/separator";
 import { categories } from "@/data/mockData";
 import { Facebook, Twitter, Youtube, Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const categoryKeyMap: Record<string, string> = {
+  "Kinh doanh": "category_Business",
+  "Xã hội": "category_Society",
+  "Đời sống": "category_Life",
+  "Du lịch - Văn hóa": "category_TravelCulture",
+  "Giáo dục": "category_Education",
+  "Sức khỏe": "category_Health"
+};
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-foreground text-background py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & About */}
           <div className="md:col-span-1">
-            <h2 className="font-serif text-3xl font-bold mb-4">The News</h2>
+            <h2 className="font-serif text-3xl font-bold mb-4">{t('home_title')}</h2>
             <p className="text-background/70 text-sm leading-relaxed">
-              Trang tin tức uy tín hàng đầu Việt Nam. Cập nhật tin tức mới nhất 24/7.
+              {t('footer_about')}
             </p>
             <div className="flex items-center gap-4 mt-6">
               <a href="#" className="text-background/60 hover:text-background transition-colors">
@@ -32,7 +44,7 @@ const Footer = () => {
           {/* Categories */}
           <div className="md:col-span-1">
             <h3 className="font-semibold text-sm uppercase tracking-wider mb-4">
-              Chuyên mục
+              {t('footer_categories')}
             </h3>
             <ul className="space-y-2">
               {categories.map((category) => (
@@ -41,7 +53,7 @@ const Footer = () => {
                     href={`#${category.toLowerCase().replace(/\s+/g, "-")}`}
                     className="text-sm text-background/70 hover:text-background transition-colors"
                   >
-                    {category}
+                    {t(categoryKeyMap[category] || category)}
                   </a>
                 </li>
               ))}
@@ -51,27 +63,27 @@ const Footer = () => {
           {/* Services */}
           <div className="md:col-span-1">
             <h3 className="font-semibold text-sm uppercase tracking-wider mb-4">
-              Dịch vụ
+              {t('footer_services')}
             </h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-sm text-background/70 hover:text-background transition-colors">
-                  Đăng ký nhận tin
+                  {t('footer_subscribe')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-sm text-background/70 hover:text-background transition-colors">
-                  Quảng cáo
+                  {t('footer_ads')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-sm text-background/70 hover:text-background transition-colors">
-                  Liên hệ tòa soạn
+                  {t('footer_contact')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-sm text-background/70 hover:text-background transition-colors">
-                  Điều khoản sử dụng
+                  {t('footer_terms')}
                 </a>
               </li>
             </ul>
@@ -80,19 +92,19 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="md:col-span-1">
             <h3 className="font-semibold text-sm uppercase tracking-wider mb-4">
-              Nhận tin mới nhất
+              {t('footer_get_latest')}
             </h3>
             <p className="text-sm text-background/70 mb-4">
-              Đăng ký để nhận tin tức nóng hổi mỗi ngày.
+              {t('footer_subscribe_text')}
             </p>
             <div className="flex">
               <input
                 type="email"
-                placeholder="Email của bạn"
+                placeholder={t('footer_email_placeholder')}
                 className="flex-1 px-4 py-2 bg-background/10 border border-background/20 text-background placeholder:text-background/50 text-sm focus:outline-none focus:border-background/40"
               />
               <button className="px-4 py-2 bg-background text-foreground text-sm font-medium hover:bg-background/90 transition-colors">
-                Đăng ký
+                {t('footer_subscribe_btn') || t('footer_subscribe')}
               </button>
             </div>
           </div>
@@ -101,8 +113,8 @@ const Footer = () => {
         <Separator className="bg-background/20 my-8" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-background/60">
-          <p>© 2025 The News. Bảo lưu mọi quyền.</p>
-          <p>Được xây dựng với ❤️ tại Việt Nam</p>
+          <p>{t('footer_rights')}</p>
+          <p>{t('footer_built')}</p>
         </div>
       </div>
     </footer>
