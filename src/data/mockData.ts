@@ -1,0 +1,521 @@
+export interface Article {
+  id: string;
+  title: string;
+  summary: string;
+  category: string;
+  image: string;
+  author: string;
+  date: string;
+  readTime: string;
+}
+
+export const heroArticle: Article = {
+  id: "hero-1",
+  title: "Việt Nam đạt tăng trưởng kinh tế ấn tượng trong quý đầu năm 2025",
+  summary: "GDP quý I/2025 tăng 7.2%, vượt kỳ vọng của các chuyên gia kinh tế. Xuất khẩu và đầu tư trực tiếp nước ngoài là động lực chính thúc đẩy tăng trưởng.",
+  category: "Kinh doanh",
+  image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+  author: "Minh Tuấn",
+  date: "18/01/2025",
+  readTime: "5 phút đọc"
+};
+
+export const subHeroArticles: Article[] = [
+  {
+    id: "sub-1",
+    title: "Thủ tướng gặp gỡ cộng đồng doanh nghiệp tại Diễn đàn Kinh tế Thế giới",
+    summary: "Cuộc gặp nhằm thu hút thêm đầu tư và hợp tác quốc tế.",
+    category: "Chính trị",
+    image: "",
+    author: "Hồng Vân",
+    date: "18/01/2025",
+    readTime: "3 phút đọc"
+  },
+  {
+    id: "sub-2",
+    title: "Dự báo thời tiết: Miền Bắc đón đợt không khí lạnh mạnh nhất mùa đông",
+    summary: "Nhiệt độ có thể xuống dưới 5°C tại các tỉnh vùng núi phía Bắc.",
+    category: "Xã hội",
+    image: "",
+    author: "Thu Hà",
+    date: "18/01/2025",
+    readTime: "2 phút đọc"
+  }
+];
+
+export const latestNews: Article[] = [
+  {
+    id: "latest-1",
+    title: "VN-Index tăng điểm phiên thứ 5 liên tiếp",
+    summary: "Thị trường chứng khoán tiếp tục khởi sắc với thanh khoản cao.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80",
+    author: "Quang Huy",
+    date: "18/01/2025",
+    readTime: "4 phút đọc"
+  },
+  {
+    id: "latest-2",
+    title: "Startup công nghệ Việt gọi vốn 50 triệu USD từ quỹ ngoại",
+    summary: "Đây là khoản đầu tư lớn nhất trong lĩnh vực fintech năm nay.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&q=80",
+    author: "Thanh Tùng",
+    date: "18/01/2025",
+    readTime: "3 phút đọc"
+  },
+  {
+    id: "latest-3",
+    title: "Đội tuyển Việt Nam chuẩn bị cho vòng loại World Cup 2026",
+    summary: "HLV trưởng công bố danh sách 25 cầu thủ triệu tập.",
+    category: "Thể thao",
+    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&q=80",
+    author: "Đức Anh",
+    date: "18/01/2025",
+    readTime: "3 phút đọc"
+  },
+  {
+    id: "latest-4",
+    title: "Phát hiện di tích khảo cổ 3.000 năm tuổi tại Thanh Hóa",
+    summary: "Các hiện vật cho thấy nền văn minh Đông Sơn phát triển rực rỡ.",
+    category: "Văn hóa",
+    image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400&q=80",
+    author: "Lan Phương",
+    date: "17/01/2025",
+    readTime: "5 phút đọc"
+  },
+  {
+    id: "latest-5",
+    title: "Hà Nội công bố quy hoạch metro giai đoạn 2025-2035",
+    summary: "Thêm 6 tuyến metro mới sẽ được triển khai trong 10 năm tới.",
+    category: "Xã hội",
+    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&q=80",
+    author: "Văn Minh",
+    date: "17/01/2025",
+    readTime: "4 phút đọc"
+  }
+];
+
+export const recommendedArticles: Article[] = [
+  {
+    id: "rec-1",
+    title: "Bí quyết đầu tư bất động sản thông minh năm 2025",
+    summary: "Chuyên gia chia sẻ chiến lược đầu tư hiệu quả.",
+    category: "Kinh doanh",
+    image: "",
+    author: "Hoàng Nam",
+    date: "17/01/2025",
+    readTime: "6 phút đọc"
+  },
+  {
+    id: "rec-2",
+    title: "10 điểm đến du lịch hấp dẫn nhất Đông Nam Á",
+    summary: "Khám phá những địa danh không thể bỏ qua.",
+    category: "Du lịch",
+    image: "",
+    author: "Mai Anh",
+    date: "16/01/2025",
+    readTime: "5 phút đọc"
+  },
+  {
+    id: "rec-3",
+    title: "Cách chăm sóc sức khỏe mùa đông hiệu quả",
+    summary: "Lời khuyên từ các chuyên gia y tế hàng đầu.",
+    category: "Sức khỏe",
+    image: "",
+    author: "Bác sĩ Hương",
+    date: "16/01/2025",
+    readTime: "4 phút đọc"
+  }
+];
+
+export const editorsPick: Article[] = [
+  {
+    id: "pick-1",
+    title: "Phỏng vấn độc quyền: CEO VinFast về tương lai xe điện Việt",
+    summary: "Kế hoạch mở rộng thị trường toàn cầu trong năm 2025.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&q=80",
+    author: "Minh Châu",
+    date: "15/01/2025",
+    readTime: "8 phút đọc"
+  }
+];
+
+export const longformArticle: Article = {
+  id: "longform-1",
+  title: "Hành trình chinh phục đỉnh Fansipan: Từ rừng già đến nóc nhà Đông Dương",
+  summary: "Khám phá vẻ đẹp hùng vĩ của dãy Hoàng Liên Sơn và những câu chuyện của người dân địa phương qua góc nhìn của phóng viên.",
+  category: "E-Magazine",
+  image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80",
+  author: "Phóng viên Thảo Nguyên",
+  date: "15/01/2025",
+  readTime: "12 phút đọc"
+};
+
+export const categoryData: Record<string, Article[]> = {
+  "Kinh doanh": [
+    {
+      id: "kd-1",
+      title: "Tỷ giá USD/VND biến động mạnh, Ngân hàng Nhà nước vào cuộc",
+      summary: "Các biện pháp ổn định tỷ giá được triển khai kịp thời.",
+      category: "Kinh doanh",
+      image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&q=80",
+      author: "Minh Đức",
+      date: "18/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "kd-2",
+      title: "Xuất khẩu thủy sản đạt kỷ lục 10 tỷ USD",
+      summary: "Tôm và cá tra là hai mặt hàng chủ lực.",
+      category: "Kinh doanh",
+      image: "",
+      author: "Hải Yến",
+      date: "17/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "kd-3",
+      title: "Bất động sản công nghiệp hút vốn FDI mạnh mẽ",
+      summary: "Các khu công nghiệp phía Nam ghi nhận tỷ lệ lấp đầy cao.",
+      category: "Kinh doanh",
+      image: "",
+      author: "Quốc Bảo",
+      date: "17/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "kd-4",
+      title: "Ngân hàng số tăng trưởng 40% trong năm 2024",
+      summary: "Xu hướng chuyển đổi số tiếp tục bùng nổ.",
+      category: "Kinh doanh",
+      image: "",
+      author: "Thanh Mai",
+      date: "16/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "kd-5",
+      title: "Việt Nam lọt top 10 thị trường bán lẻ hấp dẫn nhất",
+      summary: "Tầng lớp trung lưu gia tăng thúc đẩy tiêu dùng.",
+      category: "Kinh doanh",
+      image: "",
+      author: "Hoàng Linh",
+      date: "16/01/2025",
+      readTime: "3 phút đọc"
+    }
+  ],
+  "Xã hội": [
+    {
+      id: "xh-1",
+      title: "TP.HCM triển khai dự án chống ngập 10.000 tỷ đồng",
+      summary: "Hệ thống cống và hồ điều tiết được nâng cấp toàn diện.",
+      category: "Xã hội",
+      image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=80",
+      author: "Thành Đạt",
+      date: "18/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "xh-2",
+      title: "Cải cách tiền lương: Những thay đổi từ tháng 7/2025",
+      summary: "Mức lương cơ sở tăng 30% theo lộ trình.",
+      category: "Xã hội",
+      image: "",
+      author: "Ngọc Ánh",
+      date: "17/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "xh-3",
+      title: "Hà Nội cấm xe máy vào nội đô từ năm 2030",
+      summary: "Phương án được Hội đồng nhân dân thông qua.",
+      category: "Xã hội",
+      image: "",
+      author: "Trung Kiên",
+      date: "17/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "xh-4",
+      title: "Tình trạng ô nhiễm không khí tại các đô thị lớn",
+      summary: "Chỉ số AQI vượt ngưỡng an toàn nhiều ngày liên tiếp.",
+      category: "Xã hội",
+      image: "",
+      author: "Phương Thảo",
+      date: "16/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "xh-5",
+      title: "Chương trình nhà ở xã hội đạt mục tiêu 50.000 căn",
+      summary: "Giải quyết nhu cầu nhà ở cho người thu nhập thấp.",
+      category: "Xã hội",
+      image: "",
+      author: "Việt Hùng",
+      date: "16/01/2025",
+      readTime: "3 phút đọc"
+    }
+  ],
+  "Đời sống": [
+    {
+      id: "ds-1",
+      title: "Xu hướng ẩm thực healthy chinh phục giới trẻ Việt",
+      summary: "Thực phẩm hữu cơ và chế độ ăn lành mạnh ngày càng phổ biến.",
+      category: "Đời sống",
+      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80",
+      author: "Bích Ngọc",
+      date: "18/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "ds-2",
+      title: "Bí quyết cân bằng công việc và cuộc sống",
+      summary: "Lời khuyên từ các chuyên gia tâm lý.",
+      category: "Đời sống",
+      image: "",
+      author: "Thu Hương",
+      date: "17/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "ds-3",
+      title: "Thời trang bền vững: Xu hướng của tương lai",
+      summary: "Các thương hiệu Việt tiên phong trong phong trào xanh.",
+      category: "Đời sống",
+      image: "",
+      author: "Khánh Linh",
+      date: "17/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "ds-4",
+      title: "Cách thiết kế không gian sống tối giản hiệu quả",
+      summary: "Phong cách minimalist được ưa chuộng.",
+      category: "Đời sống",
+      image: "",
+      author: "Minh Anh",
+      date: "16/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "ds-5",
+      title: "Những cuốn sách hay nên đọc đầu năm 2025",
+      summary: "Danh sách sách được độc giả yêu thích nhất.",
+      category: "Đời sống",
+      image: "",
+      author: "Lan Chi",
+      date: "16/01/2025",
+      readTime: "3 phút đọc"
+    }
+  ],
+  "Du lịch - Văn hóa": [
+    {
+      id: "dl-1",
+      title: "Khám phá hang Sơn Đoòng: Kỳ quan thiên nhiên thế giới",
+      summary: "Tour thám hiểm hấp dẫn du khách quốc tế suốt mùa xuân.",
+      category: "Du lịch - Văn hóa",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+      author: "Phương Nam",
+      date: "18/01/2025",
+      readTime: "6 phút đọc"
+    },
+    {
+      id: "dl-2",
+      title: "Mùa hoa anh đào Nhật Bản: Lịch trình hoàn hảo",
+      summary: "Hướng dẫn chi tiết ngắm hoa sakura từ Tokyo đến Kyoto.",
+      category: "Du lịch - Văn hóa",
+      image: "",
+      author: "Yuki Trần",
+      date: "17/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "dl-3",
+      title: "Lễ hội đền Hùng 2025: Những hoạt động nổi bật",
+      summary: "Chương trình văn hóa đặc sắc mừng Giỗ Tổ Hùng Vương.",
+      category: "Du lịch - Văn hóa",
+      image: "",
+      author: "Hồng Phúc",
+      date: "17/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "dl-4",
+      title: "Ẩm thực đường phố Hội An lọt top thế giới",
+      summary: "Bánh mì và cao lầu được du khách quốc tế ca ngợi.",
+      category: "Du lịch - Văn hóa",
+      image: "",
+      author: "An Nhiên",
+      date: "16/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "dl-5",
+      title: "Bảo tàng Lịch sử quốc gia ra mắt triển lãm mới",
+      summary: "Trưng bày hiện vật quý hiếm từ thời Lý - Trần.",
+      category: "Du lịch - Văn hóa",
+      image: "",
+      author: "Thanh Trúc",
+      date: "16/01/2025",
+      readTime: "3 phút đọc"
+    }
+  ],
+  "Giáo dục": [
+    {
+      id: "gd-1",
+      title: "Đại học Việt Nam lọt bảng xếp hạng QS châu Á",
+      summary: "5 trường đại học được công nhận chất lượng quốc tế.",
+      category: "Giáo dục",
+      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80",
+      author: "Thùy Linh",
+      date: "18/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "gd-2",
+      title: "Chương trình STEM được đưa vào giảng dạy từ lớp 1",
+      summary: "Đổi mới giáo dục nhằm phát triển tư duy sáng tạo.",
+      category: "Giáo dục",
+      image: "",
+      author: "Văn Phong",
+      date: "17/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "gd-3",
+      title: "Học sinh Việt Nam giành huy chương vàng Olympic Toán",
+      summary: "Thành tích xuất sắc tại kỳ thi quốc tế.",
+      category: "Giáo dục",
+      image: "",
+      author: "Hà My",
+      date: "17/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "gd-4",
+      title: "Học bổng du học 2025: Cơ hội và thách thức",
+      summary: "Hướng dẫn apply học bổng các nước phát triển.",
+      category: "Giáo dục",
+      image: "",
+      author: "Minh Khoa",
+      date: "16/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "gd-5",
+      title: "AI trong giáo dục: Xu hướng không thể đảo ngược",
+      summary: "Công nghệ thay đổi cách dạy và học truyền thống.",
+      category: "Giáo dục",
+      image: "",
+      author: "Quang Vinh",
+      date: "16/01/2025",
+      readTime: "4 phút đọc"
+    }
+  ],
+  "Sức khỏe": [
+    {
+      id: "sk-1",
+      title: "Vaccine mới phòng ngừa sốt xuất huyết được cấp phép",
+      summary: "Bước tiến quan trọng trong phòng chống dịch bệnh.",
+      category: "Sức khỏe",
+      image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=80",
+      author: "BS. Thanh Hà",
+      date: "18/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "sk-2",
+      title: "Chế độ ăn Mediterranean tốt cho tim mạch",
+      summary: "Nghiên cứu mới khẳng định lợi ích của dầu olive.",
+      category: "Sức khỏe",
+      image: "",
+      author: "BS. Minh Tuệ",
+      date: "17/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "sk-3",
+      title: "Tập thể dục buổi sáng: Lợi ích vượt trội",
+      summary: "Các bài tập đơn giản giúp tăng cường sức khỏe.",
+      category: "Sức khỏe",
+      image: "",
+      author: "HLV Hoàng Anh",
+      date: "17/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "sk-4",
+      title: "Stress và cách quản lý hiệu quả",
+      summary: "Phương pháp thư giãn được khoa học chứng minh.",
+      category: "Sức khỏe",
+      image: "",
+      author: "TS. Lan Anh",
+      date: "16/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "sk-5",
+      title: "Giấc ngủ chất lượng: Bí quyết sống khỏe",
+      summary: "Thói quen ngủ tốt giúp cải thiện sức khỏe tổng thể.",
+      category: "Sức khỏe",
+      image: "",
+      author: "BS. Thu Vân",
+      date: "16/01/2025",
+      readTime: "4 phút đọc"
+    }
+  ]
+};
+
+export const hotTopics = [
+  "#Bầu_cử_2025",
+  "#AI_Technology",
+  "#Khởi_nghiệp",
+  "#Thời_tiết",
+  "#Chứng_khoán",
+  "#Du_lịch_Xuân",
+  "#Giáo_dục_số",
+  "#Sức_khỏe"
+];
+
+export const categories = [
+  "Kinh doanh",
+  "Xã hội", 
+  "Đời sống",
+  "Du lịch - Văn hóa",
+  "Giáo dục",
+  "Sức khỏe"
+];
+
+// Category slug mapping
+export const categorySlugMap: Record<string, string> = {
+  "kinh-doanh": "Kinh doanh",
+  "xa-hoi": "Xã hội",
+  "doi-song": "Đời sống",
+  "du-lich-van-hoa": "Du lịch - Văn hóa",
+  "giao-duc": "Giáo dục",
+  "suc-khoe": "Sức khỏe"
+};
+
+export const getCategorySlug = (categoryName: string): string => {
+  const entry = Object.entries(categorySlugMap).find(([_, name]) => name === categoryName);
+  return entry ? entry[0] : categoryName.toLowerCase().replace(/\s+/g, '-');
+};
+
+export const getCategoryDisplayName = (slug: string): string => {
+  return categorySlugMap[slug] || "";
+};
+
+export const getArticlesByCategory = (categoryName: string): Article[] => {
+  const categoryArticles = categoryData[categoryName] || [];
+  // Add more mock articles for pagination demo
+  const additionalArticles: Article[] = categoryArticles.map((article, index) => ({
+    ...article,
+    id: `${article.id}-extra-${index}`,
+    title: `[Tiếp theo] ${article.title}`,
+    date: "15/01/2025"
+  }));
+  
+  return [...categoryArticles, ...additionalArticles];
+};
