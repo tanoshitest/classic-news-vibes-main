@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Bold, Italic, Image, Quote, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { categoryData } from "@/data/mockData";
 
 const categories = [
   { value: "kinh-doanh", label: "Kinh doanh" },
@@ -28,8 +29,19 @@ interface ContentState {
   content: string;
 }
 
+const categorySlugMap: Record<string, string> = {
+  "Kinh doanh": "kinh-doanh",
+  "Xã hội": "xa-hoi",
+  "Đời sống": "doi-song",
+  "Du lịch - Văn hóa": "du-lich-van-hoa",
+  "Giáo dục": "giao-duc",
+  "Sức khỏe": "suc-khoe"
+};
+
 const AdminEditor = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const editId = searchParams.get("id");
 
   // State for Vietnamese content
   const [viContent, setViContent] = useState<ContentState>({
@@ -46,16 +58,66 @@ const AdminEditor = () => {
   });
 
   const [category, setCategory] = useState("");
+  const [publishDate, setPublishDate] = useState("");
+
+  useEffect(() => {
+    if (editId) {
+      // Simulate fetching data
+      // ID format is expected to be "CategoryID-Index" or similar
+      // Logic borrowed from how IDs were generated in ArticlesTable 
+      // (though ArticlesTable uses flattened generation, here we reverse engineer it)
+
+      const parts = editId.split("-");
+      const indexStr = parts.pop(); // last part is index
+      const categoryName = parts.join("-"); // rest is category name
+
+      const index = parseInt(indexStr || "0");
+      const articles = categoryData[categoryName];
+
+      if (articles && articles[index]) {
+        const article = articles[index];
+
+        // Pre-fill Vietnamese data from mock
+        setViContent({
+          title: article.title,
+          sapo: article.summary,
+          content: "Nội dung bài viết mẫu... (Dữ liệu demo đang được lấy từ mockData)",
+        });
+
+        // Generate demo Japanese data
+        setJpContent({
+          title: `[JP] ${article.title}`,
+          sapo: `[JP] ${article.summary}`,
+          content: "[JP] Demo content...",
+        });
+
+        // Set Category
+        // Need to map Category Name to Value (slug)
+        const catSlug = categorySlugMap[categoryName] || "";
+        setCategory(catSlug);
+
+        // Set Date (mock)
+        setPublishDate("2025-01-19T09:00");
+      }
+    }
+  }, [editId]);
 
   const handlePublish = () => {
     const articleData = {
+      id: editId,
       vi: viContent,
       jp: jpContent,
       category,
-      publishedAt: new Date().toISOString(),
+      publishedAt: publishDate || new Date().toISOString(),
     };
-    console.log("Publishing article:", articleData);
-    // Add API call here
+
+    if (editId) {
+      console.log("Updating article:", articleData);
+    } else {
+      console.log("Publishing new article:", articleData);
+    }
+
+    navigate("/admin/articles");
   };
 
   const EditorField = ({
@@ -150,10 +212,13 @@ const AdminEditor = () => {
         </Button>
         <div className="flex-1">
           <h1 className="font-serif text-3xl font-bold text-foreground">
-            Viết bài mới
+            {editId ? "Chỉnh sửa bài viết" : "Viết bài mới"}
           </h1>
           <p className="text-muted-foreground mt-1">
-            Tạo bài viết mới đa ngôn ngữ (Việt - Nhật)
+            {editId
+              ? "Cập nhật nội dung bài viết đa ngôn ngữ"
+              : "Tạo bài viết mới đa ngôn ngữ (Việt - Nhật)"
+            }
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -167,7 +232,7 @@ const AdminEditor = () => {
             onClick={handlePublish}
             className="bg-foreground text-background hover:bg-foreground/90 rounded-none"
           >
-            Xuất bản
+            {editId ? "Lưu lại" : "Xuất bản"}
           </Button>
         </div>
       </div>
@@ -254,6 +319,8 @@ const AdminEditor = () => {
             </label>
             <Input
               type="datetime-local"
+              value={publishDate}
+              onChange={(e) => setPublishDate(e.target.value)}
               className="rounded-none border-foreground/20"
             />
           </div>

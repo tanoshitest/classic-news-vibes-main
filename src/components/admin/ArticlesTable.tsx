@@ -89,7 +89,7 @@ const ArticlesTable = () => {
                       <Eye className="w-4 h-4" />
                     </Button>
                   </Link>
-                  <Link to="/admin/editor">
+                  <Link to={`/admin/editor?id=${article.id}`}>
                     <Button
                       variant="ghost"
                       size="icon"
