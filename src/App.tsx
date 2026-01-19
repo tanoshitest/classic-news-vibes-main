@@ -10,8 +10,15 @@ import NotFound from "./pages/NotFound";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminArticles from "./pages/admin/AdminArticles";
+import AdminCategories from "./pages/admin/AdminCategories";
 import AdminEditor from "./pages/admin/AdminEditor";
 import AdminMedia from "./pages/admin/AdminMedia";
+
+// ... inside Routes ...
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="articles" element={<AdminArticles />} />
+            <Route path="categories" element={<AdminCategories />} />
+            <Route path="editor" element={<AdminEditor />} />
 import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
@@ -26,7 +33,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/category/:slug" element={<CategoryPage />} />
           <Route path="/article/:id" element={<ArticlePage />} />
-          
+
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="dashboard" element={<AdminDashboard />} />
@@ -35,7 +42,7 @@ const App = () => (
             <Route path="media" element={<AdminMedia />} />
             <Route path="settings" element={<AdminSettings />} />
           </Route>
-          
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

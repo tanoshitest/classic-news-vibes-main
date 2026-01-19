@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Edit, Trash2 } from "lucide-react";
+import { Edit, Trash2, Eye } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -79,6 +79,16 @@ const ArticlesTable = () => {
               </TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
+                  <Link to={`/article/${article.id}`} target="_blank">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8 hover:bg-foreground/5"
+                      title="Xem bài viết"
+                    >
+                      <Eye className="w-4 h-4" />
+                    </Button>
+                  </Link>
                   <Link to="/admin/editor">
                     <Button
                       variant="ghost"
