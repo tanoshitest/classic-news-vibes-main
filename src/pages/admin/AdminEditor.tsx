@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const categories = [
   { value: "kinh-doanh", label: "Kinh doanh" },
@@ -21,12 +22,119 @@ const categories = [
   { value: "suc-khoe", label: "Sức khỏe" },
 ];
 
+interface ContentState {
+  title: string;
+  sapo: string;
+  content: string;
+}
+
 const AdminEditor = () => {
   const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [sapo, setSapo] = useState("");
-  const [content, setContent] = useState("");
+
+  // State for Vietnamese content
+  const [viContent, setViContent] = useState<ContentState>({
+    title: "",
+    sapo: "",
+    content: "",
+  });
+
+  // State for Japanese content
+  const [jpContent, setJpContent] = useState<ContentState>({
+    title: "",
+    sapo: "",
+    content: "",
+  });
+
   const [category, setCategory] = useState("");
+
+  const handlePublish = () => {
+    const articleData = {
+      vi: viContent,
+      jp: jpContent,
+      category,
+      publishedAt: new Date().toISOString(),
+    };
+    console.log("Publishing article:", articleData);
+    // Add API call here
+  };
+
+  const EditorField = ({
+    lang,
+    data,
+    onChange
+  }: {
+    lang: string;
+    data: ContentState;
+    onChange: (data: ContentState) => void;
+  }) => (
+    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      {/* Title */}
+      <div className="bg-background border border-foreground/20 p-6">
+        <Input
+          value={data.title}
+          onChange={(e) => onChange({ ...data, title: e.target.value })}
+          placeholder={`Nhập tiêu đề bài viết (${lang})...`}
+          className="border-0 p-0 font-serif text-3xl font-bold placeholder:text-muted-foreground/50 focus-visible:ring-0 h-auto"
+        />
+      </div>
+
+      {/* Sapo */}
+      <div className="bg-background border border-foreground/20 p-6">
+        <label className="block text-sm font-medium text-muted-foreground mb-2">
+          Sapo (Tóm tắt - {lang})
+        </label>
+        <Textarea
+          value={data.sapo}
+          onChange={(e) => onChange({ ...data, sapo: e.target.value })}
+          placeholder={`Nhập đoạn sapo tóm tắt nội dung bài viết (${lang})...`}
+          className="border-0 p-0 font-bold text-lg resize-none min-h-24 placeholder:text-muted-foreground/50 focus-visible:ring-0"
+        />
+      </div>
+
+      {/* Content Editor */}
+      <div className="bg-background border border-foreground/20">
+        {/* Toolbar */}
+        <div className="flex items-center gap-1 p-3 border-b border-foreground/20">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 hover:bg-foreground/5"
+          >
+            <Bold className="w-4 h-4" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 hover:bg-foreground/5"
+          >
+            <Italic className="w-4 h-4" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 hover:bg-foreground/5"
+          >
+            <Image className="w-4 h-4" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 hover:bg-foreground/5"
+          >
+            <Quote className="w-4 h-4" />
+          </Button>
+        </div>
+
+        {/* Content Area */}
+        <Textarea
+          value={data.content}
+          onChange={(e) => onChange({ ...data, content: e.target.value })}
+          placeholder={`Bắt đầu viết nội dung bài viết (${lang})...`}
+          className="border-0 p-6 text-lg leading-relaxed resize-none min-h-[400px] placeholder:text-muted-foreground/50 focus-visible:ring-0 rounded-none"
+        />
+      </div>
+    </div>
+  );
 
   return (
     <div className="p-8">
@@ -45,7 +153,7 @@ const AdminEditor = () => {
             Viết bài mới
           </h1>
           <p className="text-muted-foreground mt-1">
-            Tạo bài viết mới cho trang tin
+            Tạo bài viết mới đa ngôn ngữ (Việt - Nhật)
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -55,7 +163,10 @@ const AdminEditor = () => {
           >
             Lưu nháp
           </Button>
-          <Button className="bg-foreground text-background hover:bg-foreground/90 rounded-none">
+          <Button
+            onClick={handlePublish}
+            className="bg-foreground text-background hover:bg-foreground/90 rounded-none"
+          >
             Xuất bản
           </Button>
         </div>
@@ -64,76 +175,43 @@ const AdminEditor = () => {
       {/* Editor Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Editor */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Title */}
-          <div className="bg-background border border-foreground/20 p-6">
-            <Input
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Nhập tiêu đề bài viết..."
-              className="border-0 p-0 font-serif text-3xl font-bold placeholder:text-muted-foreground/50 focus-visible:ring-0 h-auto"
-            />
-          </div>
+        <div className="lg:col-span-2">
+          <Tabs defaultValue="vi" className="w-full">
+            <TabsList className="w-full justify-start rounded-none border-b border-foreground/20 bg-transparent p-0 mb-6 h-auto">
+              <TabsTrigger
+                value="vi"
+                className="rounded-none border-b-2 border-transparent px-6 py-3 font-serif text-lg data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              >
+                Tiếng Việt
+              </TabsTrigger>
+              <TabsTrigger
+                value="jp"
+                className="rounded-none border-b-2 border-transparent px-6 py-3 font-serif text-lg data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              >
+                Tiếng Nhật
+              </TabsTrigger>
+            </TabsList>
 
-          {/* Sapo */}
-          <div className="bg-background border border-foreground/20 p-6">
-            <label className="block text-sm font-medium text-muted-foreground mb-2">
-              Sapo (Tóm tắt)
-            </label>
-            <Textarea
-              value={sapo}
-              onChange={(e) => setSapo(e.target.value)}
-              placeholder="Nhập đoạn sapo tóm tắt nội dung bài viết..."
-              className="border-0 p-0 font-bold text-lg resize-none min-h-24 placeholder:text-muted-foreground/50 focus-visible:ring-0"
-            />
-          </div>
+            <TabsContent value="vi" className="mt-0">
+              <EditorField
+                lang="Tiếng Việt"
+                data={viContent}
+                onChange={setViContent}
+              />
+            </TabsContent>
 
-          {/* Content Editor */}
-          <div className="bg-background border border-foreground/20">
-            {/* Toolbar */}
-            <div className="flex items-center gap-1 p-3 border-b border-foreground/20">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 hover:bg-foreground/5"
-              >
-                <Bold className="w-4 h-4" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 hover:bg-foreground/5"
-              >
-                <Italic className="w-4 h-4" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 hover:bg-foreground/5"
-              >
-                <Image className="w-4 h-4" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 hover:bg-foreground/5"
-              >
-                <Quote className="w-4 h-4" />
-              </Button>
-            </div>
-
-            {/* Content Area */}
-            <Textarea
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              placeholder="Bắt đầu viết nội dung bài viết..."
-              className="border-0 p-6 text-lg leading-relaxed resize-none min-h-[400px] placeholder:text-muted-foreground/50 focus-visible:ring-0 rounded-none"
-            />
-          </div>
+            <TabsContent value="jp" className="mt-0">
+              <EditorField
+                lang="Tiếng Nhật"
+                data={jpContent}
+                onChange={setJpContent}
+              />
+            </TabsContent>
+          </Tabs>
         </div>
 
         {/* Sidebar Settings */}
-        <div className="space-y-6">
+        <div className="space-y-6 pt-[60px]">
           {/* Category */}
           <div className="bg-background border border-foreground/20 p-6">
             <label className="block font-serif font-bold text-foreground mb-3">
