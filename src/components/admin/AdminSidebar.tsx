@@ -1,10 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { LayoutDashboard, FileText, Image, Settings, LogOut, ListTree } from "lucide-react";
+import { LayoutDashboard, FileText, Image, Settings, LogOut, ListTree, Users } from "lucide-react";
 
 const menuItems = [
   { title: "Dashboard", path: "/admin/dashboard", icon: LayoutDashboard },
   { title: "Bài viết", path: "/admin/articles", icon: FileText },
   { title: "Danh mục", path: "/admin/categories", icon: ListTree },
+  { title: "Tác giả", path: "/admin/authors", icon: Users },
   { title: "Media", path: "/admin/media", icon: Image },
   { title: "Cài đặt", path: "/admin/settings", icon: Settings },
 ];
@@ -32,8 +33,8 @@ const AdminSidebar = () => {
                 <NavLink
                   to={item.path}
                   className={`flex items-center gap-3 px-4 py-3 text-sm transition-colors ${isActive
-                      ? "font-serif font-bold text-foreground border-b-2 border-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                    ? "font-serif font-bold text-foreground border-b-2 border-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                     }`}
                 >
                   <item.icon className="w-4 h-4" />

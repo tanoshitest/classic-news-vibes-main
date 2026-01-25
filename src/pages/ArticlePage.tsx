@@ -8,11 +8,13 @@ import ArticleSidebar from "@/components/ArticleSidebar";
 import ArticleTags from "@/components/ArticleTags";
 import ArticleNavigation from "@/components/ArticleNavigation";
 import RelatedNews from "@/components/RelatedNews";
+import CommentSection from "@/components/CommentSection";
+import ShareButtons from "@/components/ShareButtons";
 import { Separator } from "@/components/ui/separator";
-import { 
-  getArticleById, 
-  mostViewedArticles, 
-  relatedCategoryArticles, 
+import {
+  getArticleById,
+  mostViewedArticles,
+  relatedCategoryArticles,
   relatedNewsArticles,
   previousArticle,
   nextArticle
@@ -33,8 +35,8 @@ const ArticlePage = () => {
           <p className="mt-4 text-muted-foreground">
             Bài viết bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.
           </p>
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="inline-block mt-6 px-6 py-2 bg-foreground text-background hover:bg-foreground/90 transition-colors"
           >
             Về trang chủ
@@ -59,7 +61,7 @@ const ArticlePage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <Navigation />
-      
+
       <main className="py-8">
         <div className="container mx-auto px-4" style={{ maxWidth: "1100px" }}>
           {/* Breadcrumb */}
@@ -68,8 +70,8 @@ const ArticlePage = () => {
               Trang chủ
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link 
-              to={`/category/${categorySlug}`} 
+            <Link
+              to={`/category/${categorySlug}`}
               className="hover:text-foreground transition-colors"
             >
               {article.category}
@@ -94,9 +96,11 @@ const ArticlePage = () => {
               </p>
 
               {/* Sapo / Lead Paragraph */}
-              <p className="font-serif text-lg sm:text-xl font-bold text-foreground leading-relaxed mb-8">
+              <p className="font-serif text-lg sm:text-xl font-bold text-foreground leading-relaxed mb-4">
                 {article.summary}
               </p>
+
+              <ShareButtons url={window.location.href} title={article.title} />
 
               {/* Featured Image */}
               <figure className="mb-8">
@@ -125,18 +129,20 @@ const ArticlePage = () => {
               <Separator className="my-8" />
 
               {/* Navigation */}
-              <ArticleNavigation 
-                previousArticle={previousArticle} 
-                nextArticle={nextArticle} 
+              <ArticleNavigation
+                previousArticle={previousArticle}
+                nextArticle={nextArticle}
               />
+
+              <CommentSection articleId={id || "default"} />
             </article>
 
             {/* Sidebar - 30% */}
             <div className="lg:col-span-3">
               <div className="lg:sticky lg:top-24">
-                <ArticleSidebar 
-                  mostViewed={mostViewedArticles} 
-                  relatedCategory={relatedCategoryArticles} 
+                <ArticleSidebar
+                  mostViewed={mostViewedArticles}
+                  relatedCategory={relatedCategoryArticles}
                 />
               </div>
             </div>

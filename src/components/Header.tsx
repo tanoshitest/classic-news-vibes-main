@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -47,16 +54,8 @@ const Header = () => {
               <Globe className="w-4 h-4" />
               <span>{language}</span>
             </button>
-            <Link to="/admin/dashboard">
-              <Button
-                variant="outline"
-                size="sm"
-                className="hidden sm:flex items-center gap-2 border-foreground text-foreground hover:bg-foreground hover:text-background"
-              >
-                <User className="w-4 h-4" />
-                {t('signIn')}
-              </Button>
-            </Link>
+
+            <AuthButtons t={t} />
           </div>
         </div>
       </div>
@@ -64,4 +63,53 @@ const Header = () => {
   );
 };
 
+const AuthButtons = ({ t }: { t: (key: string) => string }) => {
+  const { user, login, logout } = useAuth();
+
+  if (user) {
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="flex items-center gap-2">
+            <User className="w-4 h-4" />
+            <span className="hidden sm:inline">{user.name}</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem asChild>
+            <Link to={user.role === 'admin' ? '/admin/dashboard' : '/user/dashboard'}>
+              Dashboard
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={logout}>
+            Logout
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="outline"
+          size="sm"
+          className="hidden sm:flex items-center gap-2 border-foreground text-foreground hover:bg-foreground hover:text-background"
+        >
+          <User className="w-4 h-4" />
+          {t('signIn')}
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => login('admin')}>
+          Login as Admin
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => login('user')}>
+          Login as User
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 export default Header;
