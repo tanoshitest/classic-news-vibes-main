@@ -69,7 +69,7 @@ export const mostViewedArticles: Article[] = [
     title: "OpenAI ra mắt GPT-5 với khả năng suy luận vượt trội",
     summary: "",
     category: "Công nghệ",
-    image: "",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80",
     author: "Tech Editor",
     date: "19/01/2025",
     readTime: "5 phút đọc"
@@ -79,7 +79,7 @@ export const mostViewedArticles: Article[] = [
     title: "Thị trường chứng khoán Việt Nam lập đỉnh mới trong tháng 1",
     summary: "",
     category: "Kinh doanh",
-    image: "",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80",
     author: "Finance Desk",
     date: "19/01/2025",
     readTime: "4 phút đọc"
@@ -89,7 +89,7 @@ export const mostViewedArticles: Article[] = [
     title: "Apple công bố kính Vision Pro thế hệ 2 giá rẻ hơn",
     summary: "",
     category: "Công nghệ",
-    image: "",
+    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=600&q=80",
     author: "Tech Editor",
     date: "18/01/2025",
     readTime: "3 phút đọc"
@@ -99,7 +99,7 @@ export const mostViewedArticles: Article[] = [
     title: "Đội tuyển Việt Nam thắng đậm 4-0 trước Indonesia",
     summary: "",
     category: "Thể thao",
-    image: "",
+    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80",
     author: "Sports Desk",
     date: "18/01/2025",
     readTime: "3 phút đọc"
@@ -109,7 +109,7 @@ export const mostViewedArticles: Article[] = [
     title: "Tết Nguyên đán 2025: Những xu hướng tiêu dùng mới",
     summary: "",
     category: "Đời sống",
-    image: "",
+    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80",
     author: "Lifestyle",
     date: "18/01/2025",
     readTime: "4 phút đọc"
@@ -123,7 +123,7 @@ export const relatedCategoryArticles: Article[] = [
     title: "Ngân hàng số tăng trưởng 40% trong năm 2024",
     summary: "Xu hướng chuyển đổi số tiếp tục bùng nổ trong lĩnh vực tài chính.",
     category: "Kinh doanh",
-    image: "",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80",
     author: "Thanh Mai",
     date: "18/01/2025",
     readTime: "3 phút đọc"
@@ -133,7 +133,7 @@ export const relatedCategoryArticles: Article[] = [
     title: "Xuất khẩu thủy sản đạt kỷ lục 10 tỷ USD",
     summary: "Tôm và cá tra là hai mặt hàng chủ lực.",
     category: "Kinh doanh",
-    image: "",
+    image: "https://images.unsplash.com/photo-1524177778556-9e90089e0ee5?w=600&q=80",
     author: "Hải Yến",
     date: "17/01/2025",
     readTime: "3 phút đọc"
@@ -143,7 +143,7 @@ export const relatedCategoryArticles: Article[] = [
     title: "Bất động sản công nghiệp hút vốn FDI mạnh mẽ",
     summary: "Các khu công nghiệp phía Nam ghi nhận tỷ lệ lấp đầy cao.",
     category: "Kinh doanh",
-    image: "",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
     author: "Quốc Bảo",
     date: "17/01/2025",
     readTime: "4 phút đọc"
@@ -153,7 +153,7 @@ export const relatedCategoryArticles: Article[] = [
     title: "Startup Việt gọi vốn 100 triệu USD Series C",
     summary: "Đây là vòng gọi vốn lớn nhất trong lịch sử startup Việt Nam.",
     category: "Kinh doanh",
-    image: "",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80",
     author: "Startup Editor",
     date: "16/01/2025",
     readTime: "4 phút đọc"
@@ -210,7 +210,7 @@ export const previousArticle: Article = {
   title: "VN-Index tăng điểm phiên thứ 5 liên tiếp",
   summary: "",
   category: "Kinh doanh",
-  image: "",
+  image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80",
   author: "Quang Huy",
   date: "18/01/2025",
   readTime: "4 phút đọc"
@@ -221,7 +221,7 @@ export const nextArticle: Article = {
   title: "Startup công nghệ Việt gọi vốn 50 triệu USD từ quỹ ngoại",
   summary: "",
   category: "Kinh doanh",
-  image: "",
+  image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80",
   author: "Thanh Tùng",
   date: "18/01/2025",
   readTime: "3 phút đọc"

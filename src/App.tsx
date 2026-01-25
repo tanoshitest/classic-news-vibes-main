@@ -17,6 +17,7 @@ import AdminMedia from "./pages/admin/AdminMedia";
 import AdminSettings from "./pages/admin/AdminSettings";
 import { AuthProvider } from "@/contexts/AuthContext";
 import UserDashboard from "@/pages/user/UserDashboard";
+import AuthorPage from "@/pages/AuthorPage";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/category/:slug" element={<CategoryPage />} />
             <Route path="/article/:id" element={<ArticlePage />} />
+            <Route path="/author/:name" element={<AuthorPage />} />
 
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLayout />}>

@@ -26,7 +26,7 @@ export const subHeroArticles: Article[] = [
     title: "Thủ tướng gặp gỡ cộng đồng doanh nghiệp tại Diễn đàn Kinh tế Thế giới",
     summary: "Cuộc gặp nhằm thu hút thêm đầu tư và hợp tác quốc tế.",
     category: "Chính trị",
-    image: "",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
     author: "Hồng Vân",
     date: "18/01/2025",
     readTime: "3 phút đọc"
@@ -36,7 +36,7 @@ export const subHeroArticles: Article[] = [
     title: "Dự báo thời tiết: Miền Bắc đón đợt không khí lạnh mạnh nhất mùa đông",
     summary: "Nhiệt độ có thể xuống dưới 5°C tại các tỉnh vùng núi phía Bắc.",
     category: "Xã hội",
-    image: "",
+    image: "https://images.unsplash.com/photo-1476900543704-4311b7b661c4?w=800&q=80",
     author: "Thu Hà",
     date: "18/01/2025",
     readTime: "2 phút đọc"
@@ -102,7 +102,7 @@ export const recommendedArticles: Article[] = [
     title: "Bí quyết đầu tư bất động sản thông minh năm 2025",
     summary: "Chuyên gia chia sẻ chiến lược đầu tư hiệu quả.",
     category: "Kinh doanh",
-    image: "",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059ee971?w=800&q=80",
     author: "Hoàng Nam",
     date: "17/01/2025",
     readTime: "6 phút đọc"
@@ -112,7 +112,7 @@ export const recommendedArticles: Article[] = [
     title: "10 điểm đến du lịch hấp dẫn nhất Đông Nam Á",
     summary: "Khám phá những địa danh không thể bỏ qua.",
     category: "Du lịch",
-    image: "",
+    image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
     author: "Mai Anh",
     date: "16/01/2025",
     readTime: "5 phút đọc"
@@ -122,7 +122,7 @@ export const recommendedArticles: Article[] = [
     title: "Cách chăm sóc sức khỏe mùa đông hiệu quả",
     summary: "Lời khuyên từ các chuyên gia y tế hàng đầu.",
     category: "Sức khỏe",
-    image: "",
+    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80",
     author: "Bác sĩ Hương",
     date: "16/01/2025",
     readTime: "4 phút đọc"
@@ -170,7 +170,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Xuất khẩu thủy sản đạt kỷ lục 10 tỷ USD",
       summary: "Tôm và cá tra là hai mặt hàng chủ lực.",
       category: "Kinh doanh",
-      image: "",
+      image: "https://images.unsplash.com/photo-1524177778556-9e90089e0ee5?w=600&q=80",
       author: "Hải Yến",
       date: "17/01/2025",
       readTime: "3 phút đọc"
@@ -180,7 +180,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Bất động sản công nghiệp hút vốn FDI mạnh mẽ",
       summary: "Các khu công nghiệp phía Nam ghi nhận tỷ lệ lấp đầy cao.",
       category: "Kinh doanh",
-      image: "",
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
       author: "Quốc Bảo",
       date: "17/01/2025",
       readTime: "4 phút đọc"
@@ -190,7 +190,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Ngân hàng số tăng trưởng 40% trong năm 2024",
       summary: "Xu hướng chuyển đổi số tiếp tục bùng nổ.",
       category: "Kinh doanh",
-      image: "",
+      image: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=600&q=80",
       author: "Thanh Mai",
       date: "16/01/2025",
       readTime: "3 phút đọc"
@@ -200,7 +200,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Việt Nam lọt top 10 thị trường bán lẻ hấp dẫn nhất",
       summary: "Tầng lớp trung lưu gia tăng thúc đẩy tiêu dùng.",
       category: "Kinh doanh",
-      image: "",
+      image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=600&q=80",
       author: "Hoàng Linh",
       date: "16/01/2025",
       readTime: "3 phút đọc"
@@ -222,7 +222,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Cải cách tiền lương: Những thay đổi từ tháng 7/2025",
       summary: "Mức lương cơ sở tăng 30% theo lộ trình.",
       category: "Xã hội",
-      image: "",
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80",
       author: "Ngọc Ánh",
       date: "17/01/2025",
       readTime: "4 phút đọc"
@@ -232,7 +232,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Hà Nội cấm xe máy vào nội đô từ năm 2030",
       summary: "Phương án được Hội đồng nhân dân thông qua.",
       category: "Xã hội",
-      image: "",
+      image: "https://images.unsplash.com/photo-1555921015-5532091f6026?w=600&q=80",
       author: "Trung Kiên",
       date: "17/01/2025",
       readTime: "4 phút đọc"
@@ -242,7 +242,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Tình trạng ô nhiễm không khí tại các đô thị lớn",
       summary: "Chỉ số AQI vượt ngưỡng an toàn nhiều ngày liên tiếp.",
       category: "Xã hội",
-      image: "",
+      image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=600&q=80",
       author: "Phương Thảo",
       date: "16/01/2025",
       readTime: "3 phút đọc"
@@ -252,7 +252,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Chương trình nhà ở xã hội đạt mục tiêu 50.000 căn",
       summary: "Giải quyết nhu cầu nhà ở cho người thu nhập thấp.",
       category: "Xã hội",
-      image: "",
+      image: "https://images.unsplash.com/photo-1460317442991-0ec2aa24e565?w=600&q=80",
       author: "Việt Hùng",
       date: "16/01/2025",
       readTime: "3 phút đọc"
@@ -274,7 +274,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Bí quyết cân bằng công việc và cuộc sống",
       summary: "Lời khuyên từ các chuyên gia tâm lý.",
       category: "Đời sống",
-      image: "",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80",
       author: "Thu Hương",
       date: "17/01/2025",
       readTime: "5 phút đọc"
@@ -284,7 +284,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Thời trang bền vững: Xu hướng của tương lai",
       summary: "Các thương hiệu Việt tiên phong trong phong trào xanh.",
       category: "Đời sống",
-      image: "",
+      image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&q=80",
       author: "Khánh Linh",
       date: "17/01/2025",
       readTime: "4 phút đọc"
@@ -294,7 +294,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Cách thiết kế không gian sống tối giản hiệu quả",
       summary: "Phong cách minimalist được ưa chuộng.",
       category: "Đời sống",
-      image: "",
+      image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80",
       author: "Minh Anh",
       date: "16/01/2025",
       readTime: "4 phút đọc"
@@ -304,7 +304,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Những cuốn sách hay nên đọc đầu năm 2025",
       summary: "Danh sách sách được độc giả yêu thích nhất.",
       category: "Đời sống",
-      image: "",
+      image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&q=80",
       author: "Lan Chi",
       date: "16/01/2025",
       readTime: "3 phút đọc"
@@ -326,7 +326,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Mùa hoa anh đào Nhật Bản: Lịch trình hoàn hảo",
       summary: "Hướng dẫn chi tiết ngắm hoa sakura từ Tokyo đến Kyoto.",
       category: "Du lịch - Văn hóa",
-      image: "",
+      image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=600&q=80",
       author: "Yuki Trần",
       date: "17/01/2025",
       readTime: "5 phút đọc"
@@ -336,7 +336,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Lễ hội đền Hùng 2025: Những hoạt động nổi bật",
       summary: "Chương trình văn hóa đặc sắc mừng Giỗ Tổ Hùng Vương.",
       category: "Du lịch - Văn hóa",
-      image: "",
+      image: "https://images.unsplash.com/photo-1557456170-0cf4f4d0d3ce?w=600&q=80",
       author: "Hồng Phúc",
       date: "17/01/2025",
       readTime: "4 phút đọc"
@@ -346,7 +346,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Ẩm thực đường phố Hội An lọt top thế giới",
       summary: "Bánh mì và cao lầu được du khách quốc tế ca ngợi.",
       category: "Du lịch - Văn hóa",
-      image: "",
+      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
       author: "An Nhiên",
       date: "16/01/2025",
       readTime: "4 phút đọc"
@@ -356,7 +356,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Bảo tàng Lịch sử quốc gia ra mắt triển lãm mới",
       summary: "Trưng bày hiện vật quý hiếm từ thời Lý - Trần.",
       category: "Du lịch - Văn hóa",
-      image: "",
+      image: "https://images.unsplash.com/photo-1565060169194-124b6f790c6a?w=600&q=80",
       author: "Thanh Trúc",
       date: "16/01/2025",
       readTime: "3 phút đọc"
@@ -378,7 +378,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Chương trình STEM được đưa vào giảng dạy từ lớp 1",
       summary: "Đổi mới giáo dục nhằm phát triển tư duy sáng tạo.",
       category: "Giáo dục",
-      image: "",
+      image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80",
       author: "Văn Phong",
       date: "17/01/2025",
       readTime: "4 phút đọc"
@@ -388,7 +388,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Học sinh Việt Nam giành huy chương vàng Olympic Toán",
       summary: "Thành tích xuất sắc tại kỳ thi quốc tế.",
       category: "Giáo dục",
-      image: "",
+      image: "https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=600&q=80",
       author: "Hà My",
       date: "17/01/2025",
       readTime: "3 phút đọc"
@@ -398,7 +398,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Học bổng du học 2025: Cơ hội và thách thức",
       summary: "Hướng dẫn apply học bổng các nước phát triển.",
       category: "Giáo dục",
-      image: "",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80",
       author: "Minh Khoa",
       date: "16/01/2025",
       readTime: "5 phút đọc"
@@ -408,7 +408,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "AI trong giáo dục: Xu hướng không thể đảo ngược",
       summary: "Công nghệ thay đổi cách dạy và học truyền thống.",
       category: "Giáo dục",
-      image: "",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
       author: "Quang Vinh",
       date: "16/01/2025",
       readTime: "4 phút đọc"
@@ -430,7 +430,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Chế độ ăn Mediterranean tốt cho tim mạch",
       summary: "Nghiên cứu mới khẳng định lợi ích của dầu olive.",
       category: "Sức khỏe",
-      image: "",
+      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
       author: "BS. Minh Tuệ",
       date: "17/01/2025",
       readTime: "4 phút đọc"
@@ -440,7 +440,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Tập thể dục buổi sáng: Lợi ích vượt trội",
       summary: "Các bài tập đơn giản giúp tăng cường sức khỏe.",
       category: "Sức khỏe",
-      image: "",
+      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80",
       author: "HLV Hoàng Anh",
       date: "17/01/2025",
       readTime: "3 phút đọc"
@@ -450,7 +450,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Stress và cách quản lý hiệu quả",
       summary: "Phương pháp thư giãn được khoa học chứng minh.",
       category: "Sức khỏe",
-      image: "",
+      image: "https://images.unsplash.com/photo-1499209974431-9bbb4ab001a2?w=600&q=80",
       author: "TS. Lan Anh",
       date: "16/01/2025",
       readTime: "5 phút đọc"
@@ -460,7 +460,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Giấc ngủ chất lượng: Bí quyết sống khỏe",
       summary: "Thói quen ngủ tốt giúp cải thiện sức khỏe tổng thể.",
       category: "Sức khỏe",
-      image: "",
+      image: "https://images.unsplash.com/photo-1511295742362-92c96b53b035?w=600&q=80",
       author: "BS. Thu Vân",
       date: "16/01/2025",
       readTime: "4 phút đọc"
@@ -481,7 +481,7 @@ export const hotTopics = [
 
 export const categories = [
   "Kinh doanh",
-  "Xã hội", 
+  "Xã hội",
   "Đời sống",
   "Du lịch - Văn hóa",
   "Giáo dục",
@@ -516,6 +516,6 @@ export const getArticlesByCategory = (categoryName: string): Article[] => {
     title: `[Tiếp theo] ${article.title}`,
     date: "15/01/2025"
   }));
-  
+
   return [...categoryArticles, ...additionalArticles];
 };

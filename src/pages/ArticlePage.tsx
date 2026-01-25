@@ -117,7 +117,12 @@ const ArticlePage = () => {
               {/* Author Signature */}
               <div className="mt-8 text-right">
                 <p className="font-bold text-foreground">
-                  {article.author}
+                  <Link
+                    to={`/author/${encodeURIComponent(article.author)}`}
+                    className="hover:underline hover:text-primary transition-colors"
+                  >
+                    {article.author}
+                  </Link>
                 </p>
               </div>
 
