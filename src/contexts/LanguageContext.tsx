@@ -21,7 +21,7 @@ export const translations: Record<Language, Record<string, string>> = {
         "editorsPick": "Lựa chọn của biên tập viên",
         "recommended": "Đề xuất cho bạn",
         "viewMore": "Xem thêm",
-        "copyright": "Bản quyền thuộc về Mi Chi Writer",
+        "copyright": "Bản quyền thuộc về Betonabi",
         "category_Business": "Kinh doanh",
         "category_Politics": "Chính trị",
         "category_Society": "Xã hội",
@@ -32,7 +32,7 @@ export const translations: Record<Language, Record<string, string>> = {
         "category_Education": "Giáo dục",
         "category_Life": "Đời sống",
         "category_TravelCulture": "Du lịch - Văn hóa",
-        "home_title": "Mi Chi Writer",
+        "home_title": "Betonabi",
         "hot_topics": "Chủ đề nóng",
         "follow_us": "Theo dõi chúng tôi",
         "most_viewed": "Xem nhiều nhất",
@@ -46,7 +46,7 @@ export const translations: Record<Language, Record<string, string>> = {
         "footer_get_latest": "Nhận tin mới nhất",
         "footer_subscribe_text": "Đăng ký để nhận tin tức nóng hổi mỗi ngày.",
         "footer_email_placeholder": "Email của bạn",
-        "footer_rights": "© 2025 Mi Chi Writer. Bảo lưu mọi quyền.",
+        "footer_rights": "© 2025 Betonabi. Bảo lưu mọi quyền.",
         "footer_built": "Được xây dựng với ❤️ tại Việt Nam"
     },
     JP: {
@@ -58,7 +58,7 @@ export const translations: Record<Language, Record<string, string>> = {
         "editorsPick": "編集長のおすすめ",
         "recommended": "おすすめ",
         "viewMore": "もっと見る",
-        "copyright": "© Mi Chi Writer",
+        "copyright": "© Betonabi",
         "category_Business": "ビジネス",
         "category_Politics": "政治",
         "category_Society": "社会",
@@ -83,7 +83,7 @@ export const translations: Record<Language, Record<string, string>> = {
         "footer_get_latest": "最新ニュースを受け取る",
         "footer_subscribe_text": "毎日最新のニュースを受け取るために登録してください。",
         "footer_email_placeholder": "メールアドレス",
-        "footer_rights": "© 2025 Mi Chi Writer. 全著作権所有。",
+        "footer_rights": "© 2025 Betonabi. 全著作権所有。",
         "footer_built": "ベトナムで❤️を込めて作られました"
     }
 };

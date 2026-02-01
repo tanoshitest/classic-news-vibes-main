@@ -65,7 +65,7 @@ export const getAuthorByName = (name: string): Author | undefined => {
         role: "reporter",
         allowedCategories: [],
         status: "active",
-        bio: "Tác giả của Mi Chi Writer.",
+        bio: "Tác giả của Betonabi.",
         avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random`
     };
 };

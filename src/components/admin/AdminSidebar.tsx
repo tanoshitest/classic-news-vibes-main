@@ -18,7 +18,7 @@ const AdminSidebar = () => {
       {/* Logo */}
       <div className="p-6 border-b border-foreground/20">
         <h1 className="font-serif text-xl font-bold text-foreground">
-          Mi Chi Writer
+          Betonabi
         </h1>
         <p className="text-xs text-muted-foreground mt-1">Admin Panel</p>
       </div>

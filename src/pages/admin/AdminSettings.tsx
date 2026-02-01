@@ -27,7 +27,7 @@ const AdminSettings = () => {
                 Tên trang
               </label>
               <Input
-                defaultValue="Mi Chi Writer"
+                defaultValue="Betonabi"
                 className="rounded-none border-foreground/20"
               />
             </div>
