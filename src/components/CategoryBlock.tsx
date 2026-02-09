@@ -10,9 +10,14 @@ interface CategoryBlockProps {
 }
 
 const CategoryBlock = ({ title, articles }: CategoryBlockProps) => {
+  const categorySlug = getCategorySlug(title);
+
+  if (!articles || articles.length === 0) {
+    return null;
+  }
+
   const mainArticle = articles[0];
   const listArticles = articles.slice(1);
-  const categorySlug = getCategorySlug(title);
 
   return (
     <div className="category-block" id={title.toLowerCase().replace(/\s+/g, "-")}>

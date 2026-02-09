@@ -18,7 +18,7 @@ export const subHeroArticlesJP: Article[] = [
         title: "首相、世界経済フォーラムでビジネス界と会談",
         summary: "会談はさらなる投資と国際協力を誘致することを目的としています。",
         category: "政治",
-        image: "",
+        image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
         author: "Hong Van",
         date: "2025/01/18",
         readTime: "3分"
@@ -28,7 +28,7 @@ export const subHeroArticlesJP: Article[] = [
         title: "天気予報：北部は今冬最強の寒波を迎える",
         summary: "北部の山岳地帯では気温が5℃を下回る可能性があります。",
         category: "社会",
-        image: "",
+        image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80",
         author: "Thu Ha",
         date: "2025/01/18",
         readTime: "2分"
@@ -94,7 +94,7 @@ export const recommendedArticlesJP: Article[] = [
         title: "2025年のスマートな不動産投資の秘訣",
         summary: "専門家が効果的な投資戦略を共有します。",
         category: "ビジネス",
-        image: "",
+        image: "https://images.unsplash.com/photo-1560518883-ce09059ee971?w=800&q=80",
         author: "Hoang Nam",
         date: "2025/01/17",
         readTime: "6分"
@@ -104,7 +104,7 @@ export const recommendedArticlesJP: Article[] = [
         title: "東南アジアで最も魅力的な観光地トップ10",
         summary: "見逃せない名所を探索しましょう。",
         category: "旅行",
-        image: "",
+        image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
         author: "Mai Anh",
         date: "2025/01/16",
         readTime: "5分"
@@ -114,7 +114,7 @@ export const recommendedArticlesJP: Article[] = [
         title: "冬の効果的な健康管理方法",
         summary: "トップ医療専門家からのアドバイス。",
         category: "健康",
-        image: "",
+        image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80",
         author: "Dr. Huong",
         date: "2025/01/16",
         readTime: "4分"

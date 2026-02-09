@@ -1,6 +1,5 @@
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CategoryArticleItem from "@/components/CategoryArticleItem";
 import CategorySidebar from "@/components/CategorySidebar";
@@ -21,10 +20,10 @@ const ITEMS_PER_PAGE = 5;
 const CategoryPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const categoryName = getCategoryDisplayName(slug || "");
   const articles = getArticlesByCategory(categoryName);
-  
+
   const totalPages = Math.ceil(articles.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const paginatedArticles = articles.slice(startIndex, startIndex + ITEMS_PER_PAGE);
@@ -38,7 +37,6 @@ const CategoryPage = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <Navigation />
         <main className="container mx-auto px-4 py-12">
           <h1 className="font-serif text-3xl font-bold text-foreground">
             Không tìm thấy chuyên mục
@@ -58,8 +56,7 @@ const CategoryPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <Navigation />
-      
+
       <main className="container mx-auto px-4 py-6">
         {/* Breadcrumb */}
         <Breadcrumb className="mb-6">

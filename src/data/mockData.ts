@@ -26,7 +26,7 @@ export const subHeroArticles: Article[] = [
     title: "Thủ tướng gặp gỡ cộng đồng doanh nghiệp tại Diễn đàn Kinh tế Thế giới",
     summary: "Cuộc gặp nhằm thu hút thêm đầu tư và hợp tác quốc tế.",
     category: "Chính trị",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80",
     author: "Hồng Vân",
     date: "18/01/2025",
     readTime: "3 phút đọc"
@@ -36,7 +36,7 @@ export const subHeroArticles: Article[] = [
     title: "Dự báo thời tiết: Miền Bắc đón đợt không khí lạnh mạnh nhất mùa đông",
     summary: "Nhiệt độ có thể xuống dưới 5°C tại các tỉnh vùng núi phía Bắc.",
     category: "Xã hội",
-    image: "https://images.unsplash.com/photo-1476900543704-4311b7b661c4?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80",
     author: "Thu Hà",
     date: "18/01/2025",
     readTime: "2 phút đọc"
@@ -310,12 +310,12 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "3 phút đọc"
     }
   ],
-  "Du lịch - Văn hóa": [
+  "Du lịch": [
     {
       id: "dl-1",
       title: "Khám phá hang Sơn Đoòng: Kỳ quan thiên nhiên thế giới",
       summary: "Tour thám hiểm hấp dẫn du khách quốc tế suốt mùa xuân.",
-      category: "Du lịch - Văn hóa",
+      category: "Du lịch",
       image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
       author: "Phương Nam",
       date: "18/01/2025",
@@ -325,37 +325,39 @@ export const categoryData: Record<string, Article[]> = {
       id: "dl-2",
       title: "Mùa hoa anh đào Nhật Bản: Lịch trình hoàn hảo",
       summary: "Hướng dẫn chi tiết ngắm hoa sakura từ Tokyo đến Kyoto.",
-      category: "Du lịch - Văn hóa",
+      category: "Du lịch",
       image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=600&q=80",
       author: "Yuki Trần",
       date: "17/01/2025",
       readTime: "5 phút đọc"
     },
     {
+      id: "dl-4",
+      title: "Ẩm thực đường phố Hội An lọt top thế giới",
+      summary: "Bánh mì và cao lầu được du khách quốc tế ca ngợi.",
+      category: "Du lịch",
+      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
+      author: "An Nhiên",
+      date: "16/01/2025",
+      readTime: "4 phút đọc"
+    }
+  ],
+  "Văn hóa": [
+    {
       id: "dl-3",
       title: "Lễ hội đền Hùng 2025: Những hoạt động nổi bật",
       summary: "Chương trình văn hóa đặc sắc mừng Giỗ Tổ Hùng Vương.",
-      category: "Du lịch - Văn hóa",
+      category: "Văn hóa",
       image: "https://images.unsplash.com/photo-1557456170-0cf4f4d0d3ce?w=600&q=80",
       author: "Hồng Phúc",
       date: "17/01/2025",
       readTime: "4 phút đọc"
     },
     {
-      id: "dl-4",
-      title: "Ẩm thực đường phố Hội An lọt top thế giới",
-      summary: "Bánh mì và cao lầu được du khách quốc tế ca ngợi.",
-      category: "Du lịch - Văn hóa",
-      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
-      author: "An Nhiên",
-      date: "16/01/2025",
-      readTime: "4 phút đọc"
-    },
-    {
       id: "dl-5",
       title: "Bảo tàng Lịch sử quốc gia ra mắt triển lãm mới",
       summary: "Trưng bày hiện vật quý hiếm từ thời Lý - Trần.",
-      category: "Du lịch - Văn hóa",
+      category: "Văn hóa",
       image: "https://images.unsplash.com/photo-1565060169194-124b6f790c6a?w=600&q=80",
       author: "Thanh Trúc",
       date: "16/01/2025",
@@ -465,37 +467,81 @@ export const categoryData: Record<string, Article[]> = {
       date: "16/01/2025",
       readTime: "4 phút đọc"
     }
+  ],
+  "Longform / E-magazine": [
+    longformArticle,
+    {
+      id: "lf-2",
+      title: "Kiến trúc Đông Dương: Dấu ấn thời gian",
+      summary: "Hành trình tìm về những công trình kiến trúc mang đậm dấu ấn lịch sử giữa lòng Hà Nội.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1555921015-5532091f6026?w=600&q=80",
+      author: "KTS. Thanh Tùng",
+      date: "14/01/2025",
+      readTime: "10 phút đọc"
+    },
+    {
+      id: "lf-3",
+      title: "Người trẻ bỏ phố về quê: Giấc mơ hay thực tế khốc liệt?",
+      summary: "Những câu chuyện chưa kể về trào lưu 'bỏ phố về rừng'.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80",
+      author: "Ngọc Lan",
+      date: "12/01/2025",
+      readTime: "15 phút đọc"
+    }
   ]
 };
 
-export const hotTopics = [
+export const hotTopicsVN = [
   "#Bầu_cử_2025",
   "#AI_Technology",
   "#Khởi_nghiệp",
   "#Thời_tiết",
-  "#Chứng_khoán",
-  "#Du_lịch_Xuân",
-  "#Giáo_dục_số",
-  "#Sức_khỏe"
+  "#Chứng_khoán"
+];
+
+export const hotTopicsJP = [
+  "#2025年選挙",
+  "#AI技術",
+  "#起業",
+  "#天気",
+  "#株式市場"
+];
+
+export const getHotTopics = (lang: string) => {
+  return lang === 'JP' ? hotTopicsJP : hotTopicsVN;
+};
+
+export const mostViewedArticles: Article[] = [
+  ...latestNews.slice(0, 3),
+  ...subHeroArticles
 ];
 
 export const categories = [
+  "Mới nhất",
+  "Đọc nhiều",
   "Kinh doanh",
-  "Xã hội",
+  "Văn hóa",
   "Đời sống",
-  "Du lịch - Văn hóa",
-  "Giáo dục",
-  "Sức khỏe"
+  "Du lịch",
+  "Sức khỏe",
+  "Longform / E-magazine"
 ];
 
 // Category slug mapping
 export const categorySlugMap: Record<string, string> = {
+  "moi-nhat": "Mới nhất",
+  "doc-nhieu": "Đọc nhiều",
   "kinh-doanh": "Kinh doanh",
-  "xa-hoi": "Xã hội",
+  "van-hoa": "Văn hóa",
   "doi-song": "Đời sống",
-  "du-lich-van-hoa": "Du lịch - Văn hóa",
-  "giao-duc": "Giáo dục",
-  "suc-khoe": "Sức khỏe"
+  "du-lich": "Du lịch",
+  "suc-khoe": "Sức khỏe",
+  "longform-e-magazine": "Longform / E-magazine",
+  // Keep these for legacy urls
+  "xa-hoi": "Xã hội",
+  "giao-duc": "Giáo dục"
 };
 
 export const getCategorySlug = (categoryName: string): string => {
@@ -508,6 +554,9 @@ export const getCategoryDisplayName = (slug: string): string => {
 };
 
 export const getArticlesByCategory = (categoryName: string): Article[] => {
+  if (categoryName === "Mới nhất") return latestNews;
+  if (categoryName === "Đọc nhiều") return mostViewedArticles;
+
   const categoryArticles = categoryData[categoryName] || [];
   // Add more mock articles for pagination demo
   const additionalArticles: Article[] = categoryArticles.map((article, index) => ({

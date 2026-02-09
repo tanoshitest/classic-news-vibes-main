@@ -1,7 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ArticleContent from "@/components/ArticleContent";
 import ArticleSidebar from "@/components/ArticleSidebar";
@@ -29,7 +28,6 @@ const ArticlePage = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <Navigation />
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="font-serif text-3xl font-bold">Không tìm thấy bài viết</h1>
           <p className="mt-4 text-muted-foreground">
@@ -60,7 +58,6 @@ const ArticlePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <Navigation />
 
       <main className="py-8">
         <div className="container mx-auto px-4" style={{ maxWidth: "1100px" }}>

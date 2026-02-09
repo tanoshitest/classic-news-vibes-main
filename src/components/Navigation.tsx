@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const categoryKeyMap: Record<string, string> = {
+  "Mới nhất": "category_Latest",
+  "Đọc nhiều": "category_MostRead",
   "Kinh doanh": "category_Business",
   "Xã hội": "category_Society",
   "Đời sống": "category_Life",

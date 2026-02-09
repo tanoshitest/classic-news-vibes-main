@@ -18,6 +18,9 @@ import AdminSettings from "./pages/admin/AdminSettings";
 import { AuthProvider } from "@/contexts/AuthContext";
 import UserDashboard from "@/pages/user/UserDashboard";
 import AuthorPage from "@/pages/AuthorPage";
+import ContactPage from "@/pages/ContactPage";
+import AboutPage from "@/pages/AboutPage";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -27,12 +30,15 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/category/:slug" element={<CategoryPage />} />
             <Route path="/article/:id" element={<ArticlePage />} />
             <Route path="/author/:name" element={<AuthorPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about" element={<AboutPage />} />
 
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLayout />}>
