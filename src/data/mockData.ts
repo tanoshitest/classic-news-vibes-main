@@ -93,6 +93,16 @@ export const latestNews: Article[] = [
     author: "Văn Minh",
     date: "17/01/2025",
     readTime: "4 phút đọc"
+  },
+  {
+    id: "latest-6",
+    title: "Triển lãm nghệ thuật đương đại thu hút giới trẻ",
+    summary: "Không gian sáng tạo mới tại trung tâm thành phố.",
+    category: "Văn hóa",
+    image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400&q=80",
+    author: "Ngọc Lan",
+    date: "16/01/2025",
+    readTime: "3 phút đọc"
   }
 ];
 

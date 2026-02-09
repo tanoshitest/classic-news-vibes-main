@@ -1,56 +1,97 @@
 import { Link } from "react-router-dom";
-import { longformArticle } from "@/data/mockData";
-import { longformArticleJP } from "@/data/mockDataJP";
-import { ArrowRight } from "lucide-react";
+import { longformArticle, latestNews } from "@/data/mockData";
+import { longformArticleJP, latestNewsJP } from "@/data/mockDataJP";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Play, Mic, FileText, Camera, HelpCircle } from "lucide-react";
 
 const LongformSection = () => {
-  const { language, t } = useLanguage();
-  const currentArticle = language === 'VN' ? longformArticle : longformArticleJP;
+  const { language } = useLanguage();
+  const featuredArticle = language === 'VN' ? longformArticle : longformArticleJP;
+  const sideArticles = language === 'VN' ? latestNews.slice(0, 6) : latestNewsJP.slice(0, 6);
+
+  const navItems = [
+    { label: "VIDEO", icon: Play },
+    { label: "PODCAST", icon: Mic },
+    { label: "LONGFORM", icon: FileText },
+    { label: "STORY", icon: Camera },
+    { label: "QUIZZ", icon: HelpCircle },
+  ];
 
   return (
-    <section className="longform-section py-16 my-12">
+    <section className="py-12 my-8 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <span className="inline-block px-4 py-1 bg-accent text-accent-foreground text-sm font-semibold uppercase tracking-widest">
-            E-Magazine
-          </span>
+        {/* Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 border-b-2 border-black/10 pb-4">
+          <div className="flex items-center gap-2">
+            <span className="text-red-600 font-bold text-2xl">/</span>
+            <h2 className="text-3xl font-black text-black tracking-tighter uppercase">E-MAGAZINE</h2>
+          </div>
+
+          <nav className="flex flex-wrap gap-4 md:gap-8">
+            {navItems.map((item, index) => (
+              <a
+                key={index}
+                href="#"
+                className="text-sm font-bold text-black/70 hover:text-black transition-colors uppercase"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        <Link to={`/article/${currentArticle.id}`}>
-          <article className="group cursor-pointer max-w-5xl mx-auto">
-            <div className="relative aspect-[21/9] overflow-hidden rounded-sm mb-8">
-              <img
-                src={currentArticle.image}
-                alt={currentArticle.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 text-white">
-                <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4 text-balance">
-                  {currentArticle.title}
-                </h2>
-                <p className="text-white/90 text-base sm:text-lg max-w-3xl leading-relaxed hidden sm:block">
-                  {currentArticle.summary}
-                </p>
-                <div className="flex items-center gap-2 mt-6 text-white/80 text-sm">
-                  <span>{currentArticle.author}</span>
-                  <span>•</span>
-                  <span>{currentArticle.date}</span>
-                  <span>•</span>
-                  <span>{currentArticle.readTime}</span>
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Featured Article (Left) */}
+          <div className="lg:col-span-7 flex flex-col h-full">
+            <Link to={`/article/${featuredArticle.id}`} className="group block flex-grow flex flex-col">
+              <div className="relative aspect-video overflow-hidden mb-4">
+                <img
+                  src={featuredArticle.image}
+                  alt={featuredArticle.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="bg-black/20 backdrop-blur-sm text-white p-2 rounded-sm">
+                    <Camera className="w-5 h-5" />
+                  </span>
                 </div>
               </div>
-            </div>
 
-            <div className="text-center">
-              <span className="inline-flex items-center gap-2 text-foreground font-medium hover:gap-3 transition-all">
-                {t('viewMore')}
-                <ArrowRight className="w-4 h-4" />
-              </span>
+              <h3 className="text-2xl md:text-3xl font-bold text-black mb-3 leading-tight group-hover:text-black/80 transition-colors">
+                {featuredArticle.title}
+              </h3>
+              <p className="text-black/80 text-base leading-relaxed line-clamp-3">
+                {featuredArticle.summary}
+              </p>
+            </Link>
+          </div>
+
+          {/* Side Articles Grid (Right) */}
+          <div className="lg:col-span-5 flex flex-col h-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8 h-full content-between">
+              {sideArticles.map((article) => (
+                <Link key={article.id} to={`/article/${article.id}`} className="group block">
+                  <div className="relative aspect-video overflow-hidden mb-3">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute bottom-2 left-2">
+                      <span className="bg-black/40 text-white p-1 rounded-sm">
+                        <FileText className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </div>
+                  <h4 className="font-bold text-sm text-black leading-snug group-hover:text-black/70 transition-colors line-clamp-3">
+                    {article.title}
+                  </h4>
+                </Link>
+              ))}
             </div>
-          </article>
-        </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

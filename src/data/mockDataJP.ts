@@ -85,6 +85,16 @@ export const latestNewsJP: Article[] = [
         author: "Van Minh",
         date: "2025/01/17",
         readTime: "4分"
+    },
+    {
+        id: "latest-6",
+        title: "現代アート展が若者を魅了",
+        summary: "市内中心部に新しいクリエイティブスペースが誕生。",
+        category: "文化",
+        image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400&q=80",
+        author: "Ngoc Lan",
+        date: "2025/01/16",
+        readTime: "3分"
     }
 ];
 
