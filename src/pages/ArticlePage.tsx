@@ -6,17 +6,17 @@ import ArticleContent from "@/components/ArticleContent";
 import ArticleSidebar from "@/components/ArticleSidebar";
 import ArticleTags from "@/components/ArticleTags";
 import ArticleNavigation from "@/components/ArticleNavigation";
-import RelatedNews from "@/components/RelatedNews";
 import CommentSection from "@/components/CommentSection";
 import ShareButtons from "@/components/ShareButtons";
 import { Separator } from "@/components/ui/separator";
 import {
   getArticleById,
   mostViewedArticles,
-  relatedCategoryArticles,
-  relatedNewsArticles,
   previousArticle,
-  nextArticle
+  nextArticle,
+  sameCategoryArticles,
+  youMayAlsoLikeArticles,
+  closeRelatedArticles
 } from "@/data/articleContent";
 import { getCategorySlug } from "@/data/mockData";
 
@@ -60,7 +60,7 @@ const ArticlePage = () => {
       <Header />
 
       <main className="py-8">
-        <div className="container mx-auto px-4" style={{ maxWidth: "1100px" }}>
+        <div className="container mx-auto px-4" style={{ maxWidth: "1160px" }}>
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
             <Link to="/" className="hover:text-foreground transition-colors">
@@ -78,9 +78,9 @@ const ArticlePage = () => {
           </nav>
 
           {/* Main Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 lg:gap-12">
-            {/* Main Content - 70% */}
-            <article className="lg:col-span-7">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            {/* Main Content - Left Column (8 cols) */}
+            <article className="lg:col-span-8">
               {/* Title */}
               <h1 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-4">
                 {article.title}
@@ -136,24 +136,95 @@ const ArticlePage = () => {
                 nextArticle={nextArticle}
               />
 
-              <CommentSection articleId={id || "default"} />
+              {/* 1. Contextual Related Articles (Bài liên quan) - Immediately after content */}
+              <div className="mt-12 bg-gray-50 p-6 rounded-sm">
+                <h3 className="newspaper-section-title mb-4">Bài liên quan</h3>
+                <ul className="space-y-3">
+                  {closeRelatedArticles.map((item) => (
+                    <li key={item.id} className="group">
+                      <Link to={`/article/${item.id}`} className="flex gap-2 items-start">
+                        <span className="text-primary mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0 block"></span>
+                        <span className="text-base font-medium text-gray-800 group-hover:text-primary transition-colors leading-snug">
+                          {item.title}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 2. Comments (Ý kiến) */}
+              <div className="mt-12">
+                <CommentSection articleId={id || "default"} />
+              </div>
+
+              <Separator className="my-12" />
+
+              {/* 3. Same Category (Bài cùng chuyên mục) - List 6 items */}
+              <div className="mt-8">
+                <div className="flex items-center justify-between mb-6 border-b border-gray-200 pb-2">
+                  <h3 className="newspaper-section-title mb-0 uppercase text-[#9f224e]">{article.category}</h3>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                  {sameCategoryArticles.map((item) => (
+                    <Link key={item.id} to={`/article/${item.id}`} className="group flex gap-4">
+                      <div className="w-1/3 aspect-[4/3] shrink-0 overflow-hidden">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="w-2/3">
+                        <h4 className="font-serif text-base font-bold text-gray-900 leading-snug group-hover:text-[#9f224e] transition-colors line-clamp-3">
+                          {item.title}
+                        </h4>
+                        <p className="mt-2 text-xs text-gray-400">{item.date}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <Separator className="my-12" />
+
+              {/* 4. You May Also Like (Bạn có thể quan tâm) - 8 items Grid */}
+              <div className="mt-8">
+                <h3 className="newspaper-section-title mb-6">Bạn có thể quan tâm</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {youMayAlsoLikeArticles.map((item) => (
+                    <Link key={item.id} to={`/article/${item.id}`} className="group block">
+                      <div className="aspect-video overflow-hidden mb-3">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <h4 className="font-serif text-sm font-bold text-gray-900 leading-snug group-hover:text-[#9f224e] transition-colors line-clamp-3">
+                        {item.title}
+                      </h4>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
             </article>
 
-            {/* Sidebar - 30% */}
-            <div className="lg:col-span-3">
+            {/* Sidebar - Right Column (4 cols) */}
+            <aside className="lg:col-span-4 pl-0 lg:pl-8">
               <div className="lg:sticky lg:top-24">
                 <ArticleSidebar
                   mostViewed={mostViewedArticles}
-                  relatedCategory={relatedCategoryArticles}
                 />
+                {/* Ad Placeholder or additional widgets can go here */}
+                <div className="mt-8 w-full bg-gray-100 h-[300px] flex items-center justify-center text-gray-400 text-sm border border-dashed border-gray-300">
+                  Quảng cáo
+                </div>
               </div>
-            </div>
+            </aside>
           </div>
-
-          <Separator className="my-8" />
-
-          {/* Related News */}
-          <RelatedNews articles={relatedNewsArticles} />
         </div>
       </main>
 

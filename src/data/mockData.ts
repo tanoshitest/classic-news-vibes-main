@@ -318,6 +318,87 @@ export const categoryData: Record<string, Article[]> = {
       author: "Lan Chi",
       date: "16/01/2025",
       readTime: "3 phút đọc"
+    },
+    // More articles to fill the feed
+    {
+      id: "ds-6",
+      title: "Trồng cây trong nhà: Xu hướng xanh cho không gian sống",
+      summary: "Các loại cây dễ trồng giúp lọc không khí và trang trí nhà cửa.",
+      category: "Đời sống",
+      image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=80",
+      author: "Thanh Hằng",
+      date: "15/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "ds-7",
+      title: "Mẹo sắp xếp tủ quần áo gọn gàng đón Tết",
+      summary: "Phương pháp KonMari giúp tối ưu không gian lưu trữ.",
+      category: "Đời sống",
+      image: "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=600&q=80",
+      author: "Minh Trang",
+      date: "15/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "ds-8",
+      title: "Làm nến thơm handmade tại nhà",
+      summary: "Thú vui tao nhã giúp thư giãn tinh thần cuối tuần.",
+      category: "Đời sống",
+      image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=600&q=80",
+      author: "Thu Thủy",
+      date: "14/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "ds-9",
+      title: "Chế độ ăn Plant-based cho người mới bắt đầu",
+      summary: "Lợi ích sức khỏe và thực đơn mẫu cho 7 ngày.",
+      category: "Đời sống",
+      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+      author: "Dinh Dưỡng Xanh",
+      date: "14/01/2025",
+      readTime: "6 phút đọc"
+    },
+    {
+      id: "ds-10",
+      title: "Gợi ý quà tặng ý nghĩa cho dịp lễ Valentine",
+      summary: "Những món quà handmade chứa đựng nhiều tình cảm.",
+      category: "Đời sống",
+      image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80",
+      author: "Love Letter",
+      date: "13/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "ds-11",
+      title: "Thiền định mỗi ngày: Liều thuốc cho tâm hồn",
+      summary: "Hướng dẫn thiền cơ bản cho người bận rộn.",
+      category: "Đời sống",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80",
+      author: "Thiền Sư",
+      date: "12/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "ds-12",
+      title: "Khám phá các quán cà phê vintage tại Sài Gòn",
+      summary: "Không gian hoài cổ cho những ngày cuối tuần thảnh thơi.",
+      category: "Đời sống",
+      image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80",
+      author: "Coffee Lover",
+      date: "11/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "ds-13",
+      title: "Tự làm mỹ phẩm thiên nhiên tại nhà",
+      summary: "An toàn, tiết kiệm và thân thiện với môi trường.",
+      category: "Đời sống",
+      image: "https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=600&q=80",
+      author: "Green Beauty",
+      date: "10/01/2025",
+      readTime: "4 phút đọc"
     }
   ],
   "Du lịch": [
@@ -372,6 +453,26 @@ export const categoryData: Record<string, Article[]> = {
       author: "Thanh Trúc",
       date: "16/01/2025",
       readTime: "3 phút đọc"
+    },
+    {
+      id: "vh-3",
+      title: "Nghệ thuật Sơn mài Việt Nam: Hành trình ra thế giới",
+      summary: "Các tác phẩm sơn mài Việt Nam ngày càng được đánh giá cao trên thị trường quốc tế.",
+      category: "Văn hóa",
+      image: "https://images.unsplash.com/photo-1578321272176-b7bbc06b9cc3?w=600&q=80",
+      author: "Hoàng Anh",
+      date: "15/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "vh-4",
+      title: "Khôi phục lễ hội truyền thống tại các làng nghề cổ",
+      summary: "Nỗ lực gìn giữ bản sắc văn hóa dân tộc trong thời kỳ hội nhập.",
+      category: "Văn hóa",
+      image: "https://images.unsplash.com/photo-1583096114844-065dc69bc283?w=600&q=80",
+      author: "Minh Tâm",
+      date: "14/01/2025",
+      readTime: "4 phút đọc"
     }
   ],
   "Giáo dục": [
@@ -499,6 +600,127 @@ export const categoryData: Record<string, Article[]> = {
       author: "Ngọc Lan",
       date: "12/01/2025",
       readTime: "15 phút đọc"
+    },
+    // New Longform Articles
+    {
+      id: "lf-4",
+      title: "Một số vấn đề cốt lõi trong chính sách đối ngoại mới",
+      summary: "Phân tích sâu sắc về những thay đổi chiến lược trong quan hệ quốc tế.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=800&q=80",
+      author: "Minh Quân",
+      date: "10/01/2025",
+      readTime: "20 phút đọc"
+    },
+    {
+      id: "lf-5",
+      title: "Tăng cường quan hệ hữu nghị và hợp tác toàn diện",
+      summary: "Những bước tiến mới trong việc thắt chặt tình đoàn kết giữa các quốc gia.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1529104661501-69671d579633?w=800&q=80",
+      author: "Hồng Hà",
+      date: "09/01/2025",
+      readTime: "18 phút đọc"
+    },
+    {
+      id: "lf-6",
+      title: "Chiến lược phát triển kinh tế vùng biên giới",
+      summary: "Cơ hội và thách thức trong việc thúc đẩy giao thương cửa khẩu.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80",
+      author: "Tuấn Anh",
+      date: "08/01/2025",
+      readTime: "15 phút đọc"
+    },
+    {
+      id: "lf-7",
+      title: "Bảo tồn văn hóa cồng chiêng Tây Nguyên",
+      summary: "Nỗ lực gìn giữ di sản văn hóa phi vật thể của nhân loại.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1583096114844-065dc69bc283?w=800&q=80",
+      author: "Mai Phương",
+      date: "07/01/2025",
+      readTime: "12 phút đọc"
+    },
+    {
+      id: "lf-8",
+      title: "Đổi mới sáng tạo: Chìa khóa cho tăng trưởng bền vững",
+      summary: "Cách mạng công nghiệp 4.0 và những tác động đến nền kinh tế.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
+      author: "Thanh Sơn",
+      date: "06/01/2025",
+      readTime: "16 phút đọc"
+    },
+    {
+      id: "lf-9",
+      title: "Hành trình di sản: Từ Huế đến Hội An",
+      summary: "Khám phá con đường di sản miền Trung qua lăng kính nhiếp ảnh.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
+      author: "Nam Khánh",
+      date: "05/01/2025",
+      readTime: "14 phút đọc"
+    },
+    {
+      id: "lf-10",
+      title: "Biến đổi khí hậu và tác động đến Đồng bằng sông Cửu Long",
+      summary: "Thực trạng xâm nhập mặn và giải pháp thích ứng cho người dân.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1536869408432-83569477a33c?w=800&q=80",
+      author: "Hoàng Dũng",
+      date: "04/01/2025",
+      readTime: "22 phút đọc"
+    },
+    {
+      id: "lf-11",
+      title: "Làng nghề truyền thống trước nguy cơ mai một",
+      summary: "Câu chuyện của những nghệ nhân cuối cùng.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1593457176162-84950e309cc8?w=800&q=80",
+      author: "Thu Thảo",
+      date: "03/01/2025",
+      readTime: "10 phút đọc"
+    },
+    {
+      id: "lf-12",
+      title: "Nông nghiệp công nghệ cao: Hướng đi mới cho nông dân",
+      summary: "Ứng dụng IoT vào sản xuất nông nghiệp tại Đà Lạt.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?w=800&q=80",
+      author: "Văn Hùng",
+      date: "02/01/2025",
+      readTime: "15 phút đọc"
+    },
+    {
+      id: "lf-13",
+      title: "Vẻ đẹp hùng vĩ của Cao nguyên đá Đồng Văn",
+      summary: "Sức sống mãnh liệt trên miền đá xám.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
+      author: "Minh Tâm",
+      date: "01/01/2025",
+      readTime: "12 phút đọc"
+    },
+    {
+      id: "lf-14",
+      title: "Thúc đẩy bình đẳng giới trong thời đại số",
+      summary: "Cơ hội lãnh đạo cho phụ nữ trong kỷ nguyên công nghệ.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80",
+      author: "Lan Hương",
+      date: "30/12/2024",
+      readTime: "18 phút đọc"
+    },
+    {
+      id: "lf-15",
+      title: "Giáo dục vùng cao: Những con chữ gieo mầm hy vọng",
+      summary: "Hành trình mang tri thức đến với trẻ em nghèo.",
+      category: "Longform / E-magazine",
+      image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
+      author: "Đức Trí",
+      date: "29/12/2024",
+      readTime: "14 phút đọc"
     }
   ]
 };
@@ -524,15 +746,17 @@ export const getHotTopics = (lang: string) => {
 };
 
 export const mostViewedArticles: Article[] = [
-  ...latestNews.slice(0, 3),
-  ...subHeroArticles
+  ...latestNews,
+  ...subHeroArticles,
+  latestNews[0] // Add one more to make it 8 if needed, or simply use slice later. 
+  // actually latestNews is 6 items + subHero is 2 items = 8 items. Perfect.
 ];
 
 export const categories = [
   "Mới nhất",
   "Đọc nhiều",
-  "Kinh doanh",
   "Văn hóa",
+  "Kinh doanh",
   "Đời sống",
   "Du lịch",
   "Sức khỏe",

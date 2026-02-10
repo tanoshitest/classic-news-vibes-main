@@ -236,3 +236,182 @@ export const getArticleById = (id: string): ArticleDetail | null => {
     id
   };
 };
+
+export const sameCategoryArticles: Article[] = [
+  {
+    id: "sc-1",
+    title: "Ngân hàng số tăng trưởng 40% trong năm 2024",
+    summary: "Xu hướng chuyển đổi số tiếp tục bùng nổ trong lĩnh vực tài chính.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80",
+    author: "Thanh Mai",
+    date: "18/01/2025",
+    readTime: "3 phút đọc"
+  },
+  {
+    id: "sc-2",
+    title: "Xuất khẩu thủy sản đạt kỷ lục 10 tỷ USD",
+    summary: "Tôm và cá tra là hai mặt hàng chủ lực.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1524177778556-9e90089e0ee5?w=600&q=80",
+    author: "Hải Yến",
+    date: "17/01/2025",
+    readTime: "3 phút đọc"
+  },
+  {
+    id: "sc-3",
+    title: "Bất động sản công nghiệp hút vốn FDI mạnh mẽ",
+    summary: "Các khu công nghiệp phía Nam ghi nhận tỷ lệ lấp đầy cao.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
+    author: "Quốc Bảo",
+    date: "17/01/2025",
+    readTime: "4 phút đọc"
+  },
+  {
+    id: "sc-4",
+    title: "Startup Việt gọi vốn 100 triệu USD Series C",
+    summary: "Đây là vòng gọi vốn lớn nhất trong lịch sử startup Việt Nam.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80",
+    author: "Startup Editor",
+    date: "16/01/2025",
+    readTime: "4 phút đọc"
+  },
+  {
+    id: "sc-5",
+    title: "Giá vàng SJC biến động mạnh dịp cuối năm",
+    summary: "Người dân đổ xô đi mua vàng tích trữ.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1610375461246-83df859d849d?w=600&q=80",
+    author: "Thị trường",
+    date: "15/01/2025",
+    readTime: "2 phút đọc"
+  },
+  {
+    id: "sc-6",
+    title: "VinFast mở rộng thị trường sang Bắc Âu",
+    summary: "Chiến lược toàn cầu hóa của hãng xe điện Việt Nam.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80",
+    author: "Xe & Công nghệ",
+    date: "15/01/2025",
+    readTime: "5 phút đọc"
+  }
+];
+
+export const youMayAlsoLikeArticles: Article[] = [
+  {
+    id: "ymal-1",
+    title: "Khám phá hang Sơn Đoòng: Kỳ quan thiên nhiên thế giới",
+    summary: "",
+    category: "Du lịch",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+    author: "Phương Nam",
+    date: "18/01/2025",
+    readTime: "6 phút đọc"
+  },
+  {
+    id: "ymal-2",
+    title: "Mùa hoa anh đào Nhật Bản: Lịch trình hoàn hảo",
+    summary: "",
+    category: "Du lịch",
+    image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=600&q=80",
+    author: "Yuki Trần",
+    date: "17/01/2025",
+    readTime: "5 phút đọc"
+  },
+  {
+    id: "ymal-3",
+    title: "Chế độ ăn Mediterranean tốt cho tim mạch",
+    summary: "",
+    category: "Sức khỏe",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    author: "BS. Minh Tuệ",
+    date: "17/01/2025",
+    readTime: "4 phút đọc"
+  },
+  {
+    id: "ymal-4",
+    title: "Tập thể dục buổi sáng: Lợi ích vượt trội",
+    summary: "",
+    category: "Sức khỏe",
+    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80",
+    author: "HLV Hoàng Anh",
+    date: "17/01/2025",
+    readTime: "3 phút đọc"
+  },
+  {
+    id: "ymal-5",
+    title: "Lễ hội đền Hùng 2025: Những hoạt động nổi bật",
+    summary: "",
+    category: "Văn hóa",
+    image: "https://images.unsplash.com/photo-1557456170-0cf4f4d0d3ce?w=600&q=80",
+    author: "Hồng Phúc",
+    date: "17/01/2025",
+    readTime: "4 phút đọc"
+  },
+  {
+    id: "ymal-6",
+    title: "Bảo tàng Lịch sử quốc gia ra mắt triển lãm mới",
+    summary: "",
+    category: "Văn hóa",
+    image: "https://images.unsplash.com/photo-1565060169194-124b6f790c6a?w=600&q=80",
+    author: "Thanh Trúc",
+    date: "16/01/2025",
+    readTime: "3 phút đọc"
+  },
+  {
+    id: "ymal-7",
+    title: "Đại học Việt Nam lọt bảng xếp hạng QS châu Á",
+    summary: "",
+    category: "Giáo dục",
+    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80",
+    author: "Thùy Linh",
+    date: "18/01/2025",
+    readTime: "4 phút đọc"
+  },
+  {
+    id: "ymal-8",
+    title: "Chương trình STEM được đưa vào giảng dạy từ lớp 1",
+    summary: "",
+    category: "Giáo dục",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80",
+    author: "Văn Phong",
+    date: "17/01/2025",
+    readTime: "4 phút đọc"
+  }
+];
+
+export const closeRelatedArticles: Article[] = [
+  {
+    id: "cr-1",
+    title: "Làn sóng AI đang thay đổi Silicon Valley như thế nào?",
+    summary: "Các gã khổng lồ công nghệ đang chạy đua vũ trang trong lĩnh vực AI.",
+    category: "Công nghệ",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
+    author: "Minh Châu",
+    date: "19/01/2025",
+    readTime: "5 phút đọc"
+  },
+  {
+    id: "cr-2",
+    title: "Cuộc chiến nhân tài AI: Lương triệu đô cho kỹ sư trẻ",
+    summary: "Sự khan hiếm nhân lực chất lượng cao đẩy mức đãi ngộ lên kỷ lục.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80",
+    author: "Tuyển dụng",
+    date: "18/01/2025",
+    readTime: "4 phút đọc"
+  },
+  {
+    id: "cr-3",
+    title: "Từ sinh viên bỏ học đến tỷ phú công nghệ",
+    summary: "Những câu chuyện truyền cảm hứng của các nhà sáng lập Gen Z.",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80",
+    author: "Đời sống",
+    date: "17/01/2025",
+    readTime: "6 phút đọc"
+  }
+];

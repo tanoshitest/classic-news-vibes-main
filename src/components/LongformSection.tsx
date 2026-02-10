@@ -7,15 +7,9 @@ import { Play, Mic, FileText, Camera, HelpCircle } from "lucide-react";
 const LongformSection = () => {
   const { language } = useLanguage();
   const featuredArticle = language === 'VN' ? longformArticle : longformArticleJP;
-  const sideArticles = language === 'VN' ? latestNews.slice(0, 6) : latestNewsJP.slice(0, 6);
+  const sideArticles = language === 'VN' ? latestNews.slice(0, 2) : latestNewsJP.slice(0, 2);
 
-  const navItems = [
-    { label: "VIDEO", icon: Play },
-    { label: "PODCAST", icon: Mic },
-    { label: "LONGFORM", icon: FileText },
-    { label: "STORY", icon: Camera },
-    { label: "QUIZZ", icon: HelpCircle },
-  ];
+
 
   return (
     <section className="py-12 my-8 bg-white">
@@ -24,20 +18,8 @@ const LongformSection = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 border-b-2 border-black/10 pb-4">
           <div className="flex items-center gap-2">
             <span className="text-red-600 font-bold text-2xl">/</span>
-            <h2 className="text-3xl font-black text-black tracking-tighter uppercase">E-MAGAZINE</h2>
+            <h2 className="text-3xl font-black text-black tracking-tighter uppercase">Longform</h2>
           </div>
-
-          <nav className="flex flex-wrap gap-4 md:gap-8">
-            {navItems.map((item, index) => (
-              <a
-                key={index}
-                href="#"
-                className="text-sm font-bold text-black/70 hover:text-black transition-colors uppercase"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
         </div>
 
         {/* Content Grid */}
@@ -45,7 +27,7 @@ const LongformSection = () => {
           {/* Featured Article (Left) */}
           <div className="lg:col-span-7 flex flex-col h-full">
             <Link to={`/article/${featuredArticle.id}`} className="group block flex-grow flex flex-col">
-              <div className="relative aspect-video overflow-hidden mb-4">
+              <div className="relative aspect-[4/3] overflow-hidden mb-4">
                 <img
                   src={featuredArticle.image}
                   alt={featuredArticle.title}
@@ -61,7 +43,7 @@ const LongformSection = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-black mb-3 leading-tight group-hover:text-black/80 transition-colors">
                 {featuredArticle.title}
               </h3>
-              <p className="text-black/80 text-base leading-relaxed line-clamp-3">
+              <p className="text-black/80 text-base leading-relaxed line-clamp-6">
                 {featuredArticle.summary}
               </p>
             </Link>
@@ -69,10 +51,10 @@ const LongformSection = () => {
 
           {/* Side Articles Grid (Right) */}
           <div className="lg:col-span-5 flex flex-col h-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8 h-full content-between">
+            <div className="flex flex-col gap-8 h-full justify-between">
               {sideArticles.map((article) => (
-                <Link key={article.id} to={`/article/${article.id}`} className="group block">
-                  <div className="relative aspect-video overflow-hidden mb-3">
+                <Link key={article.id} to={`/article/${article.id}`} className="group block flex flex-col flex-1">
+                  <div className="relative aspect-video overflow-hidden mb-3 w-full h-full">
                     <img
                       src={article.image}
                       alt={article.title}
@@ -84,7 +66,7 @@ const LongformSection = () => {
                       </span>
                     </div>
                   </div>
-                  <h4 className="font-bold text-sm text-black leading-snug group-hover:text-black/70 transition-colors line-clamp-3">
+                  <h4 className="font-bold text-lg text-black leading-snug group-hover:text-black/70 transition-colors line-clamp-2 mt-auto">
                     {article.title}
                   </h4>
                 </Link>

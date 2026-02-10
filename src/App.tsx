@@ -22,6 +22,8 @@ import ContactPage from "@/pages/ContactPage";
 import AboutPage from "@/pages/AboutPage";
 import ScrollToTop from "@/components/ScrollToTop";
 
+import LongformPage from "@/pages/LongformPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -34,6 +36,7 @@ const App = () => (
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/category/longform-e-magazine" element={<LongformPage />} />
             <Route path="/category/:slug" element={<CategoryPage />} />
             <Route path="/article/:id" element={<ArticlePage />} />
             <Route path="/author/:name" element={<AuthorPage />} />

@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import LongformSection from "@/components/LongformSection";
-import CategoryGrid from "@/components/CategoryGrid";
+import CategorySection from "@/components/CategorySection";
+import FinancialDataSection from "@/components/FinancialDataSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -11,7 +12,23 @@ const Index = () => {
       <main>
         <HeroSection />
         <LongformSection />
-        <CategoryGrid />
+
+        {/* Culture Section */}
+        <CategorySection category="Văn hóa" />
+
+        {/* Business Section */}
+        <CategorySection category="Kinh doanh" />
+
+        {/* Lifestyle Section */}
+        <CategorySection category="Đời sống" />
+
+        {/* Travel Section */}
+        <CategorySection category="Du lịch" />
+
+        {/* Health Section */}
+        <CategorySection category="Sức khỏe" />
+
+        <FinancialDataSection />
       </main>
       <Footer />
     </div>

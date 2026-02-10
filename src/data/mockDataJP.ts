@@ -154,3 +154,54 @@ export const longformArticleJP: Article = {
     date: "2025/01/15",
     readTime: "12分"
 };
+
+export const categoryDataJP: Record<string, Article[]> = {
+    "文化": [
+        {
+            id: "dl-3",
+            title: "2025年フン王祭り：注目の活動",
+            summary: "フン王の命日を祝う特別な文化プログラム。",
+            category: "文化",
+            image: "https://images.unsplash.com/photo-1557456170-0cf4f4d0d3ce?w=600&q=80",
+            author: "Hong Phuc",
+            date: "2025/01/17",
+            readTime: "4分"
+        },
+        {
+            id: "dl-5",
+            title: "国立歴史博物館が新展示を開始",
+            summary: "李朝・陳朝時代の貴重な遺物を展示。",
+            category: "文化",
+            image: "https://images.unsplash.com/photo-1565060169194-124b6f790c6a?w=600&q=80",
+            author: "Thanh Truc",
+            date: "2025/01/16",
+            readTime: "3分"
+        },
+        {
+            id: "vh-3",
+            title: "ベトナムの漆芸：世界への旅",
+            summary: "ベトナムの漆作品は国際市場でますます高く評価されています。",
+            category: "文化",
+            image: "https://images.unsplash.com/photo-1578321272176-b7bbc06b9cc3?w=600&q=80",
+            author: "Hoang Anh",
+            date: "2025/01/15",
+            readTime: "5分"
+        },
+        {
+            id: "vh-4",
+            title: "古い工芸村での伝統的な祭りの復元",
+            summary: "統合の時代における国民の文化的アイデンティティを維持する努力。",
+            category: "文化",
+            image: "https://images.unsplash.com/photo-1583096114844-065dc69bc283?w=600&q=80",
+            author: "Minh Tam",
+            date: "2025/01/14",
+            readTime: "4分"
+        }
+    ]
+};
+
+export const mostViewedArticlesJP: Article[] = [
+    ...latestNewsJP,
+    ...subHeroArticlesJP,
+    latestNewsJP[0]
+];
