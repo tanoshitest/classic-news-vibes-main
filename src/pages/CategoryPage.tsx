@@ -105,6 +105,11 @@ const CategoryPage = () => {
                       src={spotlightArticle.image}
                       alt={spotlightArticle.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80";
+                        target.onerror = null;
+                      }}
                     />
                   </div>
                   <h2 className="font-serif text-2xl md:text-3xl font-bold leading-tight group-hover:text-primary transition-colors">
@@ -126,6 +131,11 @@ const CategoryPage = () => {
                           src={article.image}
                           alt={article.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80";
+                            target.onerror = null;
+                          }}
                         />
                       </div>
                       <h3 className="font-serif text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-3">
@@ -170,6 +180,11 @@ const CategoryPage = () => {
                           src={article.image}
                           alt={article.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80";
+                            target.onerror = null;
+                          }}
                         />
                       </div>
                     </div>

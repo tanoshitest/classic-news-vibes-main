@@ -7,32 +7,23 @@ const FinancialDataSection = () => {
             type: "currency",
             code: "USD",
             name: "Đô la Mỹ",
-            buy: "25,310",
-            sell: "25,680",
-            change: "+0.15%",
-            trend: "up",
-            icon: "🇺🇸"
+            buy: "25,650",
+            sell: "26,060",
+            change: "-0.25%",
+            trend: "down",
+            icon: "🇺🇸",
+            unit: undefined
         },
         {
             type: "currency",
             code: "JPY",
             name: "Yên Nhật",
-            buy: "163.52",
-            sell: "171.12",
-            change: "-0.21%",
-            trend: "down",
-            icon: "🇯🇵"
-        },
-        {
-            type: "gold",
-            code: "SJC",
-            name: "Vàng SJC (1L)",
-            buy: "78.50",
-            sell: "80.50",
-            unit: "Triệu/Lượng",
-            change: "+0.50",
+            buy: "160.68",
+            sell: "170.89",
+            change: "+0.30%",
             trend: "up",
-            icon: "🏆"
+            icon: "🇯🇵",
+            unit: undefined
         }
     ];
 
@@ -50,16 +41,13 @@ const FinancialDataSection = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {data.map((item, index) => (
                         <div key={index} className="bg-white p-6 rounded-sm shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                             <div className="flex items-center justify-between mb-4">
-                                <div className="flex items-center gap-3">
-                                    <span className="text-3xl">{item.icon}</span>
-                                    <div>
-                                        <h3 className="font-bold text-lg text-gray-900">{item.code}</h3>
-                                        <p className="text-sm text-gray-500">{item.name}</p>
-                                    </div>
+                                <div>
+                                    <h3 className="font-bold text-lg text-gray-900">{item.code}</h3>
+                                    <p className="text-sm text-gray-500">{item.name}</p>
                                 </div>
                                 <div className={`flex items-center gap-1 text-sm font-medium ${item.trend === 'up' ? 'text-green-600' : 'text-red-600'}`}>
                                     {item.trend === 'up' ? <ArrowUpRight className="w-4 h-4" /> : <ArrowDownRight className="w-4 h-4" />}

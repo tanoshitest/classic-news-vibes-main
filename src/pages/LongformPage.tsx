@@ -5,7 +5,7 @@ import { getArticlesByCategory } from "@/data/mockData";
 import { useEffect } from "react";
 
 const LongformPage = () => {
-    const articles = getArticlesByCategory("Longform / E-magazine");
+    const articles = getArticlesByCategory("Longform");
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -20,9 +20,14 @@ const LongformPage = () => {
                 <div className="relative w-full h-[350px] overflow-hidden">
                     {/* Background Image */}
                     <img
-                        src="https://images.unsplash.com/photo-1596377771744-8d9633917861?w=1600&q=80" // Iconic Ben Thanh Market Facade
-                        alt="Ben Thanh Market Cover"
+                        src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1600&q=80" // Reliable Generic Vietnam/Hanoi Image
+                        alt="Longform Cover"
                         className="absolute inset-0 w-full h-full object-cover"
+                        onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80"; // Fallback to Halong Bay
+                            target.onerror = null;
+                        }}
                     />
                     {/* Dark Overlay */}
                     <div className="absolute inset-0 bg-black/40"></div>

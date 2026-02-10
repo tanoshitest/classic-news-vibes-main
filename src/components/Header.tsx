@@ -22,7 +22,7 @@ const categoryKeyMap: Record<string, string> = {
   "Văn hóa": "category_Culture",
   "Giáo dục": "category_Education",
   "Sức khỏe": "category_Health",
-  "Longform / E-magazine": "category_Longform"
+  "Longform": "category_Longform"
 };
 
 const Header = () => {

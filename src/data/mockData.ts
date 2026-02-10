@@ -214,6 +214,46 @@ export const categoryData: Record<string, Article[]> = {
       author: "Hoàng Linh",
       date: "16/01/2025",
       readTime: "3 phút đọc"
+    },
+    {
+      id: "kd-6",
+      title: "Thương mại điện tử: Cuộc đua của những 'gã khổng lồ'",
+      summary: "Các sàn TMĐT tung ra nhiều chiến dịch khuyến mãi lớn.",
+      category: "Kinh doanh",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80",
+      author: "Ngọc Minh",
+      date: "15/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "kd-7",
+      title: "Giá vàng thế giới lập đỉnh mới",
+      summary: "Nhà đầu tư tìm đến kênh trú ẩn an toàn.",
+      category: "Kinh doanh",
+      image: "https://images.unsplash.com/photo-1610375461246-83df859d849d?w=600&q=80",
+      author: "Thanh Hà",
+      date: "15/01/2025",
+      readTime: "2 phút đọc"
+    },
+    {
+      id: "kd-8",
+      title: "Doanh nghiệp dệt may đón nhận nhiều đơn hàng mới",
+      summary: "Tín hiệu phục hồi tích cực cho ngành xuất khẩu chủ lực.",
+      category: "Kinh doanh",
+      image: "https://images.unsplash.com/photo-1534078362425-387ae9668c17?w=600&q=80",
+      author: "Văn Hùng",
+      date: "14/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "kd-9",
+      title: "Làn sóng đầu tư xanh tại Việt Nam",
+      summary: "Các dự án năng lượng tái tạo thu hút vốn ngoại.",
+      category: "Kinh doanh",
+      image: "https://images.unsplash.com/photo-1508514177221-188b1cf2f24f?w=600&q=80",
+      author: "Minh Tuấn",
+      date: "14/01/2025",
+      readTime: "5 phút đọc"
     }
   ],
   "Xã hội": [
@@ -431,6 +471,76 @@ export const categoryData: Record<string, Article[]> = {
       author: "An Nhiên",
       date: "16/01/2025",
       readTime: "4 phút đọc"
+    },
+    {
+      id: "dl-5",
+      title: "Du lịch Phú Quốc bùng nổ dịp đầu năm",
+      summary: "Các resort 5 sao kín phòng nhờ lượng khách quốc tế tăng vọt.",
+      category: "Du lịch",
+      image: "https://images.unsplash.com/photo-1540202404-a671b47ee758?w=600&q=80",
+      author: "Hải Đăng",
+      date: "15/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "dl-6",
+      title: "Chinh phục đỉnh Tà Xùa: Biển mây tuyệt đẹp",
+      summary: "Điểm đến lý tưởng cho dân phượt thích săn mây.",
+      category: "Du lịch",
+      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80",
+      author: "Minh Khang",
+      date: "15/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "dl-7",
+      title: "Kinh nghiệm du lịch Thái Lan tự túc cho người mới",
+      summary: "Lịch trình 4 ngày 3 đêm khám phá Bangkok và Pattaya.",
+      category: "Du lịch",
+      image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80",
+      author: "Thu Thảo",
+      date: "14/01/2025",
+      readTime: "6 phút đọc"
+    },
+    {
+      id: "dl-8",
+      title: "Hà Giang mùa hoa tam giác mạch: Vẻ đẹp nao lòng",
+      summary: "Những cánh đồng hoa trải dài trên cao nguyên đá.",
+      category: "Du lịch",
+      image: "https://images.unsplash.com/photo-1528127269322-539801943592?w=600&q=80",
+      author: "Văn Nam",
+      date: "14/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "dl-9",
+      title: "Top 5 homestay đẹp nhất Đà Lạt giá rẻ",
+      summary: "Không gian chill, view đồi thông mộng mơ.",
+      category: "Du lịch",
+      image: "https://images.unsplash.com/photo-1518733057094-95b53143d2a7?w=600&q=80",
+      author: "Thanh Trúc",
+      date: "13/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "dl-10",
+      title: "Du lịch sinh thái miền Tây: Trải nghiệm sông nước",
+      summary: "Tham quan chợ nổi Cái Răng và vườn trái cây sai trĩu quả.",
+      category: "Du lịch",
+      image: "https://images.unsplash.com/photo-1565619624-9c4c7c980869?w=600&q=80",
+      author: "Miền Tây",
+      date: "13/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "dl-11",
+      title: "Cẩm nang du thuyền Hạ Long 2 ngày 1 đêm",
+      summary: "Tận hưởng dịch vụ sang trọng giữa kỳ quan thiên nhiên.",
+      category: "Du lịch",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+      author: "Luxury Travel",
+      date: "12/01/2025",
+      readTime: "4 phút đọc"
     }
   ],
   "Văn hóa": [
@@ -472,6 +582,56 @@ export const categoryData: Record<string, Article[]> = {
       image: "https://images.unsplash.com/photo-1583096114844-065dc69bc283?w=600&q=80",
       author: "Minh Tâm",
       date: "14/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "vh-5",
+      title: "Điện ảnh Việt Nam 2024: Một năm nhìn lại",
+      summary: "Những bộ phim đạt doanh thu trăm tỷ và dấu ấn nghệ thuật.",
+      category: "Văn hóa",
+      image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80",
+      author: "Hồng Đăng",
+      date: "13/01/2025",
+      readTime: "6 phút đọc"
+    },
+    {
+      id: "vh-6",
+      title: "Văn hóa đọc trong kỷ nguyên số",
+      summary: "Sách giấy vẫn giữ vị trí quan trọng trong lòng độc giả trẻ.",
+      category: "Văn hóa",
+      image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=80",
+      author: "Thu Trang",
+      date: "13/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "vh-7",
+      title: "Áo dài Việt Nam: Biểu tượng vẻ đẹp vượt thời gian",
+      summary: "Các nhà thiết kế trẻ cách tân áo dài nhưng vẫn giữ nét truyền thống.",
+      category: "Văn hóa",
+      image: "https://images.unsplash.com/photo-1604514287895-8857c5a01944?w=600&q=80",
+      author: "Mai Phương",
+      date: "12/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "vh-8",
+      title: "Giao lưu văn hóa Việt - Nhật kỷ niệm 50 năm quan hệ",
+      summary: "Nhiều hoạt động nghệ thuật đặc sắc diễn ra tại Hà Nội và TP.HCM.",
+      category: "Văn hóa",
+      image: "https://images.unsplash.com/photo-1480796927426-f609979314bd?w=600&q=80",
+      author: "Đức Hùng",
+      date: "12/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "vh-9",
+      title: "Bảo tồn làn điệu dân ca quan họ Bắc Ninh",
+      summary: "Truyền dạy cho thế hệ trẻ niềm đam mê với di sản.",
+      category: "Văn hóa",
+      image: "https://images.unsplash.com/photo-1596282072382-7e761c519c25?w=600&q=80",
+      author: "Thanh Hương",
+      date: "11/01/2025",
       readTime: "4 phút đọc"
     }
   ],
@@ -577,15 +737,65 @@ export const categoryData: Record<string, Article[]> = {
       author: "BS. Thu Vân",
       date: "16/01/2025",
       readTime: "4 phút đọc"
+    },
+    {
+      id: "sk-6",
+      title: "Uống đủ nước mỗi ngày: Lợi ích không ngờ",
+      summary: "Nước giúp thanh lọc cơ thể và làm đẹp da.",
+      category: "Sức khỏe",
+      image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&q=80",
+      author: "Dinh Dưỡng",
+      date: "15/01/2025",
+      readTime: "2 phút đọc"
+    },
+    {
+      id: "sk-7",
+      title: "Yoga cho dân văn phòng: Giảm đau vai gáy",
+      summary: "Các động tác giãn cơ đơn giản có thể tập tại chỗ làm.",
+      category: "Sức khỏe",
+      image: "https://images.unsplash.com/photo-1544367563-12123d8965cd?w=600&q=80",
+      author: "Yogi Mai",
+      date: "15/01/2025",
+      readTime: "5 phút đọc"
+    },
+    {
+      id: "sk-8",
+      title: "Cảnh báo gia tăng các bệnh về hô hấp ở trẻ em",
+      summary: "Cha mẹ cần lưu ý giữ ấm và vệ sinh mũi họng cho trẻ.",
+      category: "Sức khỏe",
+      image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80",
+      author: "BS. Nhi Khoa",
+      date: "14/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "sk-9",
+      title: "Thực phẩm giàu Vitamin C tăng sức đề kháng",
+      summary: "Cam, ổi, kiwi là những lựa chọn hàng đầu.",
+      category: "Sức khỏe",
+      image: "https://images.unsplash.com/photo-1565355204285-8b010c733355?w=600&q=80",
+      author: "Nutritionist",
+      date: "14/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "sk-10",
+      title: "Tác hại của việc ngồi quá lâu và cách khắc phục",
+      summary: "Những bài tập nhỏ giúp tăng cường tuần hoàn máu.",
+      category: "Sức khỏe",
+      image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=600&q=80",
+      author: "HLV Thể Lực",
+      date: "13/01/2025",
+      readTime: "4 phút đọc"
     }
   ],
-  "Longform / E-magazine": [
+  "Longform": [
     longformArticle,
     {
       id: "lf-2",
       title: "Kiến trúc Đông Dương: Dấu ấn thời gian",
       summary: "Hành trình tìm về những công trình kiến trúc mang đậm dấu ấn lịch sử giữa lòng Hà Nội.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1555921015-5532091f6026?w=600&q=80",
       author: "KTS. Thanh Tùng",
       date: "14/01/2025",
@@ -595,7 +805,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-3",
       title: "Người trẻ bỏ phố về quê: Giấc mơ hay thực tế khốc liệt?",
       summary: "Những câu chuyện chưa kể về trào lưu 'bỏ phố về rừng'.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80",
       author: "Ngọc Lan",
       date: "12/01/2025",
@@ -606,7 +816,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-4",
       title: "Một số vấn đề cốt lõi trong chính sách đối ngoại mới",
       summary: "Phân tích sâu sắc về những thay đổi chiến lược trong quan hệ quốc tế.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=800&q=80",
       author: "Minh Quân",
       date: "10/01/2025",
@@ -616,7 +826,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-5",
       title: "Tăng cường quan hệ hữu nghị và hợp tác toàn diện",
       summary: "Những bước tiến mới trong việc thắt chặt tình đoàn kết giữa các quốc gia.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1529104661501-69671d579633?w=800&q=80",
       author: "Hồng Hà",
       date: "09/01/2025",
@@ -626,7 +836,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-6",
       title: "Chiến lược phát triển kinh tế vùng biên giới",
       summary: "Cơ hội và thách thức trong việc thúc đẩy giao thương cửa khẩu.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80",
       author: "Tuấn Anh",
       date: "08/01/2025",
@@ -636,7 +846,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-7",
       title: "Bảo tồn văn hóa cồng chiêng Tây Nguyên",
       summary: "Nỗ lực gìn giữ di sản văn hóa phi vật thể của nhân loại.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1583096114844-065dc69bc283?w=800&q=80",
       author: "Mai Phương",
       date: "07/01/2025",
@@ -646,7 +856,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-8",
       title: "Đổi mới sáng tạo: Chìa khóa cho tăng trưởng bền vững",
       summary: "Cách mạng công nghiệp 4.0 và những tác động đến nền kinh tế.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
       author: "Thanh Sơn",
       date: "06/01/2025",
@@ -656,7 +866,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-9",
       title: "Hành trình di sản: Từ Huế đến Hội An",
       summary: "Khám phá con đường di sản miền Trung qua lăng kính nhiếp ảnh.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
       author: "Nam Khánh",
       date: "05/01/2025",
@@ -666,7 +876,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-10",
       title: "Biến đổi khí hậu và tác động đến Đồng bằng sông Cửu Long",
       summary: "Thực trạng xâm nhập mặn và giải pháp thích ứng cho người dân.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1536869408432-83569477a33c?w=800&q=80",
       author: "Hoàng Dũng",
       date: "04/01/2025",
@@ -676,7 +886,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-11",
       title: "Làng nghề truyền thống trước nguy cơ mai một",
       summary: "Câu chuyện của những nghệ nhân cuối cùng.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1593457176162-84950e309cc8?w=800&q=80",
       author: "Thu Thảo",
       date: "03/01/2025",
@@ -686,7 +896,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-12",
       title: "Nông nghiệp công nghệ cao: Hướng đi mới cho nông dân",
       summary: "Ứng dụng IoT vào sản xuất nông nghiệp tại Đà Lạt.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?w=800&q=80",
       author: "Văn Hùng",
       date: "02/01/2025",
@@ -696,7 +906,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-13",
       title: "Vẻ đẹp hùng vĩ của Cao nguyên đá Đồng Văn",
       summary: "Sức sống mãnh liệt trên miền đá xám.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
       author: "Minh Tâm",
       date: "01/01/2025",
@@ -706,7 +916,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-14",
       title: "Thúc đẩy bình đẳng giới trong thời đại số",
       summary: "Cơ hội lãnh đạo cho phụ nữ trong kỷ nguyên công nghệ.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80",
       author: "Lan Hương",
       date: "30/12/2024",
@@ -716,7 +926,7 @@ export const categoryData: Record<string, Article[]> = {
       id: "lf-15",
       title: "Giáo dục vùng cao: Những con chữ gieo mầm hy vọng",
       summary: "Hành trình mang tri thức đến với trẻ em nghèo.",
-      category: "Longform / E-magazine",
+      category: "Longform",
       image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
       author: "Đức Trí",
       date: "29/12/2024",
@@ -760,7 +970,7 @@ export const categories = [
   "Đời sống",
   "Du lịch",
   "Sức khỏe",
-  "Longform / E-magazine"
+  "Longform"
 ];
 
 // Category slug mapping
@@ -772,7 +982,7 @@ export const categorySlugMap: Record<string, string> = {
   "doi-song": "Đời sống",
   "du-lich": "Du lịch",
   "suc-khoe": "Sức khỏe",
-  "longform-e-magazine": "Longform / E-magazine",
+  "longform-e-magazine": "Longform",
   // Keep these for legacy urls
   "xa-hoi": "Xã hội",
   "giao-duc": "Giáo dục"
@@ -788,8 +998,25 @@ export const getCategoryDisplayName = (slug: string): string => {
 };
 
 export const getArticlesByCategory = (categoryName: string): Article[] => {
-  if (categoryName === "Mới nhất") return latestNews;
-  if (categoryName === "Đọc nhiều") return mostViewedArticles;
+  if (categoryName === "Mới nhất") {
+    return [
+      ...latestNews,
+      ...categoryData["Kinh doanh"],
+      ...categoryData["Xã hội"],
+      ...categoryData["Văn hóa"],
+      ...categoryData["Du lịch"],
+      ...categoryData["Sức khỏe"],
+    ];
+  }
+  if (categoryName === "Đọc nhiều") {
+    return [
+      ...mostViewedArticles,
+      ...categoryData["Đời sống"],
+      ...categoryData["Du lịch"],
+      ...categoryData["Sức khỏe"],
+      ...categoryData["Kinh doanh"],
+    ];
+  }
 
   const categoryArticles = categoryData[categoryName] || [];
   // Add more mock articles for pagination demo

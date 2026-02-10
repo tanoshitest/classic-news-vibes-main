@@ -41,7 +41,7 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
 
     // Most Read Data (8 items) - Reused for all sections as per "layout y hệt"
     const mostReadList = language === 'VN' ? mostViewedArticles : mostViewedArticlesJP;
-    const displayMostRead = mostReadList.slice(0, 8); // Or randomize/rotate if desired
+    const displayMostRead = mostReadList.slice(0, 6); // Or randomize/rotate if desired
 
     // Labels
     const mostReadTitle = language === 'VN' ? "Đọc nhiều" : "よく読まれています";
@@ -117,11 +117,11 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
                             {mostReadTitle}
                         </h3>
 
-                        <div className="grid grid-rows-4 grid-flow-col gap-x-6 gap-y-6">
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-6">
                             {displayMostRead.map((article) => (
                                 <Link key={article.id} to={`/article/${article.id}`} className="group block">
-                                    <div className="flex gap-3 items-start">
-                                        <div className="w-[80px] h-[60px] flex-shrink-0 overflow-hidden rounded-sm bg-gray-100">
+                                    <div className="flex flex-col gap-2">
+                                        <div className="aspect-[3/2] w-full overflow-hidden rounded-sm bg-gray-100 mb-1">
                                             <img
                                                 src={article.image}
                                                 alt={article.title}
@@ -134,9 +134,12 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
                                             />
                                         </div>
                                         <div className="flex-1 min-w-0">
-                                            <h4 className="text-sm font-bold text-gray-900 leading-tight group-hover:text-primary transition-colors line-clamp-3">
+                                            <h4 className="text-base font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors line-clamp-2 mb-1">
                                                 {article.title}
                                             </h4>
+                                            <p className="text-xs text-gray-500 line-clamp-2">
+                                                {article.summary}
+                                            </p>
                                         </div>
                                     </div>
                                 </Link>

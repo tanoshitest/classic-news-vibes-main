@@ -17,7 +17,6 @@ const LongformSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 border-b-2 border-black/10 pb-4">
           <div className="flex items-center gap-2">
-            <span className="text-red-600 font-bold text-2xl">/</span>
             <h2 className="text-3xl font-black text-black tracking-tighter uppercase">Longform</h2>
           </div>
         </div>
