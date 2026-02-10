@@ -16,9 +16,12 @@ import {
   nextArticle,
   sameCategoryArticles,
   youMayAlsoLikeArticles,
-  closeRelatedArticles
+  closeRelatedArticles,
+  detailedArticle
 } from "@/data/articleContent";
-import { getCategorySlug } from "@/data/mockData";
+import { getCategorySlug, categoryData } from "@/data/mockData";
+
+import LongformArticle from "@/components/LongformArticle";
 
 const ArticlePage = () => {
   const { id } = useParams<{ id: string }>();
@@ -43,6 +46,22 @@ const ArticlePage = () => {
         <Footer />
       </div>
     );
+  }
+
+  console.log("ArticlePage Rendered", { id, article });
+
+  // Check if this is a Longform article
+  if (article) {
+    console.log("Checking Longform condition:", {
+      category: article.category,
+      id: article.id,
+      match: article.category === "Longform" || article.id === "longform-japan"
+    });
+  }
+
+  if (article.category === "Longform" || article.id === "longform-japan") {
+    console.log("Rendering LongformArticle component");
+    return <LongformArticle article={article} content={article.content} />;
   }
 
   const categorySlug = getCategorySlug(article.category);

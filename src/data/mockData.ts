@@ -156,7 +156,7 @@ export const longformArticle: Article = {
   id: "longform-1",
   title: "Hành trình chinh phục đỉnh Fansipan: Từ rừng già đến nóc nhà Đông Dương",
   summary: "Khám phá vẻ đẹp hùng vĩ của dãy Hoàng Liên Sơn và những câu chuyện của người dân địa phương qua góc nhìn của phóng viên.",
-  category: "E-Magazine",
+  category: "Longform",
   image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80",
   author: "Phóng viên Thảo Nguyên",
   date: "15/01/2025",
@@ -790,9 +790,48 @@ export const categoryData: Record<string, Article[]> = {
     }
   ],
   "Longform": [
-    longformArticle,
     {
-      id: "lf-2",
+      id: "latest-1",
+      title: "VN-Index tăng điểm phiên thứ 5 liên tiếp",
+      summary: "Thị trường chứng khoán tiếp tục khởi sắc với thanh khoản cao.",
+      category: "Longform",
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80",
+      author: "Quang Huy",
+      date: "18/01/2025",
+      readTime: "4 phút đọc"
+    },
+    {
+      id: "latest-2",
+      title: "Startup công nghệ Việt gọi vốn 50 triệu USD từ quỹ ngoại",
+      summary: "Đây là khoản đầu tư lớn nhất trong lĩnh vực fintech năm nay.",
+      category: "Longform",
+      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&q=80",
+      author: "Thanh Tùng",
+      date: "18/01/2025",
+      readTime: "3 phút đọc"
+    },
+    {
+      id: "longform-japan",
+      title: "Làn sóng đầu tư Nhật Bản vào Việt Nam: Tầm nhìn thập kỷ mới",
+      summary: "Từ những nhà máy sản xuất xe máy đầu tiên đến các dự án công nghệ cao và bán lẻ hiện đại, dòng vốn FDI từ Nhật Bản đang chuyển mình mạnh mẽ.",
+      category: "Longform", // Changed from E-Magazine
+      image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&q=80",
+      author: "Trần Anh & Kenji Tanaka",
+      date: "20/01/2025",
+      readTime: "15 phút đọc"
+    },
+    {
+      id: "longform-1",
+      title: "Hành trình chinh phục đỉnh Fansipan: Từ rừng già đến nóc nhà Đông Dương",
+      summary: "Khám phá vẻ đẹp hùng vĩ của dãy Hoàng Liên Sơn và những câu chuyện của người dân địa phương qua góc nhìn của phóng viên.",
+      category: "Longform",
+      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80",
+      author: "Phóng viên Thảo Nguyên",
+      date: "15/01/2025",
+      readTime: "12 phút đọc"
+    },
+    {
+      id: "longform-3",
       title: "Kiến trúc Đông Dương: Dấu ấn thời gian",
       summary: "Hành trình tìm về những công trình kiến trúc mang đậm dấu ấn lịch sử giữa lòng Hà Nội.",
       category: "Longform",
@@ -802,7 +841,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "10 phút đọc"
     },
     {
-      id: "lf-3",
+      id: "longform-4",
       title: "Người trẻ bỏ phố về quê: Giấc mơ hay thực tế khốc liệt?",
       summary: "Những câu chuyện chưa kể về trào lưu 'bỏ phố về rừng'.",
       category: "Longform",
@@ -813,7 +852,7 @@ export const categoryData: Record<string, Article[]> = {
     },
     // New Longform Articles
     {
-      id: "lf-4",
+      id: "longform-5",
       title: "Một số vấn đề cốt lõi trong chính sách đối ngoại mới",
       summary: "Phân tích sâu sắc về những thay đổi chiến lược trong quan hệ quốc tế.",
       category: "Longform",
@@ -823,7 +862,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "20 phút đọc"
     },
     {
-      id: "lf-5",
+      id: "longform-6",
       title: "Tăng cường quan hệ hữu nghị và hợp tác toàn diện",
       summary: "Những bước tiến mới trong việc thắt chặt tình đoàn kết giữa các quốc gia.",
       category: "Longform",
@@ -833,7 +872,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "18 phút đọc"
     },
     {
-      id: "lf-6",
+      id: "longform-7",
       title: "Chiến lược phát triển kinh tế vùng biên giới",
       summary: "Cơ hội và thách thức trong việc thúc đẩy giao thương cửa khẩu.",
       category: "Longform",
@@ -843,7 +882,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "15 phút đọc"
     },
     {
-      id: "lf-7",
+      id: "longform-8",
       title: "Bảo tồn văn hóa cồng chiêng Tây Nguyên",
       summary: "Nỗ lực gìn giữ di sản văn hóa phi vật thể của nhân loại.",
       category: "Longform",
@@ -853,7 +892,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "12 phút đọc"
     },
     {
-      id: "lf-8",
+      id: "longform-9",
       title: "Đổi mới sáng tạo: Chìa khóa cho tăng trưởng bền vững",
       summary: "Cách mạng công nghiệp 4.0 và những tác động đến nền kinh tế.",
       category: "Longform",
@@ -863,7 +902,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "16 phút đọc"
     },
     {
-      id: "lf-9",
+      id: "longform-10",
       title: "Hành trình di sản: Từ Huế đến Hội An",
       summary: "Khám phá con đường di sản miền Trung qua lăng kính nhiếp ảnh.",
       category: "Longform",
@@ -873,7 +912,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "14 phút đọc"
     },
     {
-      id: "lf-10",
+      id: "longform-11",
       title: "Biến đổi khí hậu và tác động đến Đồng bằng sông Cửu Long",
       summary: "Thực trạng xâm nhập mặn và giải pháp thích ứng cho người dân.",
       category: "Longform",
@@ -883,7 +922,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "22 phút đọc"
     },
     {
-      id: "lf-11",
+      id: "longform-12",
       title: "Làng nghề truyền thống trước nguy cơ mai một",
       summary: "Câu chuyện của những nghệ nhân cuối cùng.",
       category: "Longform",
@@ -893,7 +932,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "10 phút đọc"
     },
     {
-      id: "lf-12",
+      id: "longform-13",
       title: "Nông nghiệp công nghệ cao: Hướng đi mới cho nông dân",
       summary: "Ứng dụng IoT vào sản xuất nông nghiệp tại Đà Lạt.",
       category: "Longform",
@@ -903,7 +942,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "15 phút đọc"
     },
     {
-      id: "lf-13",
+      id: "longform-14",
       title: "Vẻ đẹp hùng vĩ của Cao nguyên đá Đồng Văn",
       summary: "Sức sống mãnh liệt trên miền đá xám.",
       category: "Longform",
@@ -913,7 +952,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "12 phút đọc"
     },
     {
-      id: "lf-14",
+      id: "longform-15",
       title: "Thúc đẩy bình đẳng giới trong thời đại số",
       summary: "Cơ hội lãnh đạo cho phụ nữ trong kỷ nguyên công nghệ.",
       category: "Longform",
@@ -923,7 +962,7 @@ export const categoryData: Record<string, Article[]> = {
       readTime: "18 phút đọc"
     },
     {
-      id: "lf-15",
+      id: "longform-16",
       title: "Giáo dục vùng cao: Những con chữ gieo mầm hy vọng",
       summary: "Hành trình mang tri thức đến với trẻ em nghèo.",
       category: "Longform",

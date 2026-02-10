@@ -1,13 +1,43 @@
-import { Article } from "./mockData";
+import { Article, categoryData } from "./mockData";
 
 export interface ArticleDetail extends Article {
   location?: string;
   content: ArticleContent[];
   tags: string[];
 }
+// ... (interfaces remain the same)
+
+// Helper to get article by ID
+export const getArticleById = (id: string): ArticleDetail | null => {
+  // 1. Specific overrides for articles with custom content
+  if (id === "longform-japan") {
+    return japanInvestmentArticle;
+  }
+
+  // 2. Search in all categories to find the real metadata
+  // This ensures we get the correct Title, Image, and CATEGORY
+  console.log("Searching for article:", id);
+  for (const category in categoryData) {
+    const list = categoryData[category] || [];
+    const found = list.find((a) => a.id === id);
+    if (found) {
+      console.log("Found article in category:", category, found);
+      return {
+        ...detailedArticle, // Use default content/tags as base structure
+        ...found,           // Overwrite with specific metadata (title, image, author, CATEGORY)
+      };
+    }
+  }
+
+  // 3. Fallback for IDs not in specific lists (shouldn't happen often if data is consistent)
+  return {
+    ...detailedArticle,
+    id
+  };
+};
 
 export interface ArticleContent {
-  type: "paragraph" | "image" | "quote";
+  type: "paragraph" | "image" | "quote" | "heading";
   text?: string;
   src?: string;
   caption?: string;
@@ -58,6 +88,63 @@ export const detailedArticle: ArticleDetail = {
     {
       type: "paragraph",
       text: "Nhìn về tương lai, các chuyên gia dự đoán xu hướng trẻ hóa trong lĩnh vực AI sẽ tiếp tục. Sự phổ biến của các khóa học trực tuyến, tài liệu mã nguồn mở và công cụ phát triển ngày càng dễ tiếp cận đã giúp rút ngắn thời gian cần thiết để nắm vững công nghệ AI. Thế hệ doanh nhân tiếp theo có thể còn trẻ hơn nữa, khi mà ranh giới giữa học tập và khởi nghiệp ngày càng mờ nhạt."
+    }
+  ]
+};
+
+export const japanInvestmentArticle: ArticleDetail = {
+  id: "longform-japan",
+  title: "Làn sóng đầu tư Nhật Bản vào Việt Nam: Tầm nhìn thập kỷ mới",
+  summary: "Từ những nhà máy sản xuất xe máy đầu tiên đến các dự án công nghệ cao và bán lẻ hiện đại, dòng vốn FDI từ Nhật Bản đang chuyển mình mạnh mẽ, mở ra một chương mới trong quan hệ hợp tác kinh tế song phương.",
+  category: "Longform",
+  image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1600&q=80",
+  author: "Trần Anh & Kenji Tanaka",
+  date: "20/01/2025",
+  readTime: "15 phút đọc",
+  location: "Tokyo - Hà Nội",
+  tags: ["FDI", "Nhật Bản", "Kinh tế", "Hợp tác", "Đầu tư"],
+  content: [
+    {
+      type: "paragraph",
+      text: "Trong suốt ba thập kỷ qua, Nhật Bản luôn giữ vững vị thế là một trong những đối tác chiến lược quan trọng nhất của kinh tế Việt Nam. Những chiếc xe máy Honda, tủ lạnh Hitachi hay mì ăn liền Acecook đã trở thành một phần không thể thiếu trong đời sống người Việt. Tuy nhiên, khi thế giới bước vào kỷ nguyên số và phát triển bền vững, dòng vốn đầu tư từ xứ sở hoa anh đào cũng đang trải qua những thay đổi căn bản về chất."
+    },
+    {
+      type: "heading",
+      text: "Sự dịch chuyển của dòng vốn FDI"
+    },
+    {
+      type: "paragraph",
+      text: "Nếu như trước đây, các doanh nghiệp Nhật Bản tập trung chủ yếu vào lĩnh vực sản xuất, lắp ráp nhằm tận dụng nguồn lao động giá rẻ, thì nay, xu hướng đang chuyển dịch mạnh mẽ sang các ngành công nghệ cao, dịch vụ và bán lẻ. Các tập đoàn lớn như AEON, Uniqlo hay MUJI đang mở rộng mạng lưới với tốc độ chóng mặt, trong khi các công ty công nghệ tìm kiếm nhân tài lập trình viên Việt Nam để phát triển các giải pháp AI và Blockchain."
+    },
+    {
+      type: "quote",
+      text: "Việt Nam không còn là công xưởng giá rẻ, mà là thị trường tiêu thụ đầy tiềm năng và trung tâm ni mới sáng tạo của khu vực."
+    },
+    {
+      type: "image",
+      src: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1200&q=80",
+      caption: "Khu công nghệ cao và các tòa nhà văn phòng hiện đại tại Tokyo, nơi nhiều quyết định đầu tư chiến lược vào Việt Nam được đưa ra."
+    },
+    {
+      type: "paragraph",
+      text: "Ông Takio Yamada, Trưởng đại diện JETRO tại Hà Nội, nhận định: 'Các doanh nghiệp Nhật đánh giá cao sự ổn định chính trị và tốc độ tăng trưởng kinh tế ấn tượng của Việt Nam. Tuy nhiên, điều hấp dẫn họ hơn cả chính là sự tương đồng về văn hóa và tinh thần cầu tiến của người lao động Việt'."
+    },
+    {
+      type: "heading",
+      text: "Hợp tác chuyển đổi xanh và năng lượng"
+    },
+    {
+      type: "paragraph",
+      text: "Một lĩnh vực hợp tác mới đầy triển vọng là năng lượng tái tạo và tăng trưởng xanh. Nhật Bản, với cam kết đưa phát thải ròng về 0 vào năm 2050, đang tích cực hỗ trợ Việt Nam trong quá trình chuyển đổi năng lượng. Các dự án điện gió ngoài khơi, nhà máy điện khí LNG và công nghệ xử lý rác thải hiện đại đang được các nhà đầu tư Nhật Bản quan tâm đặc biệt."
+    },
+    {
+      type: "image",
+      src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80",
+      caption: "Các dự án năng lượng tái tạo đang là điểm sáng mới trong hợp tác kinh tế Việt - Nhật."
+    },
+    {
+      type: "paragraph",
+      text: "Nhìn về tương lai, mối quan hệ hợp tác kinh tế Việt - Nhật không chỉ dừng lại ở những con số về vốn đầu tư hay kim ngạch thương mại. Đó còn là sự giao thoa về tri thức, công nghệ và con người, hứa hẹn tạo nên những bước đột phá mới cho sự phát triển của cả hai quốc gia trong thập kỷ tới."
     }
   ]
 };
@@ -227,15 +314,7 @@ export const nextArticle: Article = {
   readTime: "3 phút đọc"
 };
 
-// Helper to get article by ID
-export const getArticleById = (id: string): ArticleDetail | null => {
-  // In a real app, this would fetch from an API
-  // For now, return the detailed article for any ID
-  return {
-    ...detailedArticle,
-    id
-  };
-};
+
 
 export const sameCategoryArticles: Article[] = [
   {
