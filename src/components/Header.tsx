@@ -44,7 +44,7 @@ const Header = () => {
       <div className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
           {/* Left: Brand Logo */}
-          <div className="shrink-0 w-[280px]">
+          <div className="shrink-0 w-auto md:w-[280px]">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="w-10 h-10 bg-black text-white flex items-center justify-center font-serif text-3xl font-bold rounded-sm">
                 B

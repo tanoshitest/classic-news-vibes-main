@@ -1019,13 +1019,20 @@ export const getArticlesByCategory = (categoryName: string): Article[] => {
   }
 
   const categoryArticles = categoryData[categoryName] || [];
-  // Add more mock articles for pagination demo
-  const additionalArticles: Article[] = categoryArticles.map((article, index) => ({
-    ...article,
-    id: `${article.id}-extra-${index}`,
-    title: `[Tiếp theo] ${article.title}`,
-    date: "15/01/2025"
-  }));
 
-  return [...categoryArticles, ...additionalArticles];
+  // Generate more articles to ensure the feed is always full (aim for ~30-40 items)
+  // Repeat the existing articles 4 times with unique IDs
+  const extendedArticles: Article[] = [];
+
+  for (let i = 0; i < 4; i++) {
+    const chunk = categoryArticles.map((article, index) => ({
+      ...article,
+      id: `${article.id}-gen-${i}-${index}`, // Unique ID
+      title: i === 0 ? article.title : `[Tin cũ ${i}] ${article.title}`,
+      date: i === 0 ? article.date : "10/01/2025"
+    }));
+    extendedArticles.push(...chunk);
+  }
+
+  return extendedArticles.length > 0 ? extendedArticles : [];
 };
