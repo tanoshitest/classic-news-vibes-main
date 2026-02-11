@@ -18,8 +18,8 @@ const HeroSection = () => {
     <section className="py-4">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Column - Main Feature (66%) */}
-          <div className="lg:col-span-8 space-y-3">
+          {/* Left Column - Main Feature (58%) */}
+          <div className="lg:col-span-7 space-y-3">
             <Link to={`/article/${currentHeroArticle.id}`} className="group block">
               <div className="aspect-[2.4/1] overflow-hidden mb-3 rounded-lg">
                 <img
@@ -29,37 +29,28 @@ const HeroSection = () => {
                 />
               </div>
               <div className="space-y-2">
-                <span className="text-xs font-bold text-[#eb6100] uppercase tracking-wider">
-                  FEATURE:
-                </span>
                 <h2 className="newspaper-heading text-2xl sm:text-3xl font-bold group-hover:text-[#4d0078] transition-colors leading-tight">
                   {currentHeroArticle.title}
                 </h2>
                 <p className="newspaper-body text-gray-600 text-base leading-snug line-clamp-3">
                   {currentHeroArticle.summary}
                 </p>
-                <div className="newspaper-meta text-xs font-medium text-gray-500">
-                  {currentHeroArticle.author}
-                </div>
               </div>
             </Link>
           </div>
 
-          {/* Right Column - Side List (33%) */}
-          <div className="lg:col-span-4 flex flex-col justify-between">
+          {/* Right Column - Side List (41%) */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
             {/* Combine sub hero and latest for the sidebar list, or just use latest */}
             {[...currentSubHeroArticles, ...currentLatestNews].slice(0, 5).map((article, index) => (
               <div key={article.id}>
-                <Link to={`/article/${article.id}`} className="group grid grid-cols-12 gap-2 items-start">
-                  <div className="col-span-9 space-y-1">
-                    <h3 className="font-bold text-sm leading-snug group-hover:text-[#4d0078] transition-colors line-clamp-2">
+                <Link to={`/article/${article.id}`} className="group grid grid-cols-12 gap-4 items-start">
+                  <div className="col-span-8 space-y-1">
+                    <h3 className="font-bold text-base leading-normal group-hover:text-[#4d0078] transition-colors line-clamp-2">
                       {article.title}
                     </h3>
-                    <div className="text-[10px] text-gray-500 uppercase font-semibold">
-                      {article.author}
-                    </div>
                   </div>
-                  <div className="col-span-3">
+                  <div className="col-span-4">
                     <div className="aspect-[3/2] overflow-hidden rounded bg-gray-200">
                       {article.image ? (
                         <img

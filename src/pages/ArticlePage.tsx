@@ -5,19 +5,14 @@ import Footer from "@/components/Footer";
 import ArticleContent from "@/components/ArticleContent";
 import ArticleSidebar from "@/components/ArticleSidebar";
 import ArticleTags from "@/components/ArticleTags";
-import ArticleNavigation from "@/components/ArticleNavigation";
 import CommentSection from "@/components/CommentSection";
 import ShareButtons from "@/components/ShareButtons";
 import { Separator } from "@/components/ui/separator";
 import {
   getArticleById,
   mostViewedArticles,
-  previousArticle,
-  nextArticle,
   sameCategoryArticles,
-  youMayAlsoLikeArticles,
-  closeRelatedArticles,
-  detailedArticle
+  youMayAlsoLikeArticles
 } from "@/data/articleContent";
 import { getCategorySlug, categoryData } from "@/data/mockData";
 
@@ -78,57 +73,45 @@ const ArticlePage = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="py-8">
-        <div className="container mx-auto px-4" style={{ maxWidth: "1160px" }}>
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Link to="/" className="hover:text-foreground transition-colors">
-              Trang chủ
-            </Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link
-              to={`/category/${categorySlug}`}
-              className="hover:text-foreground transition-colors"
-            >
-              {article.category}
-            </Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-foreground line-clamp-1">Chi tiết bài viết</span>
-          </nav>
+      <main className="py-6">
+        <div className="container mx-auto px-4 max-w-[1140px]">
+          {/* Breadcrumb & Date Row */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-gray-100 pb-4">
+            <nav className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Link to="/" className="hover:text-foreground transition-colors">
+                Trang chủ
+              </Link>
+              <ChevronRight className="w-4 h-4" />
+              <Link
+                to={`/category/${categorySlug}`}
+                className="hover:text-foreground transition-colors font-medium text-primary"
+              >
+                {article.category}
+              </Link>
+            </nav>
+            <p className="text-sm text-muted-foreground">
+              {formatDate(article.date)}
+            </p>
+          </div>
 
           {/* Main Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Main Content - Left Column (8 cols) */}
             <article className="lg:col-span-8">
               {/* Title */}
-              <h1 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-4">
+              <h1 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-6">
                 {article.title}
               </h1>
 
-              {/* Meta Data */}
-              <p className="text-sm text-muted-foreground mb-6">
-                {formatDate(article.date)}
-                {article.location && ` • ${article.location}`}
-              </p>
-
               {/* Sapo / Lead Paragraph */}
-              <p className="font-serif text-lg sm:text-xl font-bold text-foreground leading-relaxed mb-4">
+              <p className="font-sans text-lg sm:text-xl text-gray-700 leading-relaxed mb-8">
                 {article.summary}
               </p>
 
-              <ShareButtons url={window.location.href} title={article.title} />
-
-              {/* Featured Image */}
-              <figure className="mb-8">
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-auto"
-                />
-              </figure>
-
               {/* Article Body */}
-              <ArticleContent content={article.content} />
+              <div className="article-body">
+                <ArticleContent content={article.content} />
+              </div>
 
               {/* Author Signature */}
               <div className="mt-8 text-right">
@@ -142,91 +125,48 @@ const ArticlePage = () => {
                 </p>
               </div>
 
-              <Separator className="my-8" />
+              <Separator className="my-10" />
 
-              {/* Tags */}
-              <ArticleTags tags={article.tags} />
+              {/* Related Articles / Bạn có thể quan tâm */}
+              <section className="mt-12">
+                <div className="flex items-center gap-3 mb-8">
+                  <span
+                    className="inline-block w-2.5 h-7 rounded-sm"
+                    style={{
+                      background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                      transform: "skewX(-12deg)",
+                    }}
+                  />
+                  <h3 className="text-xl font-bold text-gray-900">Bạn có thể quan tâm</h3>
+                </div>
 
-              <Separator className="my-8" />
-
-              {/* Navigation */}
-              <ArticleNavigation
-                previousArticle={previousArticle}
-                nextArticle={nextArticle}
-              />
-
-              {/* 1. Contextual Related Articles (Bài liên quan) - Immediately after content */}
-              <div className="mt-12 bg-gray-50 p-6 rounded-sm">
-                <h3 className="newspaper-section-title mb-4">Bài liên quan</h3>
-                <ul className="space-y-3">
-                  {closeRelatedArticles.map((item) => (
-                    <li key={item.id} className="group">
-                      <Link to={`/article/${item.id}`} className="flex gap-2 items-start">
-                        <span className="text-primary mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0 block"></span>
-                        <span className="text-base font-medium text-gray-800 group-hover:text-primary transition-colors leading-snug">
-                          {item.title}
-                        </span>
-                      </Link>
-                    </li>
+                <div className="space-y-8">
+                  {youMayAlsoLikeArticles.slice(0, 3).map((item) => (
+                    <Link key={item.id} to={`/article/${item.id}`} className="group flex flex-col gap-3">
+                      <h4 className="font-serif text-xl font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-gray-600 line-clamp-2 text-base leading-relaxed">
+                        {item.summary}
+                      </p>
+                    </Link>
                   ))}
-                </ul>
+                </div>
+              </section>
+
+              <div className="mt-10 mb-12">
+                <ShareButtons url={window.location.href} title={article.title} />
               </div>
 
-              {/* 2. Comments (Ý kiến) */}
-              <div className="mt-12">
+              {/* Comments (Ý kiến) */}
+              <div id="comments" className="mt-12 bg-gray-50/50 p-6 rounded-sm border border-gray-100">
                 <CommentSection articleId={id || "default"} />
               </div>
 
-              <Separator className="my-12" />
-
-              {/* 3. Same Category (Bài cùng chuyên mục) - List 6 items */}
-              <div className="mt-8">
-                <div className="flex items-center justify-between mb-6 border-b border-gray-200 pb-2">
-                  <h3 className="newspaper-section-title mb-0 uppercase text-[#9f224e]">{article.category}</h3>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                  {sameCategoryArticles.map((item) => (
-                    <Link key={item.id} to={`/article/${item.id}`} className="group flex gap-4">
-                      <div className="w-1/3 aspect-[4/3] shrink-0 overflow-hidden">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <div className="w-2/3">
-                        <h4 className="font-serif text-base font-bold text-gray-900 leading-snug group-hover:text-[#9f224e] transition-colors line-clamp-3">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-xs text-gray-400">{item.date}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <Separator className="my-12" />
-
-              {/* 4. You May Also Like (Bạn có thể quan tâm) - 8 items Grid */}
-              <div className="mt-8">
-                <h3 className="newspaper-section-title mb-6">Bạn có thể quan tâm</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {youMayAlsoLikeArticles.map((item) => (
-                    <Link key={item.id} to={`/article/${item.id}`} className="group block">
-                      <div className="aspect-video overflow-hidden mb-3">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <h4 className="font-serif text-sm font-bold text-gray-900 leading-snug group-hover:text-[#9f224e] transition-colors line-clamp-3">
-                        {item.title}
-                      </h4>
-                    </Link>
-                  ))}
-                </div>
+              {/* Tags (Hashtag) */}
+              <div className="mt-10 pt-8 border-t border-gray-100">
+                <h4 className="text-sm font-bold text-gray-400 uppercase mb-4 tracking-wider">Hashtags</h4>
+                <ArticleTags tags={article.tags} />
               </div>
 
             </article>
@@ -237,9 +177,27 @@ const ArticlePage = () => {
                 <ArticleSidebar
                   mostViewed={mostViewedArticles}
                 />
-                {/* Ad Placeholder or additional widgets can go here */}
-                <div className="mt-8 w-full bg-gray-100 h-[300px] flex items-center justify-center text-gray-400 text-sm border border-dashed border-gray-300">
-                  Quảng cáo
+                {/* Same Category Small Widgets */}
+                <div className="mt-12">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span
+                      className="inline-block w-2 h-6 rounded-sm"
+                      style={{
+                        background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                        transform: "skewX(-12deg)",
+                      }}
+                    />
+                    <h3 className="text-lg font-bold text-gray-900 uppercase tracking-tight">{article.category}</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {sameCategoryArticles.slice(0, 4).map(item => (
+                      <Link key={item.id} to={`/article/${item.id}`} className="group block pb-4 border-b border-gray-100 last:border-0">
+                        <h4 className="text-sm font-bold text-gray-800 group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                          {item.title}
+                        </h4>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </aside>

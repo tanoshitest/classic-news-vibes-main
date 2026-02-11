@@ -5,6 +5,8 @@ import { Article } from '@/data/mockData';
 import { ArticleContent as ArticleContentType } from '@/data/articleContent';
 import Header from './Header';
 import Footer from './Footer';
+import ShareButtons from './ShareButtons';
+import { getArticlesByCategory, getCategorySlug, categories } from '@/data/mockData';
 
 interface LongformArticleProps {
     article: Article;
@@ -59,46 +61,26 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
 
                 <div className="relative z-10 container mx-auto px-6 text-center text-white">
                     <div className="inline-block mb-6 px-4 py-1.5 border border-white/30 backdrop-blur-sm rounded-full bg-black/20 text-sm font-medium tracking-wider uppercase">
-                        Special Report
+                        Longform
                     </div>
                     <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 drop-shadow-lg max-w-5xl mx-auto">
                         {article.title}
                     </h1>
-                    <p className="text-lg md:text-2xl font-light text-gray-200 max-w-3xl mx-auto leading-relaxed mb-10">
-                        {article.summary}
-                    </p>
-
-                    <div className="flex items-center justify-center gap-6 text-sm md:text-base text-gray-300">
-                        <span className="font-medium text-white">{article.author}</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                        <span>{article.date}</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                        <span className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
-                            {article.readTime}
-                        </span>
-                    </div>
                 </div>
-
-                <button
-                    onClick={scrollToContent}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white opacity-80 hover:opacity-100 transition-opacity animate-bounce"
-                >
-                    <span className="text-xs uppercase tracking-widest">Cuộn để khám phá</span>
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                </button>
             </header>
 
             {/* Content Body */}
             <article className="py-20 px-6">
                 <div className="max-w-[800px] mx-auto">
-                    <div className="prose prose-lg md:prose-xl prose-gray mx-auto prose-headings:font-serif prose-headings:font-bold prose-p:text-gray-800 prose-p:leading-relaxed prose-img:rounded-sm group-first:first-letter:text-7xl group-first:first-letter:font-serif group-first:first-letter:mr-3 group-first:first-letter:float-left">
+                    <div className="prose prose-lg md:prose-xl prose-gray mx-auto prose-headings:font-serif prose-headings:font-bold prose-p:text-gray-800 prose-p:leading-relaxed prose-img:rounded-sm">
                         {content.map((block, index) => {
                             if (block.type === 'paragraph') {
                                 return (
-                                    <p key={index} className="mb-8 text-[1.15rem] md:text-[1.25rem] text-gray-800 leading-[1.8]">
+                                    <p
+                                        key={index}
+                                        className={`mb-8 text-[1.15rem] md:text-[1.25rem] text-gray-800 leading-[1.8] ${index === 0 ? "first-letter:text-[6.75rem] first-letter:leading-[1] first-letter:font-bold first-letter:text-[#7c3aed] first-letter:float-left first-letter:mr-3 first-letter:font-serif" : ""
+                                            }`}
+                                    >
                                         {block.text}
                                     </p>
                                 );
@@ -166,38 +148,107 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
                         </p>
                     </div>
 
-                    {/* Back to Home Button */}
-                    <div className="mt-16 text-center">
-                        <Link
-                            to="/"
-                            className="inline-flex items-center gap-2 px-8 py-3 bg-[#4d0078] text-white hover:bg-[#3a005a] transition-colors rounded-full font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200"
-                        >
-                            <ChevronLeft className="w-5 h-5" />
-                            Về trang chủ
-                        </Link>
+                    {/* Share Section */}
+                    <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col items-center">
+                        <h3 className="text-lg font-serif font-bold mb-4">Chia sẻ câu chuyện này</h3>
+                        <ShareButtons url={window.location.href} title={article.title} />
                     </div>
 
+                    {/* Section 1: Bạn có thể quan tâm (Longform articles) */}
+                    <section className="mt-20 pt-16 border-t border-gray-100">
+                        <div className="flex items-center gap-3 mb-10">
+                            <span
+                                className="inline-block w-2.5 h-7 rounded-sm"
+                                style={{
+                                    background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                                    transform: "skewX(-12deg)",
+                                }}
+                            />
+                            <h3 className="text-xl font-bold text-gray-900 uppercase tracking-tight text-[#7c3aed]">BẠN CÓ THỂ QUAN TÂM</h3>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {getArticlesByCategory("Longform")
+                                .filter(a => a.id !== article.id)
+                                .slice(0, 6)
+                                .map((item) => (
+                                    <Link key={item.id} to={`/article/${item.id}`} className="group flex flex-col gap-4">
+                                        <div className="aspect-[3/2] overflow-hidden rounded-sm">
+                                            <img
+                                                src={item.image}
+                                                alt={item.title}
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                onError={(e) => {
+                                                    const target = e.target as HTMLImageElement;
+                                                    target.src = "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80";
+                                                    target.onerror = null;
+                                                }}
+                                            />
+                                        </div>
+                                        <h4 className="font-serif text-lg font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors line-clamp-2 text-center md:text-left">
+                                            {item.title}
+                                        </h4>
+                                    </Link>
+                                ))}
+                        </div>
+                    </section>
+
+                    {/* Section 2: Các chuyên mục khác */}
+                    <section className="mt-20 pt-16 border-t border-gray-100">
+                        <div className="flex items-center gap-3 mb-10">
+                            <span className="w-8 h-[2px] bg-red-600"></span>
+                            <h2 className="text-xl font-bold text-gray-900 uppercase tracking-tight">CÁC CHUYÊN MỤC KHÁC</h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                            {categories
+                                .filter(cat => cat !== "Longform" && cat !== "Mới nhất" && cat !== "Đọc nhiều")
+                                .slice(0, 5)
+                                .map((cat) => {
+                                    const catArticles = getArticlesByCategory(cat);
+                                    const latest = catArticles[0];
+                                    const others = catArticles.slice(1, 4);
+
+                                    return (
+                                        <div key={cat} className="space-y-4">
+                                            <Link to={`/category/${getCategorySlug(cat)}`} className="block group">
+                                                <h3 className="text-lg font-bold text-gray-900 mb-4 hover:text-primary transition-colors">{cat}</h3>
+                                                {latest && (
+                                                    <div className="space-y-3">
+                                                        <div className="aspect-[3/2] overflow-hidden rounded-sm">
+                                                            <img
+                                                                src={latest.image}
+                                                                alt={latest.title}
+                                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                                onError={(e) => {
+                                                                    const target = e.target as HTMLImageElement;
+                                                                    target.src = "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80";
+                                                                    target.onerror = null;
+                                                                }}
+                                                            />
+                                                        </div>
+                                                        <h4 className="text-sm font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors line-clamp-3">
+                                                            {latest.title}
+                                                        </h4>
+                                                    </div>
+                                                )}
+                                            </Link>
+                                            <div className="space-y-3 pt-2 border-t border-gray-100">
+                                                {others.map((art) => (
+                                                    <Link key={art.id} to={`/article/${art.id}`} className="block group">
+                                                        <h4 className="text-xs font-medium text-gray-600 hover:text-primary transition-colors leading-normal line-clamp-2">
+                                                            {art.title}
+                                                        </h4>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                    </section>
                 </div>
             </article>
-
-            {/* Share Section (Optional to keep or integrate) - Keeping as Content End */}
-            <div className="bg-gray-50 py-16 text-center">
-                <div className="container mx-auto px-6">
-                    <Share2 className="w-10 h-10 mx-auto text-gray-400 mb-4" />
-                    <h3 className="font-serif text-2xl mb-6">Chia sẻ câu chuyện này</h3>
-                    <div className="flex justify-center gap-4">
-                        <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white text-gray-500 transition-all">
-                            <Facebook className="w-5 h-5" />
-                        </button>
-                        <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-[#1DA1F2] hover:border-[#1DA1F2] hover:text-white text-gray-500 transition-all">
-                            <Twitter className="w-5 h-5" />
-                        </button>
-                        <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white text-gray-500 transition-all">
-                            <Linkedin className="w-5 h-5" />
-                        </button>
-                    </div>
-                </div>
-            </div>
 
             {/* Footer */}
             <Footer />

@@ -20,29 +20,24 @@ const ITEMS_PER_PAGE = 10; // Adjusted for longer feed
 
 const CategoryPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [currentPage, setCurrentPage] = useState(1);
-
   const categoryName = getCategoryDisplayName(slug || "");
   const allArticles = getArticlesByCategory(categoryName);
 
   // Slicing data for the layout
   const spotlightArticle = allArticles[0];
   const subFeaturedArticles = allArticles.slice(1, 5); // 4 items
-  const relatedLinks = allArticles.slice(5, 10); // 5 items
-  const feedArticles = allArticles.slice(10); // The rest
+  const feedArticles = allArticles.slice(5); // The rest for the feed
 
-  // Pagination for the feed
-  const totalPages = Math.ceil(feedArticles.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const paginatedFeed = feedArticles.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const paginatedFeed = feedArticles.slice(0, visibleCount);
+  const hasMore = visibleCount < feedArticles.length;
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    const feedSection = document.getElementById('category-feed');
-    if (feedSection) {
-      feedSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + ITEMS_PER_PAGE);
   };
+
+  // Get other categories for the bottom section
+  const otherCategories = categories.filter(c => c !== "Mới nhất" && c !== "Đọc nhiều" && c !== categoryName && c !== "Longform").slice(0, 5);
 
   if (!categoryName || !categories.includes(categoryName)) {
     return (
@@ -68,7 +63,7 @@ const CategoryPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="container mx-auto px-4 py-6" style={{ maxWidth: "1280px" }}>
+      <main className="container mx-auto px-4 py-6 max-w-[1140px]">
         {/* Breadcrumb */}
         <Breadcrumb className="mb-6">
           <BreadcrumbList>
@@ -87,8 +82,15 @@ const CategoryPage = () => {
         </Breadcrumb>
 
         {/* Category Title */}
-        <div className="mb-8 border-b border-black pb-4">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-foreground uppercase tracking-tight">
+        <div className="mb-10 border-b border-gray-100 pb-4 flex items-center gap-4">
+          <span
+            className="inline-block w-2.5 h-10 rounded-sm"
+            style={{
+              background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+              transform: "skewX(-15deg)",
+            }}
+          />
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-foreground tracking-tight">
             {categoryName}
           </h1>
         </div>
@@ -96,11 +98,11 @@ const CategoryPage = () => {
         {/* --- SECTION 1: HERO (Top) --- */}
         {spotlightArticle && (
           <section className="mb-16">
-            <div className="grid grid-cols-1 lg:grid-cols-10 gap-8">
-              {/* 1. Spotlight Article (Left - 50%) */}
-              <div className="lg:col-span-5 group cursor-pointer">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              {/* 1. Spotlight Article (Left - 8/12) */}
+              <div className="lg:col-span-8 group cursor-pointer">
                 <Link to={`/article/${spotlightArticle.id}`}>
-                  <div className="aspect-[3/2] w-full overflow-hidden rounded-sm mb-4">
+                  <div className="aspect-[16/9] w-full overflow-hidden rounded-sm mb-4">
                     <img
                       src={spotlightArticle.image}
                       alt={spotlightArticle.title}
@@ -112,21 +114,18 @@ const CategoryPage = () => {
                       }}
                     />
                   </div>
-                  <h2 className="font-serif text-2xl md:text-3xl font-bold leading-tight group-hover:text-primary transition-colors">
+                  <h2 className="font-serif text-2xl md:text-3xl lg:text-3xl font-bold leading-tight group-hover:text-primary transition-colors">
                     {spotlightArticle.title}
                   </h2>
-                  <p className="mt-3 text-muted-foreground line-clamp-3">
-                    {spotlightArticle.summary}
-                  </p>
                 </Link>
               </div>
 
-              {/* 2. Sub-featured Grid (Middle - 30%) */}
-              <div className="lg:col-span-3">
-                <div className="grid grid-cols-2 gap-4">
+              {/* 2. Sub-featured Grid (Right - 4/12) */}
+              <div className="lg:col-span-4">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-6">
                   {subFeaturedArticles.map((article) => (
-                    <Link key={article.id} to={`/article/${article.id}`} className="group cursor-pointer">
-                      <div className="aspect-[4/3] w-full overflow-hidden rounded-sm mb-2">
+                    <Link key={article.id} to={`/article/${article.id}`} className="group cursor-pointer flex flex-col gap-2">
+                      <div className="aspect-[4/3] w-full overflow-hidden rounded-sm">
                         <img
                           src={article.image}
                           alt={article.title}
@@ -139,20 +138,6 @@ const CategoryPage = () => {
                         />
                       </div>
                       <h3 className="font-serif text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-3">
-                        {article.title}
-                      </h3>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* 3. Related Links (Right - 20%) */}
-              <div className="lg:col-span-2 border-l border-gray-100 pl-4 lg:pl-6">
-                <h3 className="font-bold text-red-700 uppercase text-xs tracking-widest mb-4">Tiêu điểm</h3>
-                <div className="flex flex-col gap-4">
-                  {relatedLinks.map((article) => (
-                    <Link key={article.id} to={`/article/${article.id}`} className="group block border-b border-dotted border-gray-200 pb-2 last:border-0">
-                      <h3 className="font-serif text-sm font-medium text-gray-700 group-hover:text-primary transition-colors leading-normal">
                         {article.title}
                       </h3>
                     </Link>
@@ -199,9 +184,6 @@ const CategoryPage = () => {
                       <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                         {article.summary}
                       </p>
-                      <span className="text-xs text-gray-400 mt-auto">
-                        {article.date}
-                      </span>
                     </div>
                   </Link>
                 ))
@@ -210,14 +192,15 @@ const CategoryPage = () => {
               )}
             </div>
 
-            {/* Pagination */}
-            {totalPages > 1 && (
-              <div className="mt-12">
-                <CategoryPagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                />
+            {/* Load More Button */}
+            {hasMore && (
+              <div className="mt-12 flex justify-center">
+                <button
+                  onClick={handleLoadMore}
+                  className="px-8 py-3 bg-[#7c3aed] text-white font-bold rounded-sm hover:bg-[#4d0078] transition-colors"
+                >
+                  Xem thêm
+                </button>
               </div>
             )}
           </div>
@@ -229,6 +212,60 @@ const CategoryPage = () => {
             </div>
           </aside>
         </div>
+
+        {/* --- SECTION 3: OTHER CATEGORIES --- */}
+        {categoryName !== "Mới nhất" && categoryName !== "Đọc nhiều" && (
+          <section className="mt-20 pt-16 border-t border-gray-100">
+            <div className="flex items-center gap-3 mb-10">
+              <span className="w-8 h-[2px] bg-red-600"></span>
+              <h2 className="text-xl font-bold text-gray-900 uppercase tracking-tight">CÁC CHUYÊN MỤC KHÁC</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+              {otherCategories.map((cat) => {
+                const catArticles = getArticlesByCategory(cat);
+                const latest = catArticles[0];
+                const others = catArticles.slice(1, 4);
+
+                return (
+                  <div key={cat} className="space-y-4">
+                    <Link to={`/category/${getArticlesByCategory(cat)[0]?.id ? cat.toLowerCase().replace(/ /g, '-') : '#'}`} className="block group">
+                      <h3 className="text-lg font-bold text-gray-900 mb-4 hover:text-primary transition-colors">{cat}</h3>
+                      {latest && (
+                        <div className="space-y-3">
+                          <div className="aspect-[3/2] overflow-hidden rounded-sm">
+                            <img
+                              src={latest.image}
+                              alt={latest.title}
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.src = "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80"; // Reliable Culture/Museum fallback
+                                target.onerror = null;
+                              }}
+                            />
+                          </div>
+                          <h4 className="text-sm font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors line-clamp-3">
+                            {latest.title}
+                          </h4>
+                        </div>
+                      )}
+                    </Link>
+                    <div className="space-y-3 pt-2 border-t border-gray-100">
+                      {others.map((art) => (
+                        <Link key={art.id} to={`/article/${art.id}`} className="block group">
+                          <h4 className="text-xs font-medium text-gray-600 hover:text-primary transition-colors leading-normal line-clamp-2">
+                            {art.title}
+                          </h4>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
       </main>
 
       <Footer />

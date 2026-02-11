@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import LongformSection from "@/components/LongformSection";
 import CategorySection from "@/components/CategorySection";
-import FinancialDataSection from "@/components/FinancialDataSection";
+
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -28,7 +28,6 @@ const Index = () => {
         {/* Health Section */}
         <CategorySection category="Sức khỏe" />
 
-        <FinancialDataSection />
       </main>
       <Footer />
     </div>

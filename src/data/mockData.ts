@@ -549,7 +549,7 @@ export const categoryData: Record<string, Article[]> = {
       title: "Lễ hội đền Hùng 2025: Những hoạt động nổi bật",
       summary: "Chương trình văn hóa đặc sắc mừng Giỗ Tổ Hùng Vương.",
       category: "Văn hóa",
-      image: "https://images.unsplash.com/photo-1557456170-0cf4f4d0d3ce?w=600&q=80",
+      image: "https://images.unsplash.com/photo-1599305090598-fe179d501c27?w=600&q=80",
       author: "Hồng Phúc",
       date: "17/01/2025",
       readTime: "4 phút đọc"

@@ -82,6 +82,16 @@ const ShareButtons = ({ url, title }: ShareButtonsProps) => {
             >
                 <Instagram className="h-4 w-4" />
             </Button>
+
+            <div className="h-4 w-[1px] bg-gray-300 mx-1"></div>
+
+            <Button
+                variant="outline"
+                className="h-8 px-3 rounded-full text-gray-700 hover:bg-gray-100 flex items-center gap-1.5"
+                onClick={() => toast.success('Đã lưu bài viết')}
+            >
+                <span className="text-xs font-bold uppercase">Lưu</span>
+            </Button>
         </div>
     );
 };

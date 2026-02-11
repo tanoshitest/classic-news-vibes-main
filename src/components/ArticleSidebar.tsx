@@ -9,27 +9,31 @@ interface ArticleSidebarProps {
 const ArticleSidebar = ({ mostViewed }: ArticleSidebarProps) => {
   return (
     <aside className="space-y-8">
-      {/* Most Viewed Section */}
+      {/* Most Viewed Widget (Xem nhiều) */}
       <div>
-        <h3 className="newspaper-section-title">Xem nhiều</h3>
-        <div className="space-y-4">
-          {mostViewed.map((article, index) => (
+        <div className="flex items-center gap-3 mb-8">
+          <span className="w-4 h-[2px] bg-gray-200"></span>
+          <h3 className="text-base font-bold text-maroon-700 whitespace-nowrap uppercase" style={{ color: '#8b0078' }}>
+            Xem nhiều
+          </h3>
+          <span className="flex-1 h-[2px] bg-gray-200"></span>
+        </div>
+
+        <div className="space-y-0 divide-y divide-gray-100">
+          {mostViewed.slice(0, 5).map((article, index) => (
             <Link
               to={`/article/${article.id}`}
               key={article.id}
-              className="group cursor-pointer flex gap-3"
+              className="group relative flex items-center justify-between py-4 hover:bg-gray-50/50 transition-colors"
             >
-              <span className="font-serif text-2xl font-bold text-muted-foreground/40 w-8 shrink-0">
-                {index + 1}
-              </span>
-              <div className="flex-1 min-w-0">
-                <h4 className="font-serif text-sm font-bold text-foreground leading-snug group-hover:text-muted-foreground transition-colors line-clamp-2">
+              <div className="pr-12">
+                <h4 className="text-sm font-medium text-gray-800 leading-snug group-hover:text-primary transition-colors line-clamp-2">
                   {article.title}
                 </h4>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {article.category}
-                </p>
               </div>
+              <span className="absolute right-0 text-5xl font-black text-gray-100 pointer-events-none group-hover:text-gray-200 transition-colors select-none">
+                {index + 1}
+              </span>
             </Link>
           ))}
         </div>

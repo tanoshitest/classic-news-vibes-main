@@ -11,10 +11,9 @@ const ArticleContent = ({ content }: ArticleContentProps) => {
       {content.map((block, index) => {
         if (block.type === "paragraph") {
           return (
-            <p 
+            <p
               key={index}
               className="text-lg leading-relaxed text-foreground"
-              style={{ fontFamily: "Inter, sans-serif" }}
             >
               {block.text}
             </p>
@@ -45,7 +44,7 @@ const ArticleContent = ({ content }: ArticleContentProps) => {
 
         if (block.type === "quote") {
           return (
-            <blockquote 
+            <blockquote
               key={index}
               className="border-l-4 border-foreground pl-6 py-2 my-8"
             >

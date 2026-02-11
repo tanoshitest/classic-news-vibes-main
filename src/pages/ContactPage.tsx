@@ -39,7 +39,7 @@ const ContactPage = () => {
                     <div className="bg-white rounded-lg shadow-sm overflow-hidden">
                         {/* Header */}
                         <div className="border-b-2 border-black px-6 py-4">
-                            <h1 className="text-2xl font-bold text-black">{t("contact_title")}</h1>
+                            <h1 className="text-2xl font-bold text-[#7c3aed]">{t("contact_title")}</h1>
                         </div>
 
                         {/* Form */}
@@ -182,7 +182,7 @@ const ContactPage = () => {
                                 <div className="flex justify-center">
                                     <Button
                                         type="submit"
-                                        className="bg-[#9f1239] hover:bg-[#7f1d1d] text-white px-32 py-6 text-lg font-semibold w-full"
+                                        className="bg-[#7c3aed] hover:bg-[#4d0078] text-white px-32 py-6 text-lg font-semibold w-full transition-colors"
                                     >
                                         {t("contact_submit")}
                                     </Button>

@@ -2,14 +2,24 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getArticlesByCategory } from "@/data/mockData";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+const ITEMS_PER_PAGE = 12;
 
 const LongformPage = () => {
-    const articles = getArticlesByCategory("Longform");
+    const allArticles = getArticlesByCategory("Longform");
+    const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const visibleArticles = allArticles.slice(0, visibleCount);
+    const hasMore = visibleCount < allArticles.length;
+
+    const handleLoadMore = () => {
+        setVisibleCount(prev => prev + ITEMS_PER_PAGE);
+    };
 
     return (
         <div className="min-h-screen bg-white">
@@ -43,7 +53,7 @@ const LongformPage = () => {
                 {/* 3. Content Grid (The Articles) */}
                 <div className="max-w-7xl mx-auto px-4 md:px-6 mt-12 mb-20">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-                        {articles.map((article) => (
+                        {visibleArticles.map((article) => (
                             <Link key={article.id} to={`/article/${article.id}`} className="group block">
                                 {/* 4. Article Card Component */}
                                 <div className="flex flex-col">
@@ -65,14 +75,22 @@ const LongformPage = () => {
                                     <h2 className="mt-4 text-xl font-serif font-bold text-gray-900 leading-relaxed group-hover:underline decoration-1 underline-offset-4">
                                         {article.title}
                                     </h2>
-
-                                    {/* Summary (Optional - keeping minimalist as per specific design, but adding small summary if it looks too empty) 
-                                        Request said: "Image on top, Title strictly below." - adhering to that strictness.
-                                    */}
                                 </div>
                             </Link>
                         ))}
                     </div>
+
+                    {/* Load More Button */}
+                    {hasMore && (
+                        <div className="mt-16 flex justify-center">
+                            <button
+                                onClick={handleLoadMore}
+                                className="px-8 py-3 bg-[#7c3aed] text-white font-bold rounded-sm hover:bg-[#4d0078] transition-colors"
+                            >
+                                Xem thêm
+                            </button>
+                        </div>
+                    )}
                 </div>
             </main>
 

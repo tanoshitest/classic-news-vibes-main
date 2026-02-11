@@ -2,70 +2,93 @@ import { Link } from "react-router-dom";
 import { longformArticle, latestNews } from "@/data/mockData";
 import { longformArticleJP, latestNewsJP } from "@/data/mockDataJP";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Play, Mic, FileText, Camera, HelpCircle } from "lucide-react";
+import { Play, Mic, FileText, Camera, HelpCircle, ArrowRight } from "lucide-react";
 
 const LongformSection = () => {
   const { language } = useLanguage();
   const featuredArticle = language === 'VN' ? longformArticle : longformArticleJP;
-  const sideArticles = language === 'VN' ? latestNews.slice(0, 2) : latestNewsJP.slice(0, 2);
-
-
+  const articlesList = language === 'VN' ? latestNews : latestNewsJP;
+  const sideArticles = articlesList.slice(0, 2);
 
   return (
-    <section className="py-12 my-8 bg-white">
+    <section className="py-16 my-8 bg-white">
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 border-b-2 border-black/10 pb-4">
-          <div className="flex items-center gap-2">
-            <h2 className="text-3xl font-black text-black tracking-tighter uppercase">Longform</h2>
-          </div>
-        </div>
+        <div className="border-4 border-[#7c3aed]/20 rounded-3xl p-6 md:p-12 shadow-2xl shadow-[#7c3aed]/5 bg-white relative overflow-hidden">
+          {/* Subtle background decoration */}
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#7c3aed]/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#4d0078]/5 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Featured Article (Left) */}
-          <div className="lg:col-span-7 flex flex-col h-full">
-            <Link to={`/article/${featuredArticle.id}`} className="group block flex-grow flex flex-col">
-              <div className="relative aspect-[4/3] overflow-hidden mb-4">
-                <img
-                  src={featuredArticle.image}
-                  alt={featuredArticle.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-black/20 backdrop-blur-sm text-white p-2 rounded-sm">
-                    <Camera className="w-5 h-5" />
-                  </span>
-                </div>
-              </div>
-
-              <h3 className="text-2xl md:text-3xl font-bold text-black mb-3 leading-tight group-hover:text-black/80 transition-colors">
-                {featuredArticle.title}
-              </h3>
-              <p className="text-black/80 text-base leading-relaxed line-clamp-6">
-                {featuredArticle.summary}
-              </p>
+          {/* Header */}
+          <div className="flex items-center justify-between mb-12 border-b border-gray-100 pb-4 relative z-10">
+            <div className="flex items-center gap-3">
+              <span
+                className="inline-block w-2.5 h-10 rounded-sm"
+                style={{
+                  background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                  transform: "skewX(-15deg)",
+                }}
+              />
+              <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Longform</h2>
+            </div>
+            <Link
+              to="/category/longform-e-magazine"
+              className="text-sm font-bold text-[#7c3aed] hover:text-[#4d0078] flex items-center gap-1.5 group transition-colors"
+            >
+              {language === 'VN' ? "Xem thêm" : "一覧へ"}
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
             </Link>
           </div>
 
-          {/* Side Articles Grid (Right) */}
-          <div className="lg:col-span-5 flex flex-col h-full">
-            <div className="flex flex-col gap-8 h-full justify-between">
+          {/* Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 relative z-10">
+            {/* 1. Featured Article (Left - 8/12) */}
+            <div className="lg:col-span-8">
+              <Link to={`/article/${featuredArticle.id}`} className="group block">
+                <div className="relative aspect-[16/9] overflow-hidden mb-8 rounded-xl shadow-md">
+                  <img
+                    src={featuredArticle.image}
+                    alt={featuredArticle.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  />
+                  <div className="absolute top-6 left-6">
+                    <span className="bg-[#7c3aed] text-white p-3 rounded-full shadow-lg block transform transition-transform group-hover:scale-110">
+                      <Camera className="w-6 h-6" />
+                    </span>
+                  </div>
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-5 leading-[1.2] group-hover:text-[#7c3aed] transition-colors">
+                  {featuredArticle.title}
+                </h3>
+                <p className="text-gray-600 text-lg md:text-xl leading-relaxed line-clamp-3 font-medium opacity-90">
+                  {featuredArticle.summary}
+                </p>
+              </Link>
+            </div>
+
+            {/* 2. Side Articles (Right - 4/12) */}
+            <div className="lg:col-span-4 flex flex-col gap-10">
               {sideArticles.map((article) => (
-                <Link key={article.id} to={`/article/${article.id}`} className="group block flex flex-col flex-1">
-                  <div className="relative aspect-video overflow-hidden mb-3 w-full h-full">
+                <Link key={article.id} to={`/article/${article.id}`} className="group block">
+                  <div className="relative aspect-video overflow-hidden mb-5 rounded-lg shadow-sm">
                     <img
                       src={article.image}
                       alt={article.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80";
+                        target.onerror = null;
+                      }}
                     />
-                    <div className="absolute bottom-2 left-2">
-                      <span className="bg-black/40 text-white p-1 rounded-sm">
-                        <FileText className="w-3 h-3" />
+                    <div className="absolute bottom-3 left-3">
+                      <span className="bg-black/60 backdrop-blur-md text-white p-2 rounded-md block">
+                        <FileText className="w-4 h-4" />
                       </span>
                     </div>
                   </div>
-                  <h4 className="font-bold text-lg text-black leading-snug group-hover:text-black/70 transition-colors line-clamp-2 mt-auto">
+                  <h4 className="text-xl font-bold text-gray-900 leading-snug group-hover:text-[#7c3aed] transition-colors line-clamp-2">
                     {article.title}
                   </h4>
                 </Link>

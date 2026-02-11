@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -48,8 +48,8 @@
     --text-secondary: 0 0% 40%;
 
     /* Typography */
-    --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Merriweather', 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-sans: Arial, Helvetica, sans-serif;
   }
 
   * {

@@ -53,22 +53,22 @@ export const translations: Record<Language, Record<string, string>> = {
         "header_subscribe": "Theo dõi",
         "header_register": "Đăng ký",
         "footer_built": "Được xây dựng với ❤️ tại Việt Nam",
-        "contact_title": "Liên hệ với chúng tôi",
-        "contact_intro": "Các câu hỏi về trang web này được chấp nhận ở biểu mẫu này.",
+        "contact_title": "Liên hệ với Betonabi",
+        "contact_intro": "Bạn có thể đặt câu hỏi về trang web Betonabi.",
         "contact_intro_line2": "Vui lòng điền vào biểu mẫu dưới đây.",
         "contact_required": "trường bắt buộc",
         "contact_fullname": "Họ và Tên",
         "contact_fullname_placeholder": "Nhập họ và tên của bạn",
         "contact_company": "Tên công ty/tổ chức",
         "contact_company_placeholder": "Nhập tên công ty hoặc tổ chức",
-        "contact_company_warning": "* Dùng thử miễn phí này chỉ dành cho các tổ chức thương mại như báo chí, nhà xuất bản sách, dịch vụ tài chính, nhà nghiên cứu chuyên nghiệp, v.v.",
-        "contact_company_warning2": "Nếu không cung cấp tên công ty hoặc tổ chức của bạn, đơn đăng ký của bạn sẽ bị từ chối.",
+        "contact_company_warning": "Nếu không cung cấp tên công ty hoặc tổ chức của bạn, đơn đăng ký sẽ bị từ chối.",
+        "contact_company_warning2": "",
         "contact_department": "Phòng ban",
         "contact_department_placeholder": "Nhập tên phòng ban (không bắt buộc)",
         "contact_email": "Địa chỉ email",
         "contact_email_placeholder": "Nhập địa chỉ email của bạn",
-        "contact_email_warning": "* Địa chỉ email của tổ chức của bạn là bắt buộc.",
-        "contact_email_warning2": "* Địa chỉ email miễn phí (Yahoo Mail, gmail, v.v.) KHÔNG được chấp nhận.",
+        "contact_email_warning": "* Bắt buộc nhập địa chỉ email của cá nhân hoặc tổ chức của bạn.",
+        "contact_email_warning2": "* Các địa chỉ email miễn phí KHÔNG được chấp nhận.",
         "contact_phone": "Số điện thoại",
         "contact_phone_placeholder": "Nhập số điện thoại (không bắt buộc)",
         "contact_message": "Tin nhắn",
@@ -78,7 +78,11 @@ export const translations: Record<Language, Record<string, string>> = {
         "about_intro": "Betonabi cung cấp tin tức chuyên sâu về Việt Nam trong nhiều lĩnh vực như kinh tế, văn hóa, xã hội, đời sống, du lịch, giáo dục, với góc nhìn trung thực, khách quan. Ngoài ra, thông qua hợp tác với các đối tác, chúng tôi mang đến các nội dung phong phú về đất nước và con người Việt Nam với những hình ảnh và video chân thực.",
         "about_mission": "Với hai phiên bản gồm tiếng Việt và tiếng Nhật, Betonabi hi vọng sẽ được độc giả đón đọc và coi là nguồn tin đáng tin cậy về Việt Nam.",
         "about_cta": "Nếu bạn quan tâm, vui lòng liên hệ với chúng tôi.",
-        "about_contact_button": "Liên hệ với chúng tôi"
+        "about_contact_button": "Liên hệ",
+        "nav_about": "Về chúng tôi",
+        "nav_contact": "Liên hệ với chúng tôi",
+        "login_as_admin": "Đăng nhập Admin",
+        "login_as_guest": "Đăng nhập Khách"
     },
     JP: {
         "search": "検索",
@@ -146,7 +150,11 @@ export const translations: Record<Language, Record<string, string>> = {
         "about_intro": "Betonabiは、経済、文化、社会、生活、旅行、教育など、様々な分野でベトナムに関する詳細なニュースを提供しています。誠実で客観的な視点から報道しています。また、パートナーとの協力を通じて、ベトナムの国と人々について、本物の写真や動画を使った豊富なコンテンツを提供しています。",
         "about_mission": "ベトナム語版と日本語版の2つのバージョンで、Betonabiは読者に読まれ、ベトナムに関する信頼できる情報源となることを願っています。",
         "about_cta": "ご興味がございましたら、お問い合わせください。",
-        "about_contact_button": "お問い合わせ"
+        "about_contact_button": "お問い合わせ",
+        "nav_about": "私たちについて",
+        "nav_contact": "お問い合わせ",
+        "login_as_admin": "管理者としてログイン",
+        "login_as_guest": "ゲストとしてログイン"
     }
 };
 
