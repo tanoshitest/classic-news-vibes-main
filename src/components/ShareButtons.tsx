@@ -1,14 +1,15 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Link as LinkIcon, Share2 } from 'lucide-react';
+import { Facebook, Instagram, Link as LinkIcon, Share2, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
 interface ShareButtonsProps {
     url: string;
     title: string;
+    label?: string | null;
 }
 
-const ShareButtons = ({ url, title }: ShareButtonsProps) => {
+const ShareButtons = ({ url, title, label }: ShareButtonsProps) => {
     const handleShare = (platform: string) => {
         const encodedUrl = encodeURIComponent(url);
         const encodedTitle = encodeURIComponent(title);
@@ -19,7 +20,7 @@ const ShareButtons = ({ url, title }: ShareButtonsProps) => {
                 shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
                 break;
             case 'twitter':
-                shareLink = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
+                shareLink = `https://x.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
                 break;
             case 'threads':
                 shareLink = `https://threads.net/intent/post?text=${encodedTitle}%20${encodedUrl}`;
@@ -40,7 +41,11 @@ const ShareButtons = ({ url, title }: ShareButtonsProps) => {
 
     return (
         <div className="flex items-center gap-2 my-4">
-            <span className="text-sm font-medium text-muted-foreground mr-2">Share:</span>
+            {label !== null && (
+                <span className="text-sm font-medium text-muted-foreground mr-2">
+                    {label || "Share:"}
+                </span>
+            )}
 
             <Button
                 variant="outline"
@@ -55,11 +60,11 @@ const ShareButtons = ({ url, title }: ShareButtonsProps) => {
             <Button
                 variant="outline"
                 size="icon"
-                className="h-8 w-8 rounded-full text-black hover:bg-gray-100"
+                className="h-8 w-8 rounded-full text-black hover:bg-gray-100 flex items-center justify-center"
                 onClick={() => handleShare('twitter')}
                 title="Share on X"
             >
-                <Twitter className="h-4 w-4" />
+                <span className="font-black text-xs">X</span>
             </Button>
 
             <Button

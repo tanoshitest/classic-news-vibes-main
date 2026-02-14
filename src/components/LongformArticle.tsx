@@ -149,9 +149,8 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
                     </div>
 
                     {/* Share Section */}
-                    <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col items-center">
-                        <h3 className="text-lg font-serif font-bold mb-4">Chia sẻ câu chuyện này</h3>
-                        <ShareButtons url={window.location.href} title={article.title} />
+                    <div className="mt-16 pt-8 border-t border-gray-100 flex flex-row items-center justify-center">
+                        <ShareButtons url={window.location.href} title={article.title} label="Chia sẻ câu chuyện này:" />
                     </div>
 
                     {/* Section 1: Bạn có thể quan tâm (Longform articles) */}
@@ -164,7 +163,7 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
                                     transform: "skewX(-12deg)",
                                 }}
                             />
-                            <h3 className="text-xl font-bold text-gray-900 uppercase tracking-tight text-[#7c3aed]">BẠN CÓ THỂ QUAN TÂM</h3>
+                            <h3 className="text-xl font-bold text-gray-900 uppercase tracking-tight text-[#8b0000]">LONGFORM</h3>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -196,7 +195,13 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
                     {/* Section 2: Các chuyên mục khác */}
                     <section className="mt-20 pt-16 border-t border-gray-100">
                         <div className="flex items-center gap-3 mb-10">
-                            <span className="w-8 h-[2px] bg-red-600"></span>
+                            <span
+                                className="inline-block w-2.5 h-8 rounded-sm"
+                                style={{
+                                    background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                                    transform: "skewX(-15deg)",
+                                }}
+                            />
                             <h2 className="text-xl font-bold text-gray-900 uppercase tracking-tight">CÁC CHUYÊN MỤC KHÁC</h2>
                         </div>
 
@@ -236,7 +241,7 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
                                             <div className="space-y-3 pt-2 border-t border-gray-100">
                                                 {others.map((art) => (
                                                     <Link key={art.id} to={`/article/${art.id}`} className="block group">
-                                                        <h4 className="text-xs font-medium text-gray-600 hover:text-primary transition-colors leading-normal line-clamp-2">
+                                                        <h4 className="text-sm font-bold text-black hover:text-[#7c3aed] transition-colors leading-normal line-clamp-2">
                                                             {art.title}
                                                         </h4>
                                                     </Link>

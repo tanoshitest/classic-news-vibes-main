@@ -37,7 +37,10 @@ const CategoryPage = () => {
   };
 
   // Get other categories for the bottom section
-  const otherCategories = categories.filter(c => c !== "Mới nhất" && c !== "Đọc nhiều" && c !== categoryName && c !== "Longform").slice(0, 5);
+  const otherCategories = [
+    ...categories.filter(c => c !== "Mới nhất" && c !== "Đọc nhiều" && c !== categoryName && c !== "Longform").slice(0, 4),
+    "Longform"
+  ];
 
   if (!categoryName || !categories.includes(categoryName)) {
     return (
@@ -99,8 +102,8 @@ const CategoryPage = () => {
         {spotlightArticle && (
           <section className="mb-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              {/* 1. Spotlight Article (Left - 8/12) */}
-              <div className="lg:col-span-8 group cursor-pointer">
+              {/* 1. Spotlight Article (Left - 7/12) */}
+              <div className="lg:col-span-7 group cursor-pointer">
                 <Link to={`/article/${spotlightArticle.id}`}>
                   <div className="aspect-[16/9] w-full overflow-hidden rounded-sm mb-4">
                     <img
@@ -120,8 +123,8 @@ const CategoryPage = () => {
                 </Link>
               </div>
 
-              {/* 2. Sub-featured Grid (Right - 4/12) */}
-              <div className="lg:col-span-4">
+              {/* 2. Sub-featured Grid (Right - 5/12) */}
+              <div className="lg:col-span-5">
                 <div className="grid grid-cols-2 gap-x-4 gap-y-6">
                   {subFeaturedArticles.map((article) => (
                     <Link key={article.id} to={`/article/${article.id}`} className="group cursor-pointer flex flex-col gap-2">
@@ -154,10 +157,10 @@ const CategoryPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10" id="category-feed">
           {/* Left Column: Article Feed (8 cols ~ 66%) */}
           <div className="lg:col-span-8">
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-5">
               {paginatedFeed.length > 0 ? (
                 paginatedFeed.map((article) => (
-                  <Link key={article.id} to={`/article/${article.id}`} className="group flex flex-col sm:flex-row gap-6 border-b border-gray-100 pb-8 last:border-0 last:pb-0">
+                  <Link key={article.id} to={`/article/${article.id}`} className="group flex flex-col sm:flex-row gap-6 border-b border-gray-100 pb-5 last:border-0 last:pb-0">
                     {/* Image Left */}
                     <div className="sm:w-1/3 shrink-0">
                       <div className="aspect-[3/2] overflow-hidden rounded-sm">
@@ -175,13 +178,13 @@ const CategoryPage = () => {
                     </div>
                     {/* Content Right */}
                     <div className="sm:w-2/3 flex flex-col justify-start">
-                      <span className="text-xs font-bold text-primary uppercase tracking-wider mb-2">
+                      <span className="text-xs font-bold text-primary uppercase tracking-wider mb-1">
                         {article.category}
                       </span>
-                      <h3 className="font-serif text-xl font-bold text-foreground leading-snug group-hover:text-primary transition-colors mb-3">
+                      <h3 className="font-serif text-xl font-bold text-foreground leading-snug group-hover:text-primary transition-colors mb-2">
                         {article.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+                      <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
                         {article.summary}
                       </p>
                     </div>
@@ -194,7 +197,7 @@ const CategoryPage = () => {
 
             {/* Load More Button */}
             {hasMore && (
-              <div className="mt-12 flex justify-center">
+              <div className="mt-8 flex justify-center">
                 <button
                   onClick={handleLoadMore}
                   className="px-8 py-3 bg-[#7c3aed] text-white font-bold rounded-sm hover:bg-[#4d0078] transition-colors"
@@ -215,9 +218,15 @@ const CategoryPage = () => {
 
         {/* --- SECTION 3: OTHER CATEGORIES --- */}
         {categoryName !== "Mới nhất" && categoryName !== "Đọc nhiều" && (
-          <section className="mt-20 pt-16 border-t border-gray-100">
-            <div className="flex items-center gap-3 mb-10">
-              <span className="w-8 h-[2px] bg-red-600"></span>
+          <section className="mt-12 pt-10 border-t border-gray-100">
+            <div className="flex items-center gap-3 mb-6">
+              <span
+                className="inline-block w-2.5 h-8 rounded-sm"
+                style={{
+                  background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                  transform: "skewX(-15deg)",
+                }}
+              />
               <h2 className="text-xl font-bold text-gray-900 uppercase tracking-tight">CÁC CHUYÊN MỤC KHÁC</h2>
             </div>
 
@@ -254,7 +263,7 @@ const CategoryPage = () => {
                     <div className="space-y-3 pt-2 border-t border-gray-100">
                       {others.map((art) => (
                         <Link key={art.id} to={`/article/${art.id}`} className="block group">
-                          <h4 className="text-xs font-medium text-gray-600 hover:text-primary transition-colors leading-normal line-clamp-2">
+                          <h4 className="text-sm font-bold text-black hover:text-[#7c3aed] transition-colors leading-normal line-clamp-2">
                             {art.title}
                           </h4>
                         </Link>

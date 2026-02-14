@@ -23,13 +23,13 @@ const ArticleCard = ({ article, variant = "vertical", showImage = true }: Articl
             </div>
           )}
           <div className="flex-1 min-w-0">
-            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            <span className="text-xs font-semibold text-black uppercase tracking-wider">
               {article.category}
             </span>
             <h3 className="newspaper-subheading text-sm mt-1 line-clamp-2 group-hover:text-muted-foreground transition-colors">
               {article.title}
             </h3>
-            <p className="newspaper-meta mt-1 text-xs">{article.date}</p>
+            <p className="newspaper-meta mt-1 text-xs text-black">{article.date}</p>
           </div>
         </article>
       </Link>
@@ -40,7 +40,7 @@ const ArticleCard = ({ article, variant = "vertical", showImage = true }: Articl
     return (
       <Link to={`/article/${article.id}`}>
         <article className="group cursor-pointer py-2">
-          <h4 className="text-sm font-medium text-foreground group-hover:text-muted-foreground transition-colors line-clamp-2">
+          <h4 className="text-sm font-medium text-black group-hover:text-muted-foreground transition-colors line-clamp-2">
             {article.title}
           </h4>
         </article>
@@ -60,7 +60,7 @@ const ArticleCard = ({ article, variant = "vertical", showImage = true }: Articl
             />
           </div>
         )}
-        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+        <span className="text-xs font-semibold text-black uppercase tracking-wider">
           {article.category}
         </span>
         <h3 className={cn(
@@ -69,7 +69,7 @@ const ArticleCard = ({ article, variant = "vertical", showImage = true }: Articl
         )}>
           {article.title}
         </h3>
-        <p className="newspaper-meta mt-2 text-sm line-clamp-2">{article.summary}</p>
+        <p className="newspaper-meta mt-2 text-sm text-black line-clamp-2">{article.summary}</p>
       </article>
     </Link>
   );

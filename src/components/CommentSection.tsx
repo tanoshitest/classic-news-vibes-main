@@ -51,9 +51,9 @@ const CommentSection = ({ articleId }: CommentSectionProps) => {
     };
 
     return (
-        <div className="mt-12 border-t pt-8">
-            <h3 className="text-2xl font-bold mb-6 font-serif">
-                {language === 'VN' ? 'Bình luận' : 'Comments'} ({comments.length})
+        <div className="mt-8 border-t pt-6">
+            <h3 className="text-xl font-bold mb-4 font-serif">
+                {language === 'VN' ? 'Ý kiến' : 'Opinions'} ({comments.length})
             </h3>
 
             {/* Comment Form */}
@@ -68,12 +68,15 @@ const CommentSection = ({ articleId }: CommentSectionProps) => {
                                 <Textarea
                                     value={newComment}
                                     onChange={(e) => setNewComment(e.target.value)}
-                                    placeholder={language === 'VN' ? 'Viết bình luận của bạn...' : 'Write your comment...'}
-                                    className="mb-3 bg-background"
+                                    placeholder={language === 'VN' ? 'Chia sẻ ý kiến của bạn...' : 'Share your opinion...'}
+                                    className="bg-background min-h-[60px]"
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' && !e.shiftKey) {
+                                            e.preventDefault();
+                                            handleSubmit(e as any);
+                                        }
+                                    }}
                                 />
-                                <Button type="submit" disabled={!newComment.trim()}>
-                                    {language === 'VN' ? 'Gửi bình luận' : 'Post Comment'}
-                                </Button>
                             </div>
                         </div>
                     </form>
@@ -113,11 +116,7 @@ const CommentSection = ({ articleId }: CommentSectionProps) => {
                     </div>
                 ))}
 
-                {comments.length === 0 && (
-                    <p className="text-center text-muted-foreground py-8 italic">
-                        {language === 'VN' ? 'Chưa có bình luận nào. Hãy là người đầu tiên!' : 'No comments yet. Be the first!'}
-                    </p>
-                )}
+
             </div>
         </div>
     );

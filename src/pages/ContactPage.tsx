@@ -88,8 +88,7 @@ const ContactPage = () => {
                                             className="w-full mb-1"
                                         />
                                         <p className="text-xs text-red-600">
-                                            {t("contact_company_warning")}<br />
-                                            {t("contact_company_warning2")}
+                                            {t("contact_company_warning")}
                                         </p>
                                     </div>
                                 </div>

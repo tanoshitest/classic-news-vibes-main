@@ -200,6 +200,36 @@ export const mostViewedArticles: Article[] = [
     author: "Lifestyle",
     date: "18/01/2025",
     readTime: "4 phút đọc"
+  },
+  {
+    id: "mv-6",
+    title: "Ngân hàng số tăng trưởng 40% trong năm 2024",
+    summary: "",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80",
+    author: "Thanh Mai",
+    date: "18/01/2025",
+    readTime: "3 phút đọc"
+  },
+  {
+    id: "mv-7",
+    title: "Xuất khẩu thủy sản đạt kỷ lục 10 tỷ USD",
+    summary: "",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1524177778556-9e90089e0ee5?w=600&q=80",
+    author: "Hải Yến",
+    date: "17/01/2025",
+    readTime: "3 phút đọc"
+  },
+  {
+    id: "mv-8",
+    title: "Startup Việt gọi vốn 100 triệu USD Series C",
+    summary: "",
+    category: "Kinh doanh",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80",
+    author: "Startup Editor",
+    date: "16/01/2025",
+    readTime: "4 phút đọc"
   }
 ];
 

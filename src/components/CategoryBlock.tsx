@@ -27,7 +27,7 @@ const CategoryBlock = ({ title, articles }: CategoryBlockProps) => {
         </h2>
         <Link
           to={`/category/${categorySlug}`}
-          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center gap-1 text-sm text-black hover:text-foreground transition-colors"
         >
           Xem thêm
           <ArrowRight className="w-3 h-3" />

@@ -8,9 +8,10 @@ interface CategorySectionProps {
     category: string;
     jpCategory?: string;
     reverseLayout?: boolean;
+    hideSidebar?: boolean;
 }
 
-const CategorySection = ({ category, jpCategory, reverseLayout = false }: CategorySectionProps) => {
+const CategorySection = ({ category, jpCategory, reverseLayout = false, hideSidebar = false }: CategorySectionProps) => {
     const { language } = useLanguage();
 
     // Map VN category to JP category if not provided
@@ -40,11 +41,11 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
 
     // Ensure we have enough articles
     const featuredArticle = articles[0];
-    const subArticles = articles.slice(1, 5); // Take 4 articles for the grid
+    const subArticles = articles.slice(1, 4); // Take 3 articles for the grid
 
     // Labels
     const viewAllText = language === 'VN' ? "Xem thêm" : "一覧へ";
-    const sidebarTitle = language === 'VN' ? "TIN ĐỌC NHIỀU" : "注目の記事";
+    const sidebarTitle = language === 'VN' ? "ĐỌC NHIỀU" : "注目の記事";
 
     // Slug for "Xem thêm" link
     const getSlug = (cat: string) => {
@@ -64,14 +65,14 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
     if (!featuredArticle) return null;
 
     return (
-        <section className="py-12 bg-white border-t border-gray-100">
+        <section className="py-6 bg-white border-t border-gray-100">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className={`grid grid-cols-1 ${hideSidebar ? 'lg:grid-cols-8' : 'lg:grid-cols-12'} gap-8`}>
 
-                    {/* LEFT COLUMN: 2/3 WIDTH (col-span-8) */}
-                    <div className="lg:col-span-8">
+                    {/* LEFT COLUMN: Main Articles */}
+                    <div className={`${hideSidebar ? 'lg:col-span-8' : 'lg:col-span-8'}`}>
                         {/* Section Header */}
-                        <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-2">
+                        <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-2">
                             <div className="flex items-center gap-3">
                                 <span
                                     className="inline-block w-2 h-8 rounded-sm"
@@ -84,7 +85,7 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
                                     {currentCategoryName}
                                 </h2>
                             </div>
-                            <Link to={categoryLink} className="text-sm font-medium text-gray-500 hover:text-primary flex items-center gap-1 group">
+                            <Link to={categoryLink} className="text-sm font-medium text-black hover:text-primary flex items-center gap-1 group">
                                 {viewAllText}
                                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                             </Link>
@@ -97,11 +98,11 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
                                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight group-hover:text-primary transition-colors">
                                         {featuredArticle.title}
                                     </h3>
-                                    <p className="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-4">
+                                    <p className="text-black text-sm md:text-base leading-relaxed line-clamp-4">
                                         {featuredArticle.summary}
                                     </p>
                                 </div>
-                                <div className="md:col-span-7">
+                                <div className="md:col-span-12 lg:col-span-7">
                                     <div className="aspect-[16/9] w-full overflow-hidden rounded-sm bg-gray-100">
                                         <img
                                             src={featuredArticle.image}
@@ -118,8 +119,8 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
                             </Link>
                         </div>
 
-                        {/* 2. Grid of 4 Articles (2x2 or 4 grid depending on width) */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {/* 2. Grid of 3 Articles */}
+                        <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4`}>
                             {subArticles.map((article) => (
                                 <Link key={article.id} to={`/article/${article.id}`} className="group block">
                                     <div className="aspect-[16/9] w-full overflow-hidden rounded-sm bg-gray-100 mb-3">
@@ -134,7 +135,7 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
                                             }}
                                         />
                                     </div>
-                                    <h4 className="text-sm font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors line-clamp-3">
+                                    <h4 className="text-base font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors line-clamp-3">
                                         {article.title}
                                     </h4>
                                 </Link>
@@ -142,35 +143,37 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false }: Catego
                         </div>
                     </div>
 
-                    {/* RIGHT COLUMN: 1/3 WIDTH (col-span-4) - Tin đọc nhiều */}
-                    <div className="lg:col-span-4 lg:pl-6 pt-12 lg:pt-0">
-                        <div className="flex items-center gap-3 mb-6">
-                            <span className="w-4 h-[2px] bg-gray-200"></span>
-                            <h3 className="text-base font-bold text-maroon-700 whitespace-nowrap" style={{ color: '#8b0000' }}>
-                                {sidebarTitle}
-                            </h3>
-                            <span className="flex-1 h-[2px] bg-gray-200"></span>
-                        </div>
+                    {/* RIGHT COLUMN: Optional Tin đọc nhiều */}
+                    {!hideSidebar && (
+                        <div className="lg:col-span-4 lg:pl-6 pt-12 lg:pt-0">
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="w-4 h-[2px] bg-gray-200"></span>
+                                <h3 className="text-base font-bold text-maroon-700 whitespace-nowrap" style={{ color: '#8b0000' }}>
+                                    {sidebarTitle}
+                                </h3>
+                                <span className="flex-1 h-[2px] bg-gray-200"></span>
+                            </div>
 
-                        <div className="space-y-0 divide-y divide-gray-100">
-                            {sidebarArticles.map((article, index) => (
-                                <Link
-                                    key={article.id}
-                                    to={`/article/${article.id}`}
-                                    className="group relative flex items-center justify-between py-4 hover:bg-gray-50/50 transition-colors"
-                                >
-                                    <div className="pr-12">
-                                        <h4 className="text-sm font-medium text-gray-800 leading-snug group-hover:text-primary transition-colors line-clamp-2">
-                                            {article.title}
-                                        </h4>
-                                    </div>
-                                    <span className="absolute right-0 text-5xl font-black text-gray-100 pointer-events-none group-hover:text-gray-200 transition-colors select-none">
-                                        {index + 1}
-                                    </span>
-                                </Link>
-                            ))}
+                            <div className="space-y-0 divide-y divide-gray-100">
+                                {sidebarArticles.map((article, index) => (
+                                    <Link
+                                        key={article.id}
+                                        to={`/article/${article.id}`}
+                                        className="group relative flex items-center justify-between py-4 hover:bg-gray-50/50 transition-colors"
+                                    >
+                                        <div className="pr-12">
+                                            <h4 className="text-sm font-medium text-black leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                                                {article.title}
+                                            </h4>
+                                        </div>
+                                        <span className="absolute right-0 text-5xl font-black text-gray-100 pointer-events-none group-hover:text-gray-200 transition-colors select-none">
+                                            {index + 1}
+                                        </span>
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                 </div>
             </div>

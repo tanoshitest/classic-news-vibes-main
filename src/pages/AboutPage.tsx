@@ -15,14 +15,6 @@ const AboutPage = () => {
                 {/* Single Section Layout */}
                 <div className="container mx-auto px-4 py-12 md:py-20">
                     <div className="max-w-4xl mx-auto">
-                        {/* 1. Large Image */}
-                        <div className="rounded-lg overflow-hidden shadow-xl mb-12 aspect-video">
-                            <img
-                                src="/images/vietnam-hue.png"
-                                alt="About Betonabi"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
 
                         {/* 2. Text Content */}
                         <div className="space-y-6">
@@ -32,7 +24,7 @@ const AboutPage = () => {
                                 </h1>
                             </div>
 
-                            <div className="text-lg md:text-xl text-gray-700 leading-relaxed space-y-6">
+                            <div className="text-lg md:text-xl text-gray-900 leading-relaxed space-y-6">
                                 <p>
                                     {t("about_intro")}
                                 </p>

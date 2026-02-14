@@ -46,15 +46,8 @@ const Header = () => {
       <div className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between relative">
 
-          {/* Left: Language Switcher */}
+          {/* Left: Spacer to keep branding centered */}
           <div className="hidden md:flex flex-1 justify-start">
-            <button
-              onClick={() => setLanguage(language === "VN" ? "JP" : "VN")}
-              className="flex items-center gap-1 hover:text-[#4d0078] transition-colors text-sm font-medium"
-            >
-              <Globe className="w-4 h-4" />
-              <span>{language === "VN" ? "Japanese" : "Vietnamese"}</span>
-            </button>
           </div>
 
           {/* Center: Brand Logo */}
@@ -74,8 +67,19 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Right: Actions (Search & User) */}
-          <div className="flex flex-1 items-center justify-end gap-4">
+          {/* Right: Actions (Language, Search & User) */}
+          <div className="flex flex-1 items-center justify-end gap-2 md:gap-4">
+            {/* Language Switcher (Now on the right) */}
+            <div className="hidden md:flex items-center border-r border-gray-200 pr-4 mr-2">
+              <button
+                onClick={() => setLanguage(language === "VN" ? "JP" : "VN")}
+                className="flex items-center gap-1 hover:text-[#4d0078] transition-colors text-sm font-medium"
+              >
+                <Globe className="w-4 h-4" />
+                <span>{language === "VN" ? "Japanese" : "Vietnamese"}</span>
+              </button>
+            </div>
+
             {/* Search Toggle */}
             <div className="relative">
               {isSearchOpen ? (
@@ -124,7 +128,7 @@ const Header = () => {
                     className="p-2 text-gray-600 hover:text-[#4d0078] transition-colors flex items-center gap-2"
                   >
                     <User className="w-5 h-5" />
-                    <span className="text-sm font-medium hidden sm:inline">{t('signIn')}</span>
+                    <span className="text-sm font-medium">{t('signIn')}</span>
                   </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -178,8 +182,8 @@ const Header = () => {
             </div>
             <div className="flex items-center gap-2 py-1 overflow-x-auto scrollbar-hide">
               {getHotTopics(language).map((topic) => (
-                <span key={topic} className="shrink-0 px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200 transition-colors cursor-pointer">
-                  {topic}
+                <span key={topic} className="shrink-0 px-3 py-1 text-xs font-semibold border border-[#7c3aed] text-[#7c3aed] bg-white rounded-none whitespace-nowrap hover:bg-[#7c3aed] hover:text-white transition-colors cursor-pointer">
+                  #{topic}
                 </span>
               ))}
             </div>

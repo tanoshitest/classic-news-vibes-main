@@ -7,7 +7,7 @@ interface ArticleContentProps {
 
 const ArticleContent = ({ content }: ArticleContentProps) => {
   return (
-    <div className="article-body space-y-6">
+    <div className="article-body space-y-4 text-gray-900">
       {content.map((block, index) => {
         if (block.type === "paragraph") {
           return (
@@ -22,7 +22,7 @@ const ArticleContent = ({ content }: ArticleContentProps) => {
 
         if (block.type === "image") {
           return (
-            <figure key={index} className="my-8">
+            <figure key={index} className="my-6">
               <div className="overflow-hidden">
                 <img
                   src={block.src}
@@ -46,7 +46,7 @@ const ArticleContent = ({ content }: ArticleContentProps) => {
           return (
             <blockquote
               key={index}
-              className="border-l-4 border-foreground pl-6 py-2 my-8"
+              className="border-l-4 border-foreground pl-6 py-2 my-6"
             >
               <p className="font-serif text-xl italic text-foreground">
                 {block.text}

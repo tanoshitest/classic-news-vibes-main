@@ -11,15 +11,15 @@ const LongformSection = () => {
   const sideArticles = articlesList.slice(0, 2);
 
   return (
-    <section className="py-16 my-8 bg-white">
+    <section className="py-8 my-4 bg-white">
       <div className="container mx-auto px-4">
-        <div className="border-4 border-[#7c3aed]/20 rounded-3xl p-6 md:p-12 shadow-2xl shadow-[#7c3aed]/5 bg-white relative overflow-hidden">
+        <div className="border-[6px] border-[#7c3aed]/20 rounded-3xl p-6 md:p-8 shadow-2xl shadow-[#7c3aed]/5 bg-white relative overflow-hidden">
           {/* Subtle background decoration */}
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#7c3aed]/5 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#4d0078]/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Header */}
-          <div className="flex items-center justify-between mb-12 border-b border-gray-100 pb-4 relative z-10">
+          <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4 relative z-10">
             <div className="flex items-center gap-3">
               <span
                 className="inline-block w-2.5 h-10 rounded-sm"
@@ -58,17 +58,17 @@ const LongformSection = () => {
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-5 leading-[1.2] group-hover:text-[#7c3aed] transition-colors">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 leading-[1.2] group-hover:text-[#7c3aed] transition-colors">
                   {featuredArticle.title}
                 </h3>
-                <p className="text-gray-600 text-lg md:text-xl leading-relaxed line-clamp-3 font-medium opacity-90">
+                <p className="text-black text-base leading-relaxed line-clamp-3 font-medium opacity-90">
                   {featuredArticle.summary}
                 </p>
               </Link>
             </div>
 
             {/* 2. Side Articles (Right - 4/12) */}
-            <div className="lg:col-span-4 flex flex-col gap-10">
+            <div className="lg:col-span-4 flex flex-col gap-8">
               {sideArticles.map((article) => (
                 <Link key={article.id} to={`/article/${article.id}`} className="group block">
                   <div className="relative aspect-video overflow-hidden mb-5 rounded-lg shadow-sm">
@@ -88,7 +88,7 @@ const LongformSection = () => {
                       </span>
                     </div>
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 leading-snug group-hover:text-[#7c3aed] transition-colors line-clamp-2">
+                  <h4 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-[#7c3aed] transition-colors line-clamp-2">
                     {article.title}
                   </h4>
                 </Link>
