@@ -1,21 +1,34 @@
 import { Link } from "react-router-dom";
-import { mostViewedArticles, editorsPick } from "@/data/mockData";
+import { mostViewedArticles } from "@/data/mockData";
+import { mostViewedArticlesJP } from "@/data/mockDataJP";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CategorySidebar = () => {
+  const { language } = useLanguage();
+
+  const mostReadList = language === 'VN' ? mostViewedArticles : mostViewedArticlesJP;
+  const sidebarArticles = mostReadList.slice(0, 8);
+  const sidebarTitle = language === 'VN' ? "Đọc nhiều" : "注目の記事";
+
   return (
     <div className="space-y-12">
       {/* Most Viewed Widget (Tin Đọc Nhiều) */}
       <div>
         <div className="flex items-center gap-3 mb-6">
-          <span className="w-4 h-[2px] bg-gray-200"></span>
-          <h3 className="text-base font-bold text-maroon-700 whitespace-nowrap" style={{ color: '#8b0000' }}>
-            ĐỌC NHIỀU
+          <span
+            className="inline-block w-2.5 h-7 rounded-sm"
+            style={{
+              background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+              transform: "skewX(-15deg)",
+            }}
+          />
+          <h3 className="text-xl font-bold text-gray-900 tracking-tight">
+            {sidebarTitle}
           </h3>
-          <span className="flex-1 h-[2px] bg-gray-200"></span>
         </div>
 
         <div className="space-y-0 divide-y divide-gray-100">
-          {mostViewedArticles.slice(0, 8).map((article, index) => (
+          {sidebarArticles.map((article, index) => (
             <Link
               to={`/article/${article.id}`}
               key={article.id}

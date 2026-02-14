@@ -45,7 +45,7 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false, hideSide
 
     // Labels
     const viewAllText = language === 'VN' ? "Xem thêm" : "一覧へ";
-    const sidebarTitle = language === 'VN' ? "ĐỌC NHIỀU" : "注目の記事";
+    const sidebarTitle = language === 'VN' ? "Đọc nhiều" : "注目の記事";
 
     // Slug for "Xem thêm" link
     const getSlug = (cat: string) => {
@@ -147,11 +147,16 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false, hideSide
                     {!hideSidebar && (
                         <div className="lg:col-span-4 lg:pl-6 pt-12 lg:pt-0">
                             <div className="flex items-center gap-3 mb-6">
-                                <span className="w-4 h-[2px] bg-gray-200"></span>
-                                <h3 className="text-base font-bold text-maroon-700 whitespace-nowrap" style={{ color: '#8b0000' }}>
+                                <span
+                                    className="inline-block w-2.5 h-7 rounded-sm"
+                                    style={{
+                                        background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                                        transform: "skewX(-15deg)",
+                                    }}
+                                />
+                                <h3 className="text-xl font-bold text-gray-900 tracking-tight">
                                     {sidebarTitle}
                                 </h3>
-                                <span className="flex-1 h-[2px] bg-gray-200"></span>
                             </div>
 
                             <div className="space-y-0 divide-y divide-gray-100">

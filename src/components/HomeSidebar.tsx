@@ -10,20 +10,25 @@ const HomeSidebar = () => {
     const mostReadList = language === 'VN' ? mostViewedArticles : mostViewedArticlesJP;
     const sidebarArticles = mostReadList.slice(0, 8);
 
-    const sidebarTitle = language === 'VN' ? "ĐỌC NHIỀU" : "注目の記事";
-    const weatherTitle = language === 'VN' ? "THỜI TIẾT" : "天気";
-    const financialTitle = language === 'VN' ? "TỈ GIÁ" : "為替レート";
+    const sidebarTitle = language === 'VN' ? "Đọc nhiều" : "注目の記事";
+    const weatherTitle = language === 'VN' ? "Thời tiết" : "天気";
+    const financialTitle = language === 'VN' ? "Tỉ giá" : "為替レート";
 
     return (
         <aside className="space-y-8 lg:pl-6 border-l border-gray-100 sticky top-6 self-start">
             {/* 1. Đọc nhiều Block */}
             <section>
                 <div className="flex items-center gap-3 mb-6">
-                    <span className="w-4 h-[2px] bg-gray-200"></span>
-                    <h3 className="text-base font-bold text-maroon-700 whitespace-nowrap" style={{ color: '#8b0000' }}>
+                    <span
+                        className="inline-block w-2.5 h-7 rounded-sm"
+                        style={{
+                            background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                            transform: "skewX(-15deg)",
+                        }}
+                    />
+                    <h3 className="text-xl font-bold text-gray-900 tracking-tight">
                         {sidebarTitle}
                     </h3>
-                    <span className="flex-1 h-[2px] bg-gray-200"></span>
                 </div>
 
                 <div className="space-y-0 divide-y divide-gray-100">
@@ -49,11 +54,16 @@ const HomeSidebar = () => {
             {/* 2. Thời tiết Block */}
             <section>
                 <div className="flex items-center gap-3 mb-6">
-                    <span className="w-4 h-[2px] bg-gray-200"></span>
-                    <h3 className="text-base font-bold text-maroon-700 whitespace-nowrap" style={{ color: '#8b0000' }}>
+                    <span
+                        className="inline-block w-2.5 h-7 rounded-sm"
+                        style={{
+                            background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                            transform: "skewX(-15deg)",
+                        }}
+                    />
+                    <h3 className="text-xl font-bold text-gray-900 tracking-tight">
                         {weatherTitle}
                     </h3>
-                    <span className="flex-1 h-[2px] bg-gray-200"></span>
                 </div>
 
                 <div className="bg-gray-50 rounded-lg p-4 space-y-4">
@@ -83,11 +93,16 @@ const HomeSidebar = () => {
             {/* 3. Tỉ giá Block */}
             <section>
                 <div className="flex items-center gap-3 mb-6">
-                    <span className="w-4 h-[2px] bg-gray-200"></span>
-                    <h3 className="text-base font-bold text-maroon-700 whitespace-nowrap" style={{ color: '#8b0000' }}>
+                    <span
+                        className="inline-block w-2.5 h-7 rounded-sm"
+                        style={{
+                            background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+                            transform: "skewX(-15deg)",
+                        }}
+                    />
+                    <h3 className="text-xl font-bold text-gray-900 tracking-tight">
                         {financialTitle}
                     </h3>
-                    <span className="flex-1 h-[2px] bg-gray-200"></span>
                 </div>
 
                 <div className="bg-white border border-gray-100 rounded-lg p-4 space-y-3 shadow-sm">
@@ -117,8 +132,8 @@ const HomeSidebar = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="pt-2 text-[10px] text-center text-gray-400">
-                        Cập nhật: {new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
+                    <div className="pt-2 text-[10px] text-left text-gray-400">
+                        Cập nhật 11:04, 14/2/2026
                     </div>
                 </div>
             </section>

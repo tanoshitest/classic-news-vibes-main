@@ -51,13 +51,13 @@ const CommentSection = ({ articleId }: CommentSectionProps) => {
     };
 
     return (
-        <div className="mt-8 border-t pt-6">
-            <h3 className="text-xl font-bold mb-4 font-serif">
+        <div className="border-t pt-4">
+            <h3 className="text-lg font-bold mb-4 font-serif">
                 {language === 'VN' ? 'Ý kiến' : 'Opinions'} ({comments.length})
             </h3>
 
             {/* Comment Form */}
-            <div className="mb-8 p-6 bg-muted/30 rounded-lg">
+            <div className="mb-6 p-4 bg-muted/20 rounded-sm border border-gray-100/50">
                 {user ? (
                     <form onSubmit={handleSubmit}>
                         <div className="flex gap-4">

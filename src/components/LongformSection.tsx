@@ -28,7 +28,7 @@ const LongformSection = () => {
                   transform: "skewX(-15deg)",
                 }}
               />
-              <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Longform</h2>
+              <h2 className="text-2xl font-bold text-gray-900 tracking-tight">Longform</h2>
             </div>
             <Link
               to="/category/longform-e-magazine"
@@ -58,10 +58,10 @@ const LongformSection = () => {
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 leading-[1.2] group-hover:text-[#7c3aed] transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 leading-[1.2] group-hover:text-[#7c3aed] transition-colors">
                   {featuredArticle.title}
                 </h3>
-                <p className="text-black text-base leading-relaxed line-clamp-3 font-medium opacity-90">
+                <p className="text-black text-sm md:text-base leading-relaxed line-clamp-3 font-medium opacity-90">
                   {featuredArticle.summary}
                 </p>
               </Link>
@@ -88,7 +88,7 @@ const LongformSection = () => {
                       </span>
                     </div>
                   </div>
-                  <h4 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-[#7c3aed] transition-colors line-clamp-2">
+                  <h4 className="text-base font-bold text-gray-900 leading-snug group-hover:text-[#7c3aed] transition-colors line-clamp-2">
                     {article.title}
                   </h4>
                 </Link>

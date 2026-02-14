@@ -115,7 +115,7 @@
   }
 
   .newspaper-tag {
-    @apply inline-block px-3 py-1 text-xs font-medium bg-secondary text-foreground hover:bg-muted transition-colors cursor-pointer;
+    @apply inline-block px-3 py-1 text-xs font-medium bg-secondary text-foreground hover:bg-[#7c3aed] hover:text-white transition-colors cursor-pointer;
   }
 
   .newspaper-card {

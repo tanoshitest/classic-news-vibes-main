@@ -23,6 +23,7 @@ import AboutPage from "@/pages/AboutPage";
 import ScrollToTop from "@/components/ScrollToTop";
 
 import LongformPage from "@/pages/LongformPage";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <BackToTopButton />
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Index />} />

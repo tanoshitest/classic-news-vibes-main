@@ -1,15 +1,20 @@
 import React from 'react';
-import { Facebook, Instagram, Link as LinkIcon, Share2, X } from 'lucide-react';
+import { Facebook, Instagram, Link as LinkIcon, Share2, X, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
+import { getCategorySlug } from '@/data/mockData';
+import { XIcon, ThreadsIcon } from './Footer';
 
 interface ShareButtonsProps {
     url: string;
     title: string;
+    category: string;
     label?: string | null;
 }
 
-const ShareButtons = ({ url, title, label }: ShareButtonsProps) => {
+const ShareButtons = ({ url, title, category, label }: ShareButtonsProps) => {
+    const navigate = useNavigate();
     const handleShare = (platform: string) => {
         const encodedUrl = encodeURIComponent(url);
         const encodedTitle = encodeURIComponent(title);
@@ -40,63 +45,88 @@ const ShareButtons = ({ url, title, label }: ShareButtonsProps) => {
     };
 
     return (
-        <div className="flex items-center gap-2 my-4">
-            {label !== null && (
-                <span className="text-sm font-medium text-muted-foreground mr-2">
-                    {label || "Share:"}
-                </span>
-            )}
+        <div className="flex items-center justify-between w-full my-4">
+            <div className="flex items-center gap-3">
+                <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-9 w-9 border-gray-100 bg-white shadow-sm hover:bg-gray-50 flex items-center justify-center transition-all active:scale-95"
+                    onClick={() => navigate(`/category/${getCategorySlug(category)}`)}
+                    title="Quay lại"
+                >
+                    <ArrowLeft className="h-4 w-4 text-gray-600" />
+                </Button>
 
-            <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 rounded-full text-blue-600 hover:text-blue-700 hover:bg-blue-50"
-                onClick={() => handleShare('facebook')}
-                title="Share on Facebook"
-            >
-                <Facebook className="h-4 w-4" />
-            </Button>
+                <Button
+                    variant="outline"
+                    className="h-9 px-4 rounded-sm border-gray-100 bg-white shadow-sm font-sans text-sm font-medium text-gray-700 hover:text-white hover:bg-[#7c3aed] hover:border-[#7c3aed] flex items-center gap-2 transition-all active:scale-95"
+                    onClick={() => toast.success('Đã lưu bài viết')}
+                >
+                    <LinkIcon className="h-3.5 w-3.5" />
+                    <span className="font-bold">Lưu</span>
+                </Button>
+            </div>
 
-            <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 rounded-full text-black hover:bg-gray-100 flex items-center justify-center"
-                onClick={() => handleShare('twitter')}
-                title="Share on X"
-            >
-                <span className="font-black text-xs">X</span>
-            </Button>
+            <div className="flex items-center gap-3">
+                {label !== null && (
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mr-1">
+                        {label || "Share:"}
+                    </span>
+                )}
 
-            <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 rounded-full text-black hover:bg-gray-100"
-                onClick={() => handleShare('threads')}
-                title="Share on Threads"
-            >
-                {/* Lucid doesn't have Threads icon yet, using a placeholder or generic */}
-                <span className="font-bold font-sans text-xs">@</span>
-            </Button>
+                <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-8 w-8 rounded-full border-gray-100 flex items-center justify-center text-blue-600 hover:text-white hover:bg-[#7c3aed] hover:border-[#7c3aed] transition-all hover:scale-110"
+                    onClick={() => handleShare('facebook')}
+                    title="Share on Facebook"
+                >
+                    <Facebook className="h-4 w-4" />
+                </Button>
 
-            <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 rounded-full text-pink-600 hover:text-pink-700 hover:bg-pink-50"
-                onClick={() => handleShare('instagram')}
-                title="Share on Instagram (Copy Link)"
-            >
-                <Instagram className="h-4 w-4" />
-            </Button>
+                <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-8 w-8 rounded-full border-gray-100 flex items-center justify-center text-black hover:text-white hover:bg-[#7c3aed] hover:border-[#7c3aed] transition-all hover:scale-110"
+                    onClick={() => handleShare('twitter')}
+                    title="Share on X"
+                >
+                    <XIcon className="h-3.5 w-3.5" />
+                </Button>
 
-            <div className="h-4 w-[1px] bg-gray-300 mx-1"></div>
+                <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-8 w-8 rounded-full border-gray-100 flex items-center justify-center text-black hover:text-white hover:bg-[#7c3aed] hover:border-[#7c3aed] transition-all hover:scale-110"
+                    onClick={() => handleShare('threads')}
+                    title="Share on Threads"
+                >
+                    <ThreadsIcon className="h-4 w-4" />
+                </Button>
 
-            <Button
-                variant="outline"
-                className="h-8 px-3 rounded-full text-gray-700 hover:bg-gray-100 flex items-center gap-1.5"
-                onClick={() => toast.success('Đã lưu bài viết')}
-            >
-                <span className="text-xs font-bold uppercase">Lưu</span>
-            </Button>
+                <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-8 w-8 rounded-full border-gray-100 flex items-center justify-center text-pink-600 hover:text-white hover:bg-[#7c3aed] hover:border-[#7c3aed] transition-all hover:scale-110"
+                    onClick={() => handleShare('instagram')}
+                    title="Share on Instagram (Copy Link)"
+                >
+                    <Instagram className="h-4 w-4" />
+                </Button>
+
+                <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-8 w-8 rounded-full border-gray-100 flex items-center justify-center text-gray-600 hover:text-white hover:bg-[#7c3aed] hover:border-[#7c3aed] transition-all hover:scale-110"
+                    onClick={() => {
+                        navigator.clipboard.writeText(url);
+                        toast.success('Đã sao chép liên kết');
+                    }}
+                    title="Copy Link"
+                >
+                    <Share2 className="h-4 w-4" />
+                </Button>
+            </div>
         </div>
     );
 };

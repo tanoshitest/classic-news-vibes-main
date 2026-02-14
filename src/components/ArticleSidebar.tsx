@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Article } from "@/data/mockData";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Separator } from "@/components/ui/separator";
 
 interface ArticleSidebarProps {
@@ -7,16 +8,22 @@ interface ArticleSidebarProps {
 }
 
 const ArticleSidebar = ({ mostViewed }: ArticleSidebarProps) => {
+  const { language } = useLanguage();
   return (
     <aside className="space-y-8">
       {/* Most Viewed Widget (Xem nhiều) */}
       <div>
         <div className="flex items-center gap-3 mb-6">
-          <span className="w-4 h-[2px] bg-gray-200"></span>
-          <h3 className="text-base font-bold text-maroon-700 whitespace-nowrap uppercase" style={{ color: '#8b0000' }}>
-            ĐỌC NHIỀU
+          <span
+            className="inline-block w-2.5 h-7 rounded-sm"
+            style={{
+              background: "linear-gradient(135deg, #7c3aed 0%, #4d0078 100%)",
+              transform: "skewX(-15deg)",
+            }}
+          />
+          <h3 className="text-xl font-bold text-gray-900 tracking-tight">
+            {language === 'VN' ? "Đọc nhiều" : "注目の記事"}
           </h3>
-          <span className="flex-1 h-[2px] bg-gray-200"></span>
         </div>
 
         <div className="space-y-0 divide-y divide-gray-100">

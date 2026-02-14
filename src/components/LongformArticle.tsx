@@ -70,7 +70,7 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
             </header>
 
             {/* Content Body */}
-            <article className="py-20 px-6">
+            <article className="pt-16 pb-8 px-6">
                 <div className="max-w-[800px] mx-auto">
                     <div className="prose prose-lg md:prose-xl prose-gray mx-auto prose-headings:font-serif prose-headings:font-bold prose-p:text-gray-800 prose-p:leading-relaxed prose-img:rounded-sm">
                         {content.map((block, index) => {
@@ -149,12 +149,12 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
                     </div>
 
                     {/* Share Section */}
-                    <div className="mt-16 pt-8 border-t border-gray-100 flex flex-row items-center justify-center">
-                        <ShareButtons url={window.location.href} title={article.title} label="Chia sẻ câu chuyện này:" />
+                    <div className="mt-6 pt-6 border-t border-gray-100 flex flex-row items-center">
+                        <ShareButtons url={window.location.href} title={article.title} category={article.category} label="Chia sẻ câu chuyện này:" />
                     </div>
 
                     {/* Section 1: Bạn có thể quan tâm (Longform articles) */}
-                    <section className="mt-20 pt-16 border-t border-gray-100">
+                    <section className="mt-8 pt-8 border-t border-gray-100">
                         <div className="flex items-center gap-3 mb-10">
                             <span
                                 className="inline-block w-2.5 h-7 rounded-sm"
@@ -193,7 +193,7 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
                     </section>
 
                     {/* Section 2: Các chuyên mục khác */}
-                    <section className="mt-20 pt-16 border-t border-gray-100">
+                    <section className="mt-8 pt-8 border-t border-gray-100">
                         <div className="flex items-center gap-3 mb-10">
                             <span
                                 className="inline-block w-2.5 h-8 rounded-sm"

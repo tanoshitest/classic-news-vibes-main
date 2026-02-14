@@ -11,7 +11,7 @@ const ArticleTags = ({ tags }: ArticleTagsProps) => {
         <Link
           key={tag}
           to={`/tag/${tag.toLowerCase()}`}
-          className="px-3 py-1.5 text-sm border border-border text-foreground hover:bg-foreground hover:text-background transition-colors"
+          className="px-3 py-1.5 text-sm border border-border text-foreground hover:bg-[#7c3aed] hover:border-[#7c3aed] hover:text-white transition-colors"
         >
           #{tag}
         </Link>
