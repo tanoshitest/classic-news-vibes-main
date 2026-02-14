@@ -43,7 +43,7 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
     };
 
     return (
-        <div className="bg-white min-h-screen font-sans text-gray-900 selection:bg-red-900 selection:text-white">
+        <div className="bg-white min-h-screen font-sans text-gray-900 selection:bg-red-900 selection:text-white overflow-x-hidden">
 
             {/* Header */}
             <Header />
@@ -104,7 +104,7 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
                             }
                             if (block.type === 'image') {
                                 return (
-                                    <figure key={index} className="full-bleed my-12 -mx-6 md:-mx-[20vw] relative group">
+                                    <figure key={index} className="full-bleed my-12 relative group w-screen ml-[calc(50%-50vw)]">
                                         <img
                                             src={block.src}
                                             alt={block.caption}

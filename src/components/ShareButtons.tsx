@@ -45,7 +45,7 @@ const ShareButtons = ({ url, title, category, label }: ShareButtonsProps) => {
     };
 
     return (
-        <div className="flex items-center justify-between w-full">
+        <div className="flex flex-wrap items-center justify-between gap-y-4 w-full">
             <div className="flex items-center gap-3">
                 <Button
                     variant="outline"
