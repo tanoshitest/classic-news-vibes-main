@@ -81,7 +81,7 @@ const ArticlePage = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="py-6">
+      <main className="py-6 overflow-x-hidden">
         <div className="container mx-auto px-4 max-w-[1140px]">
           {/* Main Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 text-sm leading-relaxed">
