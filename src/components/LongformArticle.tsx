@@ -150,7 +150,7 @@ const LongformArticle = ({ article, content }: LongformArticleProps) => {
 
                     {/* Share Section */}
                     <div className="mt-6 pt-6 border-t border-gray-100 flex flex-row items-center">
-                        <ShareButtons url={window.location.href} title={article.title} category={article.category} label="Chia sẻ câu chuyện này:" />
+                        <ShareButtons url={window.location.href} title={article.title} category={article.category} label="Chia sẻ" />
                     </div>
 
                     {/* Section 1: Bạn có thể quan tâm (Longform articles) */}

@@ -207,7 +207,7 @@ const Header = () => {
               <Link
                 key={category}
                 to={`/category/${getCategorySlug(category)}`}
-                className="text-white hover:bg-[#6a1b9a] px-6 h-full flex items-center text-sm font-medium whitespace-nowrap transition-colors"
+                className="text-white hover:bg-[#6a1b9a] px-6 h-full flex items-center text-base font-medium whitespace-nowrap transition-colors"
               >
                 {t(categoryKeyMap[category] || category)}
               </Link>

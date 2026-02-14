@@ -163,15 +163,20 @@ const ArticlePage = () => {
               </section>
 
               {/* Share Buttons and Tags */}
-              <div className="flex flex-col gap-6 mb-10">
+              <div className="flex flex-col gap-4 mb-8">
                 <div className="pt-4 border-t border-gray-100">
                   <ShareButtons url={window.location.href} title={article.title} category={article.category} />
                 </div>
 
-                <div className="pt-4 border-t border-gray-50">
-                  <h4 className="text-[10px] font-bold text-gray-400 uppercase mb-2 tracking-widest">Tags</h4>
+                <div className="flex items-center gap-3">
+                  <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest shrink-0">Tags</h4>
                   <ArticleTags tags={article.tags} />
                 </div>
+              </div>
+
+              {/* Comments (Ý kiến) - Moved here */}
+              <div id="comments" className="mb-10">
+                <CommentSection articleId={id || "default"} />
               </div>
 
               {/* Same Category Recommendations (5 articles) */}
@@ -184,17 +189,34 @@ const ArticlePage = () => {
                       transform: "skewX(-15deg)",
                     }}
                   />
-                  <h3 className="text-xl font-bold text-gray-900 tracking-tight uppercase">CÙNG CHUYÊN MỤC</h3>
+                  <h3 className="text-xl font-bold text-gray-900 tracking-tight uppercase">{article.category}</h3>
                 </div>
                 <div className="space-y-6">
                   {getArticlesByCategory(article.category).slice(0, visibleSameCategoryCount).map((item) => (
-                    <Link key={item.id} to={`/article/${item.id}`} className="group block pb-6 border-b border-gray-50 last:border-0 last:pb-0">
-                      <h4 className="font-serif text-lg font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors mb-2">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-600 line-clamp-2 text-sm leading-relaxed">
-                        {item.summary}
-                      </p>
+                    <Link key={item.id} to={`/article/${item.id}`} className="group flex flex-col sm:flex-row gap-4 pb-6 border-b border-gray-50 last:border-0 last:pb-0">
+                      <div className="sm:w-48 shrink-0 aspect-[4/3] rounded-sm overflow-hidden bg-gray-100">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80";
+                            target.onerror = null;
+                          }}
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-serif text-lg font-bold text-gray-900 leading-snug group-hover:text-[#7c3aed] transition-colors mb-2">
+                          {item.title}
+                        </h4>
+                        <p className="text-gray-600 line-clamp-2 text-sm leading-relaxed mb-2">
+                          {item.summary}
+                        </p>
+                        <div className="text-xs text-gray-400 font-medium">
+                          {item.category}
+                        </div>
+                      </div>
                     </Link>
                   ))}
                 </div>
@@ -203,19 +225,13 @@ const ArticlePage = () => {
                   <div className="mt-8 pt-4 border-t border-gray-50">
                     <button
                       onClick={() => setVisibleSameCategoryCount(prev => prev + 5)}
-                      className="inline-flex items-center text-sm font-bold text-gray-900 hover:text-primary transition-colors group"
+                      className="inline-flex items-center text-sm font-bold text-[#7c3aed] hover:text-[#6d28d9] transition-colors group"
                     >
                       Xem thêm
                       <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 )}
-              </div>
-
-
-              {/* Comments (Ý kiến) */}
-              <div id="comments">
-                <CommentSection articleId={id || "default"} />
               </div>
 
             </article>

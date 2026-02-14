@@ -45,7 +45,7 @@ const ShareButtons = ({ url, title, category, label }: ShareButtonsProps) => {
     };
 
     return (
-        <div className="flex items-center justify-between w-full my-4">
+        <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-3">
                 <Button
                     variant="outline"
@@ -70,7 +70,7 @@ const ShareButtons = ({ url, title, category, label }: ShareButtonsProps) => {
             <div className="flex items-center gap-3">
                 {label !== null && (
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mr-1">
-                        {label || "Share:"}
+                        {label || "Chia sẻ"}
                     </span>
                 )}
 
