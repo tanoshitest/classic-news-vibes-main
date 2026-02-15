@@ -15,13 +15,39 @@ import {
 import { getArticlesByCategory, getCategoryDisplayName, categories } from "@/data/mockData";
 import { useState } from "react";
 import { Separator } from "@/components/ui/separator";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ITEMS_PER_PAGE = 10; // Adjusted for longer feed
 
 const CategoryPage = () => {
+  const { t, language } = useLanguage();
   const { slug } = useParams<{ slug: string }>();
-  const categoryName = getCategoryDisplayName(slug || "");
-  const allArticles = getArticlesByCategory(categoryName);
+  const categoryNameVN = getCategoryDisplayName(slug || "");
+
+  // Helper to get localized category name
+  const getLocalizedCategoryName = (vnName: string) => {
+    if (language === 'VN') return vnName;
+    const map: Record<string, string> = {
+      "Mới nhất": "category_Latest",
+      "Đọc nhiều": "category_MostRead",
+      "Kinh doanh": "category_Business",
+      "Chính trị": "category_Politics",
+      "Xã hội": "category_Society",
+      "Thể thao": "category_Sports",
+      "Văn hóa": "category_Culture",
+      "Du lịch": "category_Travel",
+      "Sức khỏe": "category_Health",
+      "Giáo dục": "category_Education",
+      "Đời sống": "category_Life",
+      "Du lịch - Văn hóa": "category_TravelCulture",
+      "Longform": "category_Longform"
+    };
+    const key = map[vnName];
+    return key ? t(key) : vnName;
+  };
+
+  const categoryName = getLocalizedCategoryName(categoryNameVN);
+  const allArticles = getArticlesByCategory(categoryNameVN); // Keep using VN name for data fetching if data uses VN keys
 
   // Slicing data for the layout
   const spotlightArticle = allArticles[0];
@@ -38,11 +64,11 @@ const CategoryPage = () => {
 
   // Get other categories for the bottom section
   const otherCategories = [
-    ...categories.filter(c => c !== "Mới nhất" && c !== "Đọc nhiều" && c !== categoryName && c !== "Longform").slice(0, 4),
+    ...categories.filter(c => c !== "Mới nhất" && c !== "Đọc nhiều" && c !== categoryNameVN && c !== "Longform").slice(0, 4),
     "Longform"
   ];
 
-  if (!categoryName || !categories.includes(categoryName)) {
+  if (!categoryNameVN || !categories.includes(categoryNameVN)) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
@@ -73,7 +99,7 @@ const CategoryPage = () => {
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
                 <Link to="/" className="text-muted-foreground hover:text-foreground">
-                  Trang chủ
+                  {t("home")}
                 </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -179,7 +205,7 @@ const CategoryPage = () => {
                     {/* Content Right */}
                     <div className="sm:w-2/3 flex flex-col justify-start">
                       <span className="text-xs font-bold text-primary uppercase tracking-wider mb-1">
-                        {article.category}
+                        {getLocalizedCategoryName(article.category)}
                       </span>
                       <h3 className="font-serif text-xl font-bold text-foreground leading-snug group-hover:text-primary transition-colors mb-2">
                         {article.title}
@@ -202,7 +228,7 @@ const CategoryPage = () => {
                   onClick={handleLoadMore}
                   className="px-8 py-3 bg-[#7c3aed] text-white font-bold rounded-sm hover:bg-[#4d0078] transition-colors"
                 >
-                  Xem thêm
+                  {t("viewMore")}
                 </button>
               </div>
             )}
@@ -217,7 +243,7 @@ const CategoryPage = () => {
         </div>
 
         {/* --- SECTION 3: OTHER CATEGORIES --- */}
-        {categoryName !== "Mới nhất" && categoryName !== "Đọc nhiều" && (
+        {categoryNameVN !== "Mới nhất" && categoryNameVN !== "Đọc nhiều" && (
           <section className="mt-12 pt-10 border-t border-gray-100">
             <div className="flex items-center gap-3 mb-6">
               <span
@@ -227,7 +253,9 @@ const CategoryPage = () => {
                   transform: "skewX(-15deg)",
                 }}
               />
-              <h2 className="text-xl font-bold text-gray-900 uppercase tracking-tight">CÁC CHUYÊN MỤC KHÁC</h2>
+              <h2 className="text-xl font-bold text-gray-900 uppercase tracking-tight">
+                {language === 'VN' ? "CÁC CHUYÊN MỤC KHÁC" : "その他のジャンル"}
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
@@ -235,11 +263,12 @@ const CategoryPage = () => {
                 const catArticles = getArticlesByCategory(cat);
                 const latest = catArticles[0];
                 const others = catArticles.slice(1, 4);
+                const localizedCatName = getLocalizedCategoryName(cat);
 
                 return (
                   <div key={cat} className="space-y-4">
                     <Link to={`/category/${getArticlesByCategory(cat)[0]?.id ? cat.toLowerCase().replace(/ /g, '-') : '#'}`} className="block group">
-                      <h3 className="text-lg font-bold text-gray-900 mb-4 hover:text-primary transition-colors">{cat}</h3>
+                      <h3 className="text-lg font-bold text-gray-900 mb-4 hover:text-primary transition-colors">{localizedCatName}</h3>
                       {latest && (
                         <div className="space-y-3">
                           <div className="aspect-[3/2] overflow-hidden rounded-sm">

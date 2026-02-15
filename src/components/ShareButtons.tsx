@@ -5,6 +5,7 @@ import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import { getCategorySlug } from '@/data/mockData';
 import { XIcon, ThreadsIcon } from './Footer';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ShareButtonsProps {
     url: string;
@@ -15,6 +16,7 @@ interface ShareButtonsProps {
 
 const ShareButtons = ({ url, title, category, label }: ShareButtonsProps) => {
     const navigate = useNavigate();
+    const { t } = useLanguage();
     const handleShare = (platform: string) => {
         const encodedUrl = encodeURIComponent(url);
         const encodedTitle = encodeURIComponent(title);
@@ -63,14 +65,14 @@ const ShareButtons = ({ url, title, category, label }: ShareButtonsProps) => {
                     onClick={() => toast.success('Đã lưu bài viết')}
                 >
                     <LinkIcon className="h-3.5 w-3.5" />
-                    <span className="font-bold">Lưu</span>
+                    <span className="font-bold">{t("save")}</span>
                 </Button>
             </div>
 
             <div className="flex items-center gap-3">
                 {label !== null && (
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mr-1">
-                        {label || "Chia sẻ"}
+                        {label || t("share")}
                     </span>
                 )}
 

@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight } from "lucide-react";
 
 const CultureSection = () => {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
 
     // Culture Data
     const cultureArticles = language === 'VN'
@@ -23,7 +23,7 @@ const CultureSection = () => {
     // Labels
     const cultureTitle = language === 'VN' ? "Văn hóa" : "文化";
     const mostReadTitle = language === 'VN' ? "Đọc nhiều" : "よく読まれています";
-    const viewAllText = language === 'VN' ? "Xem thêm" : "一覧へ";
+    const viewAllText = t("viewMore");
 
     if (!featuredCulture) return null;
 

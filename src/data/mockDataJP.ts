@@ -148,7 +148,7 @@ export const longformArticleJP: Article = {
     id: "longform-1",
     title: "ファンシーパン登頂の旅：原生林からインドシナの屋根へ",
     summary: "記者の視点を通じて、ホアンリエンソン山脈の雄大な美しさと地元の人々の物語を探ります。",
-    category: "E-Magazine",
+    category: "特集",
     image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80",
     author: "Thao Nguyen",
     date: "2025/01/15",
@@ -292,12 +292,12 @@ export const categoryDataJP: Record<string, Article[]> = {
             readTime: "3分"
         }
     ],
-    "ライフスタイル": [
+    "ライフ": [
         {
             id: "ds-1",
             title: "ヘルシーフードのトレンドがベトナムの若者を魅了",
             summary: "オーガニック食品と健康的な食生活がますます普及しています。",
-            category: "ライフスタイル",
+            category: "ライフ",
             image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80",
             author: "Bich Ngoc",
             date: "2025/01/18",
@@ -307,7 +307,7 @@ export const categoryDataJP: Record<string, Article[]> = {
             id: "ds-2",
             title: "仕事と生活のバランスをとる秘訣",
             summary: "心理学専門家からのアドバイス。",
-            category: "ライフスタイル",
+            category: "ライフ",
             image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80",
             author: "Thu Huong",
             date: "2025/01/17",
@@ -317,7 +317,7 @@ export const categoryDataJP: Record<string, Article[]> = {
             id: "ds-3",
             title: "サステナブルファッション：未来のトレンド",
             summary: "グリーン運動を先導するベトナムブランド。",
-            category: "ライフスタイル",
+            category: "ライフ",
             image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&q=80",
             author: "Khanh Linh",
             date: "2025/01/17",
@@ -327,7 +327,7 @@ export const categoryDataJP: Record<string, Article[]> = {
             id: "ds-4",
             title: "ミニマリストな居住空間を効果的にデザインする方法",
             summary: "ミニマリストスタイルが好まれています。",
-            category: "ライフスタイル",
+            category: "ライフ",
             image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80",
             author: "Minh Anh",
             date: "2025/01/16",
@@ -337,7 +337,7 @@ export const categoryDataJP: Record<string, Article[]> = {
             id: "ds-5",
             title: "2025年の初めに読むべき良書",
             summary: "読者に最も愛されている本のリスト。",
-            category: "ライフスタイル",
+            category: "ライフ",
             image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&q=80",
             author: "Lan Chi",
             date: "2025/01/16",
@@ -456,7 +456,7 @@ export const categoryDataJP: Record<string, Article[]> = {
             id: "lf-2",
             title: "インドシナ建築：時の刻印",
             summary: "ハノイの中心部にある歴史的な刻印を持つ建築物を探す旅。",
-            category: "Longform",
+            category: "特集",
             image: "https://images.unsplash.com/photo-1555921015-5532091f6026?w=600&q=80",
             author: "Arch. Thanh Tung",
             date: "2025/01/10",
@@ -470,5 +470,5 @@ export const mostViewedArticlesJP: Article[] = [
     ...subHeroArticlesJP,
     ...categoryDataJP["ビジネス"],
     ...categoryDataJP["社会"],
-    ...categoryDataJP["ライフスタイル"]
+    ...categoryDataJP["ライフ"]
 ];

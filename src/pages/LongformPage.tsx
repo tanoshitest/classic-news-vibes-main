@@ -3,10 +3,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getArticlesByCategory } from "@/data/mockData";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext"; // Added import
 
 const ITEMS_PER_PAGE = 12;
 
 const LongformPage = () => {
+    const { t } = useLanguage(); // Added hook
     const allArticles = getArticlesByCategory("Longform");
     const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
@@ -87,7 +89,7 @@ const LongformPage = () => {
                                 onClick={handleLoadMore}
                                 className="px-8 py-3 bg-[#7c3aed] text-white font-bold rounded-sm hover:bg-[#4d0078] transition-colors"
                             >
-                                Xem thêm
+                                {t("viewMore")}
                             </button>
                         </div>
                     )}

@@ -9,6 +9,7 @@ import ArticleTags from "@/components/ArticleTags";
 import CommentSection from "@/components/CommentSection";
 import ShareButtons from "@/components/ShareButtons";
 import { Separator } from "@/components/ui/separator";
+import { useLanguage } from "@/contexts/LanguageContext"; // Added import
 import {
   getArticleById,
   mostViewedArticles,
@@ -20,9 +21,32 @@ import { getCategorySlug, categoryData, categories, getArticlesByCategory } from
 import LongformArticle from "@/components/LongformArticle";
 
 const ArticlePage = () => {
+  const { t, language } = useLanguage(); // Added hook
   const { id } = useParams<{ id: string }>();
   const [visibleSameCategoryCount, setVisibleSameCategoryCount] = useState(5);
   const article = getArticleById(id || "");
+
+  // Helper to get localized category name
+  const getLocalizedCategoryName = (vnName: string) => {
+    if (language === 'VN') return vnName;
+    const map: Record<string, string> = {
+      "Mới nhất": "category_Latest",
+      "Đọc nhiều": "category_MostRead",
+      "Kinh doanh": "category_Business",
+      "Chính trị": "category_Politics",
+      "Xã hội": "category_Society",
+      "Thể thao": "category_Sports",
+      "Văn hóa": "category_Culture",
+      "Du lịch": "category_Travel",
+      "Sức khỏe": "category_Health",
+      "Giáo dục": "category_Education",
+      "Đời sống": "category_Life",
+      "Du lịch - Văn hóa": "category_TravelCulture",
+      "Longform": "category_Longform"
+    };
+    const key = map[vnName];
+    return key ? t(key) : vnName;
+  };
 
   if (!article) {
     return (
@@ -63,12 +87,23 @@ const ArticlePage = () => {
 
   const categorySlug = getCategorySlug(article.category);
 
-  // Format date for Vietnamese display
+  // Format date based on language
   const formatDate = (dateStr: string) => {
-    const days = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
-    const today = new Date();
-    const dayName = days[today.getDay()];
-    return `${dayName}, ${dateStr}, 09:00 (GMT+7)`;
+    // Parse DD/MM/YYYY
+    const [day, month, year] = dateStr.split('/').map(Number);
+    const dateObj = new Date(year, month - 1, day);
+
+    if (language === 'VN') {
+      const days = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+      const dayName = days[dateObj.getDay()];
+      return `${dayName}, ${dateStr}, 09:00 (GMT+7)`;
+    } else {
+      // JP format: YYYY/MM/DD(Day) 09:00 (GMT+9)
+      const days = ["日", "月", "火", "水", "木", "金", "土"];
+      const dayName = days[dateObj.getDay()];
+      const formattedDate = `${year}/${month.toString().padStart(2, '0')}/${day.toString().padStart(2, '0')}`;
+      return `${formattedDate}(${dayName}) 09:00 (GMT+9)`;
+    }
   };
 
   // Get other categories for the bottom section
@@ -94,7 +129,7 @@ const ArticlePage = () => {
                     to={`/category/${categorySlug}`}
                     className="hover:underline transition-colors font-medium"
                   >
-                    {article.category}
+                    {getLocalizedCategoryName(article.category)}
                   </Link>
                 </nav>
                 <p className="text-[#666] font-normal">
@@ -169,7 +204,7 @@ const ArticlePage = () => {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest shrink-0">Tags</h4>
+                  <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest shrink-0">{t("tags")}</h4>
                   <ArticleTags tags={article.tags} />
                 </div>
               </div>
@@ -180,7 +215,7 @@ const ArticlePage = () => {
               </div>
 
               {/* Same Category Recommendations (5 articles) */}
-              <div className="mb-10 pt-8 border-t border-gray-100">
+              <div className="mb-4 pt-6 border-t border-gray-100">
                 <div className="flex items-center gap-3 mb-6">
                   <span
                     className="inline-block w-2.5 h-6 rounded-sm"
@@ -189,7 +224,7 @@ const ArticlePage = () => {
                       transform: "skewX(-15deg)",
                     }}
                   />
-                  <h3 className="text-xl font-bold text-gray-900 tracking-tight uppercase">{article.category}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 tracking-tight uppercase">{getLocalizedCategoryName(article.category)}</h3>
                 </div>
                 <div className="space-y-6">
                   {getArticlesByCategory(article.category).slice(0, visibleSameCategoryCount).map((item) => (
@@ -214,7 +249,7 @@ const ArticlePage = () => {
                           {item.summary}
                         </p>
                         <div className="text-xs text-gray-400 font-medium">
-                          {item.category}
+                          {getLocalizedCategoryName(item.category)}
                         </div>
                       </div>
                     </Link>
@@ -222,12 +257,12 @@ const ArticlePage = () => {
                 </div>
 
                 {visibleSameCategoryCount < getArticlesByCategory(article.category).length && (
-                  <div className="mt-8 pt-4 border-t border-gray-50">
+                  <div className="mt-4 pt-4 border-t border-gray-50">
                     <button
                       onClick={() => setVisibleSameCategoryCount(prev => prev + 5)}
                       className="inline-flex items-center text-sm font-bold text-[#7c3aed] hover:text-[#6d28d9] transition-colors group"
                     >
-                      Xem thêm
+                      {t("viewMore")}
                       <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -246,7 +281,7 @@ const ArticlePage = () => {
             </aside>
           </div>
           {/* --- SECTION 3: OTHER CATEGORIES --- */}
-          <section className="mt-12 pt-10 border-t border-gray-100">
+          <section className="mt-6 pt-6 border-t border-gray-100">
             <div className="flex items-center gap-3 mb-6">
               <span
                 className="inline-block w-2.5 h-8 rounded-sm"
@@ -255,7 +290,9 @@ const ArticlePage = () => {
                   transform: "skewX(-15deg)",
                 }}
               />
-              <h2 className="text-xl font-bold text-gray-900 uppercase tracking-tight">CÁC CHUYÊN MỤC KHÁC</h2>
+              <h2 className="text-xl font-bold text-gray-900 uppercase tracking-tight">
+                {language === 'VN' ? "CÁC CHUYÊN MỤC KHÁC" : "その他のジャンル"}
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
@@ -263,11 +300,12 @@ const ArticlePage = () => {
                 const catArticles = getArticlesByCategory(cat);
                 const latest = catArticles[0];
                 const others = catArticles.slice(1, 4);
+                const localizedCatName = getLocalizedCategoryName(cat);
 
                 return (
                   <div key={cat} className="space-y-4">
                     <Link to={`/category/${getCategorySlug(cat)}`} className="block group font-sans">
-                      <h3 className="text-lg font-bold text-gray-900 mb-4 hover:text-primary transition-colors">{cat}</h3>
+                      <h3 className="text-lg font-bold text-gray-900 mb-4 hover:text-primary transition-colors">{localizedCatName}</h3>
                       {latest && (
                         <div className="space-y-3">
                           <div className="aspect-[3/2] overflow-hidden rounded-sm">

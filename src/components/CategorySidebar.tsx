@@ -8,7 +8,7 @@ const CategorySidebar = () => {
 
   const mostReadList = language === 'VN' ? mostViewedArticles : mostViewedArticlesJP;
   const sidebarArticles = mostReadList.slice(0, 8);
-  const sidebarTitle = language === 'VN' ? "Đọc nhiều" : "注目の記事";
+  const sidebarTitle = language === 'VN' ? "Đọc nhiều" : "アクセスランキング";
 
   return (
     <div className="space-y-12">

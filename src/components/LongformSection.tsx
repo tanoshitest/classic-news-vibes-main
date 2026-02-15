@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { longformArticle, latestNews } from "@/data/mockData";
 import { longformArticleJP, latestNewsJP } from "@/data/mockDataJP";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Play, Mic, FileText, Camera, HelpCircle, ArrowRight } from "lucide-react";
+import { Play, Mic, FileText, HelpCircle, ArrowRight } from "lucide-react";
 
 const LongformSection = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const featuredArticle = language === 'VN' ? longformArticle : longformArticleJP;
   const articlesList = language === 'VN' ? latestNews : latestNewsJP;
   const sideArticles = articlesList.slice(0, 2);
@@ -13,13 +13,13 @@ const LongformSection = () => {
   return (
     <section className="py-8 my-4 bg-white">
       <div className="container mx-auto px-4">
-        <div className="border-[6px] border-[#7c3aed]/20 rounded-3xl p-6 md:p-8 shadow-2xl shadow-[#7c3aed]/5 bg-white relative overflow-hidden">
+        <div className="border-[6px] border-[#7c3aed]/20 rounded-3xl p-4 md:p-5 shadow-2xl shadow-[#7c3aed]/5 bg-white relative overflow-hidden">
           {/* Subtle background decoration */}
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#7c3aed]/5 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#4d0078]/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Header */}
-          <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4 relative z-10">
+          <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-3 relative z-10">
             <div className="flex items-center gap-3">
               <span
                 className="inline-block w-2.5 h-10 rounded-sm"
@@ -28,13 +28,13 @@ const LongformSection = () => {
                   transform: "skewX(-15deg)",
                 }}
               />
-              <h2 className="text-2xl font-bold text-gray-900 tracking-tight">Longform</h2>
+              <h2 className="text-2xl font-bold text-gray-900 tracking-tight">{language === 'VN' ? "Longform" : "特集"}</h2>
             </div>
             <Link
               to="/category/longform-e-magazine"
               className="text-sm font-bold text-[#7c3aed] hover:text-[#4d0078] flex items-center gap-1.5 group transition-colors"
             >
-              {language === 'VN' ? "Xem thêm" : "一覧へ"}
+              {t("viewMore")}
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
             </Link>
           </div>
@@ -50,11 +50,7 @@ const LongformSection = () => {
                     alt={featuredArticle.title}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
-                  <div className="absolute top-6 left-6">
-                    <span className="bg-[#7c3aed] text-white p-3 rounded-full shadow-lg block transform transition-transform group-hover:scale-110">
-                      <Camera className="w-6 h-6" />
-                    </span>
-                  </div>
+
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>

@@ -12,14 +12,14 @@ interface CategorySectionProps {
 }
 
 const CategorySection = ({ category, jpCategory, reverseLayout = false, hideSidebar = false }: CategorySectionProps) => {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
 
     // Map VN category to JP category if not provided
     const getJPCategory = (vnCat: string) => {
         if (jpCategory) return jpCategory;
         const map: Record<string, string> = {
             "Kinh doanh": "ビジネス",
-            "Đời sống": "ライフスタイル",
+            "Đời sống": "ライフ",
             "Du lịch": "旅行",
             "Sức khỏe": "健康",
             "Văn hóa": "文化",
@@ -44,8 +44,8 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false, hideSide
     const subArticles = articles.slice(1, 4); // Take 3 articles for the grid
 
     // Labels
-    const viewAllText = language === 'VN' ? "Xem thêm" : "一覧へ";
-    const sidebarTitle = language === 'VN' ? "Đọc nhiều" : "注目の記事";
+    const viewAllText = t("viewMore");
+    const sidebarTitle = language === 'VN' ? "Đọc nhiều" : "アクセスランキング";
 
     // Slug for "Xem thêm" link
     const getSlug = (cat: string) => {

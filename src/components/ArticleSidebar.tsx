@@ -22,7 +22,7 @@ const ArticleSidebar = ({ mostViewed }: ArticleSidebarProps) => {
             }}
           />
           <h3 className="text-xl font-bold text-gray-900 tracking-tight">
-            {language === 'VN' ? "Đọc nhiều" : "注目の記事"}
+            {language === 'VN' ? "Đọc nhiều" : "アクセスランキング"}
           </h3>
         </div>
 

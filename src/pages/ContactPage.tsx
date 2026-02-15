@@ -46,7 +46,7 @@ const ContactPage = () => {
                         <div className="p-6">
                             <p className="text-sm text-gray-600 mb-6">
                                 {t("contact_intro")}<br />
-                                {t("contact_intro_line2")} (<span className="text-red-600">*</span> {t("contact_required")})
+                                {t("contact_intro_note_start")} <span className="text-red-600">*</span> {t("contact_intro_note_end")}
                             </p>
 
                             <form onSubmit={handleSubmit}>

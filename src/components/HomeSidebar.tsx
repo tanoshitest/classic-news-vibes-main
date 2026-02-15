@@ -10,9 +10,9 @@ const HomeSidebar = () => {
     const mostReadList = language === 'VN' ? mostViewedArticles : mostViewedArticlesJP;
     const sidebarArticles = mostReadList.slice(0, 8);
 
-    const sidebarTitle = language === 'VN' ? "Đọc nhiều" : "注目の記事";
+    const sidebarTitle = language === 'VN' ? "Đọc nhiều" : "アクセスランキング";
     const weatherTitle = language === 'VN' ? "Thời tiết" : "天気";
-    const financialTitle = language === 'VN' ? "Tỉ giá" : "為替レート";
+    const financialTitle = language === 'VN' ? "Tỉ giá" : "為替";
 
     return (
         <aside className="space-y-8 lg:pl-6 border-l border-gray-100 sticky top-6 self-start">
@@ -133,7 +133,7 @@ const HomeSidebar = () => {
                         </div>
                     </div>
                     <div className="pt-2 text-[10px] text-left text-gray-400">
-                        Cập nhật 11:04, 14/2/2026
+                        {language === 'VN' ? "Cập nhật 11:04, 14/2/2026" : "2026年02月14日 11:04 更新"}
                     </div>
                 </div>
             </section>

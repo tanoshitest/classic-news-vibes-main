@@ -3,6 +3,7 @@ import { Article, getCategorySlug } from "@/data/mockData";
 import ArticleCard from "./ArticleCard";
 import { Separator } from "@/components/ui/separator";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface CategoryBlockProps {
   title: string;
@@ -11,6 +12,7 @@ interface CategoryBlockProps {
 
 const CategoryBlock = ({ title, articles }: CategoryBlockProps) => {
   const categorySlug = getCategorySlug(title);
+  const { t } = useLanguage();
 
   if (!articles || articles.length === 0) {
     return null;
@@ -29,7 +31,7 @@ const CategoryBlock = ({ title, articles }: CategoryBlockProps) => {
           to={`/category/${categorySlug}`}
           className="flex items-center gap-1 text-sm text-black hover:text-foreground transition-colors"
         >
-          Xem thêm
+          {t("viewMore")}
           <ArrowRight className="w-3 h-3" />
         </Link>
       </div>

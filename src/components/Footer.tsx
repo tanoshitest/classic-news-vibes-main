@@ -50,113 +50,109 @@ const Footer = () => {
   return (
     <footer className="bg-white text-gray-900 border-t border-gray-200 py-10">
       <div className="container mx-auto px-4">
-        {/* Row 1: Logo, Images, Categories */}
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-8 pb-8 border-b border-gray-100">
-          {/* Logo and Images Grouped to stay together on tablet */}
-          <div className="flex flex-col sm:flex-row items-start gap-8 shrink-0">
-            {/* Logo */}
-            <Link to="/" className="flex items-start gap-2 group shrink-0 pt-1">
-              <div className="w-8 h-8 bg-black text-white flex items-center justify-center font-serif text-xl rounded-sm">
-                B
-              </div>
-              <span className="font-serif text-2xl tracking-tight text-black">
-                Betonabi
-              </span>
-            </Link>
 
-            {/* 4 Images - Height matches the 3-link column (approx 76px) */}
-            <div className="flex gap-2">
-              {latestNews.slice(0, 4).map((news) => (
-                <div key={news.id} className="h-[76px] w-[57px] shrink-0 rounded overflow-hidden border border-gray-100">
-                  <img src={news.image} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" />
-                </div>
-              ))}
+        {/* Row 1: Logo, Images, Categories - 5 Columns Evenly Spaced */}
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 mb-6 pb-6 border-b border-gray-100">
+
+          {/* 1. Logo */}
+          <Link to="/" className="flex items-start gap-2 group shrink-0 pt-1">
+            <div className="w-8 h-8 bg-black text-white flex items-center justify-center font-serif text-xl rounded-sm">
+              B
             </div>
+            <span className="font-serif text-2xl tracking-tight text-black">
+              Betonabi
+            </span>
+          </Link>
+
+          {/* 2. Images */}
+          <div className="flex gap-2 shrink-0">
+            {latestNews.slice(0, 4).map((news) => (
+              <div key={news.id} className="h-[76px] w-[57px] shrink-0 rounded overflow-hidden border border-gray-100">
+                <img src={news.image} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" />
+              </div>
+            ))}
           </div>
 
-          {/* 3x3 Grid for Categories and Social Media - Now sibling of logo group for better spreading */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6 lg:gap-x-24 flex-1 lg:justify-items-end">
-            {/* Column 1: Văn hóa, Kinh doanh, Đời sống */}
-            <div className="flex flex-col gap-2 min-w-[120px]">
-              <Link to="/category/van-hoa" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-                {t("category_Culture")}
-              </Link>
-              <Link to="/category/kinh-doanh" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-                {t("category_Business")}
-              </Link>
-              <Link to="/category/doi-song" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-                {t("category_Life")}
-              </Link>
-            </div>
+          {/* 3. Column 1: Văn hóa, Kinh doanh, Đời sống */}
+          <div className="flex flex-col gap-2 min-w-[100px]">
+            <Link to="/category/van-hoa" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              {t("category_Culture")}
+            </Link>
+            <Link to="/category/kinh-doanh" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              {t("category_Business")}
+            </Link>
+            <Link to="/category/doi-song" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              {t("category_Life")}
+            </Link>
+          </div>
 
-            {/* Column 2: Du lịch, Sức khỏe, Longform */}
-            <div className="flex flex-col gap-2 min-w-[120px]">
-              <Link to="/category/du-lich" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-                {t("category_Travel")}
-              </Link>
-              <Link to="/category/suc-khoe" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-                {t("category_Health")}
-              </Link>
-              <Link to="/category/longform-e-magazine" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-                Longform
-              </Link>
-            </div>
+          {/* 4. Column 2: Du lịch, Sức khỏe, Longform */}
+          <div className="flex flex-col gap-2 min-w-[100px]">
+            <Link to="/category/du-lich" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              {t("category_Travel")}
+            </Link>
+            <Link to="/category/suc-khoe" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              {t("category_Health")}
+            </Link>
+            <Link to="/category/longform-e-magazine" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              {t("category_Longform")}
+            </Link>
+          </div>
 
-            {/* Column 3: About, Follow Us, Icons */}
-            <div className="flex flex-col gap-2 min-w-[150px]">
-              <Link to="/about" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-                Về Betonabi
-              </Link>
-              <span className="text-sm text-black whitespace-nowrap">
-                Theo dõi Betonabi
-              </span>
-              <div className="flex gap-4 items-center pt-2">
-                <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
-                  <XIcon className="w-4 h-4" />
-                </a>
-                <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
-                  <ThreadsIcon className="w-5 h-5" />
-                </a>
-              </div>
+          {/* 5. Column 3: About, Follow Us, Icons */}
+          <div className="flex flex-col gap-2 min-w-[150px]">
+            <Link to="/about" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              {t("footer_about_link")}
+            </Link>
+            <Link to="/contact" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              {t("footer_follow")}
+            </Link>
+            <div className="flex gap-4 items-center pt-2">
+              <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
+                <XIcon className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
+                <ThreadsIcon className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Row 2: Newsletter, Management Info & Copyright - 3 Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 py-4">
+        {/* Row 2: Newsletter, Management Info & Copyright - 3 Columns Evenly Spaced */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 pt-2">
           {/* Column 1: Newsletter */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-3 w-full lg:w-auto">
             <div className="text-left space-y-1">
-              <p className="text-sm">Đừng bỏ lỡ tin tức quan trọng!</p>
-              <p className="text-xs text-gray-500">Nhận tóm tắt tin tức hấp dẫn 24 giờ qua trên Betonabi</p>
+              <p className="text-sm font-medium">{t("footer_newsletter_title")}</p>
+              <p className="text-xs text-gray-500">{t("footer_newsletter_summary")}</p>
             </div>
             <div className="flex gap-2 w-full max-w-sm">
               <Input
-                placeholder="Email của bạn"
+                placeholder={t("footer_email_placeholder")}
                 className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-400 focus-visible:ring-[#7c3aed] h-9 text-sm"
               />
               <Button className="bg-[#4d0078] hover:bg-[#7c3aed] text-white shrink-0 h-9 px-4 text-sm">
-                Đăng ký
+                {t("footer_subscribe_btn")}
               </Button>
             </div>
           </div>
 
           {/* Column 2: Management Info */}
-          <div className="space-y-2 text-sm text-black">
+          <div className="space-y-1.5 text-sm text-black text-center lg:text-left">
             <p>
-              <span>Chịu trách nhiệm quản lý nội dung:</span><br />Nguyễn Thị Minh Chi
+              <span className="font-semibold">{t("footer_content_manager")}</span><br />{t("footer_manager_name")}
             </p>
-            <p><span>Tel:</span> (84) 348288561 - (81) 8072398857</p>
-            <p><span>Email:</span> contact@betonabi.com</p>
+            <p><span className="font-semibold">Tel:</span> (84) 348288561 - (81) 8072398857</p>
+            <p><span className="font-semibold">Email:</span> contact@betonabi.com</p>
           </div>
 
           {/* Column 3: Copyright */}
-          <div className="text-sm text-black lg:text-right">
+          <div className="text-sm text-black text-center lg:text-right">
             <p className="opacity-80">
-              © Toàn bộ bản quyền thuộc Betonabi
+              {t("footer_copyright_text")}
             </p>
           </div>
         </div>
