@@ -87,8 +87,7 @@ const Header = () => {
                 <Separator className="my-6" />
 
                 <div className="flex flex-col gap-4">
-                  <div className="flex items-center justify-between px-4">
-                    <span className="text-sm font-medium text-gray-500">{t('language') || "Ngôn ngữ"}</span>
+                  <div className="flex items-center justify-start px-4">
                     <button
                       onClick={() => setLanguage(language === "VN" ? "JP" : "VN")}
                       className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"

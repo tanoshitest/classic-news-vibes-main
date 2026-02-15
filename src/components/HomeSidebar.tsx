@@ -69,8 +69,8 @@ const HomeSidebar = () => {
                 <div className="bg-gray-50 rounded-lg p-4 space-y-4">
                     <div className="flex items-center justify-between">
                         <div>
-                            <p className="text-sm font-bold text-gray-900">Hà Nội</p>
-                            <p className="text-xs text-gray-500">Nhiều mây, có mưa</p>
+                            <p className="text-base font-bold text-gray-900">Hà Nội</p>
+                            <p className="text-sm text-gray-500">Nhiều mây, có mưa</p>
                         </div>
                         <div className="flex items-center gap-2">
                             <Cloud className="w-8 h-8 text-gray-400" />
@@ -79,8 +79,8 @@ const HomeSidebar = () => {
                     </div>
                     <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                         <div>
-                            <p className="text-sm font-bold text-gray-900">TP. Hồ Chí Minh</p>
-                            <p className="text-xs text-gray-500">Nắng nhẹ</p>
+                            <p className="text-base font-bold text-gray-900">TP. Hồ Chí Minh</p>
+                            <p className="text-sm text-gray-500">Nắng nhẹ</p>
                         </div>
                         <div className="flex items-center gap-2">
                             <Sun className="w-8 h-8 text-yellow-500" />

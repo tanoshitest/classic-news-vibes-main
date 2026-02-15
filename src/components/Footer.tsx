@@ -73,50 +73,52 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* 3. Column 1: Văn hóa, Kinh doanh, Đời sống */}
-          <div className="flex flex-col gap-2 min-w-[100px]">
-            <Link to="/category/van-hoa" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-              {t("category_Culture")}
-            </Link>
-            <Link to="/category/kinh-doanh" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-              {t("category_Business")}
-            </Link>
-            <Link to="/category/doi-song" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-              {t("category_Life")}
-            </Link>
-          </div>
+          <div className="w-full grid grid-cols-3 gap-4 lg:w-auto lg:flex lg:gap-8">
+            {/* 3. Column 1: Văn hóa, Kinh doanh, Đời sống */}
+            <div className="flex flex-col gap-2 min-w-0">
+              <Link to="/category/van-hoa" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+                {t("category_Culture")}
+              </Link>
+              <Link to="/category/kinh-doanh" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+                {t("category_Business")}
+              </Link>
+              <Link to="/category/doi-song" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+                {t("category_Life")}
+              </Link>
+            </div>
 
-          {/* 4. Column 2: Du lịch, Sức khỏe, Longform */}
-          <div className="flex flex-col gap-2 min-w-[100px]">
-            <Link to="/category/du-lich" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-              {t("category_Travel")}
-            </Link>
-            <Link to="/category/suc-khoe" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-              {t("category_Health")}
-            </Link>
-            <Link to="/category/longform-e-magazine" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-              {t("category_Longform")}
-            </Link>
-          </div>
+            {/* 4. Column 2: Du lịch, Sức khỏe, Longform */}
+            <div className="flex flex-col gap-2 min-w-0">
+              <Link to="/category/du-lich" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+                {t("category_Travel")}
+              </Link>
+              <Link to="/category/suc-khoe" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+                {t("category_Health")}
+              </Link>
+              <Link to="/category/longform-e-magazine" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+                {t("category_Longform")}
+              </Link>
+            </div>
 
-          {/* 5. Column 3: About, Follow Us, Icons */}
-          <div className="flex flex-col gap-2 min-w-[150px]">
-            <Link to="/about" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-              {t("footer_about_link")}
-            </Link>
-            <Link to="/contact" className="text-sm text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
-              {t("footer_follow")}
-            </Link>
-            <div className="flex gap-4 items-center pt-2">
-              <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
-                <XIcon className="w-4 h-4" />
-              </a>
-              <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
-                <ThreadsIcon className="w-5 h-5" />
-              </a>
+            {/* 5. Column 3: About, Follow Us, Icons */}
+            <div className="flex flex-col gap-2 min-w-0">
+              <Link to="/about" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+                {t("footer_about_link")}
+              </Link>
+              <Link to="/contact" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+                {t("footer_follow")}
+              </Link>
+              <div className="flex gap-4 items-center pt-2">
+                <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
+                  <XIcon className="w-4 h-4" />
+                </a>
+                <a href="#" className="text-black hover:text-[#7c3aed] transition-colors">
+                  <ThreadsIcon className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -141,7 +143,7 @@ const Footer = () => {
           </div>
 
           {/* Column 2: Management Info */}
-          <div className="space-y-1.5 text-sm text-black text-center lg:text-left">
+          <div className="space-y-1.5 text-base text-black text-left">
             <p>
               <span className="font-semibold">{t("footer_content_manager")}</span><br />{t("footer_manager_name")}
             </p>

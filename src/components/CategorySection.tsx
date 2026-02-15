@@ -94,15 +94,15 @@ const CategorySection = ({ category, jpCategory, reverseLayout = false, hideSide
                         {/* 1. Featured Article: Text Left, Image Right */}
                         <div className="mb-10">
                             <Link to={`/article/${featuredArticle.id}`} className="group grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                                <div className="md:col-span-5 space-y-3">
+                                <div className="order-2 lg:order-1 md:col-span-5 space-y-3">
                                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight group-hover:text-primary transition-colors">
                                         {featuredArticle.title}
                                     </h3>
-                                    <p className="text-black text-sm md:text-base leading-relaxed line-clamp-4">
+                                    <p className="text-black text-base md:text-base leading-relaxed line-clamp-4">
                                         {featuredArticle.summary}
                                     </p>
                                 </div>
-                                <div className="md:col-span-12 lg:col-span-7">
+                                <div className="order-1 lg:order-2 md:col-span-12 lg:col-span-7">
                                     <div className="aspect-[16/9] w-full overflow-hidden rounded-sm bg-gray-100">
                                         <img
                                             src={featuredArticle.image}

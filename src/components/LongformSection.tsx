@@ -57,7 +57,7 @@ const LongformSection = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 leading-[1.2] group-hover:text-[#7c3aed] transition-colors">
                   {featuredArticle.title}
                 </h3>
-                <p className="text-black text-sm md:text-base leading-relaxed line-clamp-3 font-medium opacity-90">
+                <p className="text-black text-base md:text-base leading-relaxed line-clamp-3 font-medium opacity-90">
                   {featuredArticle.summary}
                 </p>
               </Link>
