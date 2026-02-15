@@ -8,7 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext"; // Added import
 const ITEMS_PER_PAGE = 12;
 
 const LongformPage = () => {
-    const { t } = useLanguage(); // Added hook
+    const { t, language } = useLanguage(); // Added hook
     const allArticles = getArticlesByCategory("Longform");
     const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
@@ -47,7 +47,7 @@ const LongformPage = () => {
                     {/* Title */}
                     <div className="relative h-full flex items-center justify-center">
                         <h1 className="text-5xl md:text-7xl font-serif font-bold text-white uppercase tracking-widest text-center shadow-lg">
-                            LONGFORM
+                            {language === 'VN' ? "LONGFORM" : "特集"}
                         </h1>
                     </div>
                 </div>
