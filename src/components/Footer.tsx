@@ -76,36 +76,36 @@ const Footer = () => {
           <div className="w-full grid grid-cols-3 gap-4 lg:w-auto lg:flex lg:gap-8">
             {/* 3. Column 1: Văn hóa, Kinh doanh, Đời sống */}
             <div className="flex flex-col gap-2 min-w-0">
-              <Link to="/category/van-hoa" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              <Link to="/category/van-hoa" className="text-base text-black hover:text-[#7c3aed] transition-colors">
                 {t("category_Culture")}
               </Link>
-              <Link to="/category/kinh-doanh" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              <Link to="/category/kinh-doanh" className="text-base text-black hover:text-[#7c3aed] transition-colors">
                 {t("category_Business")}
               </Link>
-              <Link to="/category/doi-song" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              <Link to="/category/doi-song" className="text-base text-black hover:text-[#7c3aed] transition-colors">
                 {t("category_Life")}
               </Link>
             </div>
 
             {/* 4. Column 2: Du lịch, Sức khỏe, Longform */}
             <div className="flex flex-col gap-2 min-w-0">
-              <Link to="/category/du-lich" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              <Link to="/category/du-lich" className="text-base text-black hover:text-[#7c3aed] transition-colors">
                 {t("category_Travel")}
               </Link>
-              <Link to="/category/suc-khoe" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              <Link to="/category/suc-khoe" className="text-base text-black hover:text-[#7c3aed] transition-colors">
                 {t("category_Health")}
               </Link>
-              <Link to="/category/longform-e-magazine" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              <Link to="/category/longform-e-magazine" className="text-base text-black hover:text-[#7c3aed] transition-colors">
                 {t("category_Longform")}
               </Link>
             </div>
 
             {/* 5. Column 3: About, Follow Us, Icons */}
             <div className="flex flex-col gap-2 min-w-0">
-              <Link to="/about" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              <Link to="/about" className="text-base text-black hover:text-[#7c3aed] transition-colors">
                 {t("footer_about_link")}
               </Link>
-              <Link to="/contact" className="text-base text-black hover:text-[#7c3aed] transition-colors whitespace-nowrap">
+              <Link to="/contact" className="text-base text-black hover:text-[#7c3aed] transition-colors">
                 {t("footer_follow")}
               </Link>
               <div className="flex gap-4 items-center pt-2">
@@ -124,7 +124,8 @@ const Footer = () => {
         </div>
 
         {/* Row 2: Newsletter, Management Info & Copyright - 3 Columns Evenly Spaced */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 pt-2">
+        {/* Row 2: Newsletter, Management Info & Copyright - 3 Columns Evenly Spaced */}
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 pt-2">
           {/* Column 1: Newsletter */}
           <div className="flex flex-col items-start gap-3 w-full lg:w-auto">
             <div className="text-left space-y-1">
@@ -152,7 +153,7 @@ const Footer = () => {
           </div>
 
           {/* Column 3: Copyright */}
-          <div className="text-sm text-black text-center lg:text-right">
+          <div className="text-sm text-black text-left lg:text-right w-full lg:w-auto">
             <p className="opacity-80">
               {t("footer_copyright_text")}
             </p>
